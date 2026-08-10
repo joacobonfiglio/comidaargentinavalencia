@@ -4,7 +4,7 @@ import { renderGuidesIndex } from "../content/guides-index.js";
 
 export const config = { runtime: "edge" };
 
-const canonicalSite = "https://comidaargentinavalencia.com";
+const canonicalSite = "https://www.comidaargentinavalencia.com";
 const defaultImage = "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/el-porteno-bife.jpg";
 const seoPages = {
   "/": { title: "Restaurantes argentinos en Valencia | Guía local", description: "Encuentra restaurantes argentinos en Valencia, con fichas verificadas, precios orientativos, reservas, guías locales y cultura argentina.", image: defaultImage },
@@ -80,9 +80,9 @@ function applySeo(html, path) {
 export default async function handler(request, context) {
   const source = new URL(request.url);
   const path = source.pathname;
-  if (["www.comidaargentinavalencia.com", "comida-argentina-valencia.vercel.app"].includes(source.hostname)) {
+  if (source.hostname === "comida-argentina-valencia.vercel.app") {
     source.protocol = "https:";
-    source.hostname = "comidaargentinavalencia.com";
+    source.hostname = "www.comidaargentinavalencia.com";
     return Response.redirect(source, 308);
   }
   if (path === "/sitemap.xml") {
