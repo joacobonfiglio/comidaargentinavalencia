@@ -1,12 +1,23 @@
 import site from "../worker/index.js";
 import { renderTomatinaGuide } from "../content/tomatina-2026.js";
+import { renderGuidesIndex } from "../content/guides-index.js";
 
 export const config = { runtime: "edge" };
 
 export default async function handler(request, context) {
   const path = new URL(request.url).pathname;
+  if (path === "/guias") {
+    return new Response(renderGuidesIndex(), {
+      headers: { "content-type": "text/html;charset=utf-8" }
+    });
+  }
+  if (path === "/guias/valencia-recien-llegados") {
+    const source = new URL(request.url);
+    source.pathname = "/guias";
+    return site.fetch(new Request(source, request), {}, context);
+  }
   if (path === "/guias/tomatina-bunol-2026") {
-    return new Response(renderTomatinaGuide(), {
+    return new Response(renderTomatinaGuide().replace('href="/guias">Valencia para recién llegados →', 'href="/guias/valencia-recien-llegados">Valencia para recién llegados →'), {
       headers: { "content-type": "text/html;charset=utf-8" }
     });
   }
@@ -16,9 +27,9 @@ export default async function handler(request, context) {
 
   const html = await response.text();
   const articleLinks = {
-    "/blog/historia-del-mate": [["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/guias", "Guía Valencia para recién llegados"]],
+    "/blog/historia-del-mate": [["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/guias/valencia-recien-llegados", "Guía Valencia para recién llegados"]],
     "/blog/bandera-argentina-color-cielo": [["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/blog/historia-del-mate", "La historia del mate"]],
-    "/blog/valencianos-y-argentinos-historia": [["/guias", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"]],
+    "/blog/valencianos-y-argentinos-historia": [["/guias/valencia-recien-llegados", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"]],
     "/blog/truc-o-truco": [["/blog/historia-del-mate", "La historia del mate"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"]],
     "/blog/cortes-carne-argentina": [["/blog/pedir-en-parrilla-argentina", "Cómo pedir en una parrilla argentina"], ["/restaurantes", "Restaurantes argentinos en Valencia"]],
     "/blog/pedir-en-parrilla-argentina": [["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes", "Encontrá dónde probarlos en Valencia"], ["/guias/tomatina-bunol-2026", "Organizá La Tomatina 2026 desde Valencia"]]
@@ -60,10 +71,6 @@ export default async function handler(request, context) {
       .replace("<p>Podés consultar la disponibilidad desde la web oficial del restaurante</p>", '<p>Usá el sistema de reserva enlazado desde la web oficial o llamá al +34 655 91 68 97</p>')
       .replace("<p class=\"detail-source\">Precio, valoración y carta consultados en agosto de 2026. Las condiciones y disponibilidad pueden cambiar</p>", '<p class="detail-source"><strong>Última verificación: 10 de agosto de 2026</strong><br>Fuentes: <a href="https://elporteno.es/" target="_blank" rel="noopener">web oficial</a>, <a href="https://elporteno.es/wp-content/uploads/2026/02/Carta-El-Porteno-2026.pdf" target="_blank" rel="noopener">carta 2026</a>, <a href="https://www.instagram.com/elportenoasador/" target="_blank" rel="noopener">Instagram oficial</a>, <a href="https://www.visitvalencia.com/en/what-to-do-valencia/gastronomy/where-to-eat-restaurant-valencia/porteno" target="_blank" rel="noopener">Visit València</a> y <a href="https://elporteno.es/wp-content/uploads/2021/05/BIFE-A-LA-PARRILLA-WEB-EL-PORTEN%CC%83O.jpg" target="_blank" rel="noopener">fuente de la imagen</a></p>')
       .replace("<a href=\"/guias\">Guías de Valencia</a>", '<a href="/guias/tomatina-bunol-2026">Guía de La Tomatina 2026</a>');
-  }
-  if (path === "/guias") {
-    const guideCard = `<section class="wrap" style="padding:0 22px 52px"><article style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);background:#402914;color:#fff;overflow:hidden"><div style="padding:28px"><p class="eyebrow" style="color:#ffc449">NUEVA GUÍA · AGOSTO 2026</p><h2 style="font-size:36px;margin:10px 0">La Tomatina 2026 desde Valencia</h2><p style="color:#fff3df;line-height:1.55">Fecha, entradas, transporte y consejos para organizar el día en Buñol sin improvisar</p><a href="/guias/tomatina-bunol-2026" style="display:inline-block;background:#ffc449;color:#402914;padding:12px 15px;text-decoration:none;font-weight:900">Abrir la guía →</a></div><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/tomatina-bunol-2026.jpg" alt="Ilustración editorial de La Tomatina de Buñol" style="width:100%;height:100%;min-height:250px;object-fit:cover"></article></section>`;
-    enriched = enriched.replace("</main>", `${guideCard}</main>`);
   }
   if (path === "/") {
     enriched = enriched
