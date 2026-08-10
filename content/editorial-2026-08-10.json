@@ -1,0 +1,29 @@
+{
+  "date": "2026-08-10",
+  "pieces": [
+    {
+      "type": "ficha",
+      "slug": "el-porteno",
+      "intent": "Evaluar El Porteño antes de reservar una parrilla argentina en el centro de Valencia",
+      "keyword": "El Porteño Valencia",
+      "secondaryKeywords": ["restaurante argentino centro Valencia", "asador argentino Valencia", "parrilla argentina Valencia", "carta El Porteño", "reservar El Porteño Valencia"],
+      "seoTitle": "El Porteño Valencia: carta, precio y reserva",
+      "metaDescription": "Ficha de El Porteño en Valencia: dirección, carta 2026, precios orientativos, qué pedir, reservas y datos comprobados antes de ir",
+      "image": "assets/el-porteno-bife.jpg",
+      "imageSource": "https://elporteno.es/wp-content/uploads/2021/05/BIFE-A-LA-PARRILLA-WEB-EL-PORTEN%CC%83O.jpg",
+      "verified": "2026-08-10"
+    },
+    {
+      "type": "guía",
+      "slug": "tomatina-bunol-2026",
+      "intent": "Organizar una visita a La Tomatina 2026 desde Valencia",
+      "keyword": "Tomatina 2026 desde Valencia",
+      "secondaryKeywords": ["La Tomatina Buñol 2026", "entradas Tomatina 2026", "cómo llegar a Buñol desde Valencia", "qué llevar a La Tomatina", "reglas de La Tomatina"],
+      "seoTitle": "La Tomatina 2026: guía desde Valencia",
+      "metaDescription": "Fecha, entradas, transporte y consejos para ir a La Tomatina de Buñol 2026 desde Valencia y volver sin improvisar",
+      "image": "assets/tomatina-bunol-2026.jpg",
+      "imageSource": "Ilustración editorial original generada para comidaargentinavalencia.com",
+      "verified": "2026-08-10"
+    }
+  ]
+}

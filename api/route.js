@@ -1,21 +1,27 @@
 import site from "../worker/index.js";
+import { renderTomatinaGuide } from "../content/tomatina-2026.js";
 
 export const config = { runtime: "edge" };
 
 export default async function handler(request, context) {
+  const path = new URL(request.url).pathname;
+  if (path === "/guias/tomatina-bunol-2026") {
+    return new Response(renderTomatinaGuide(), {
+      headers: { "content-type": "text/html;charset=utf-8" }
+    });
+  }
   const response = await site.fetch(request, {}, context);
   const type = response.headers.get("content-type") || "";
   if (!type.includes("text/html")) return response;
 
   const html = await response.text();
-  const path = new URL(request.url).pathname;
   const articleLinks = {
     "/blog/historia-del-mate": [["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/guias", "Guía Valencia para recién llegados"]],
     "/blog/bandera-argentina-color-cielo": [["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/blog/historia-del-mate", "La historia del mate"]],
     "/blog/valencianos-y-argentinos-historia": [["/guias", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"]],
     "/blog/truc-o-truco": [["/blog/historia-del-mate", "La historia del mate"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"]],
     "/blog/cortes-carne-argentina": [["/blog/pedir-en-parrilla-argentina", "Cómo pedir en una parrilla argentina"], ["/restaurantes", "Restaurantes argentinos en Valencia"]],
-    "/blog/pedir-en-parrilla-argentina": [["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes", "Encontrá dónde probarlos en Valencia"]]
+    "/blog/pedir-en-parrilla-argentina": [["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes", "Encontrá dónde probarlos en Valencia"], ["/guias/tomatina-bunol-2026", "Organizá La Tomatina 2026 desde Valencia"]]
   };
   const fallbackImages = {
     "/blog/pedir-en-parrilla-argentina": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1400&q=85"
@@ -33,13 +39,37 @@ export default async function handler(request, context) {
       .home-new .hn-rest-card img,
       .home-new .hn-articles .article-cover { height: 180px !important; }
       .home-new .hn-articles .article-card { grid-template-columns: 150px 1fr !important; }
+      .guide > .wrap:last-child article { grid-template-columns: 1fr !important; }
     }
     @media (max-width: 430px) {
       .home-new .hn-rest-card { grid-template-columns: 150px 1fr !important; }
     }
   </style>`;
-  const enriched = (fallbackImages[path] ? html.replace('src="undefined"', `src="${fallbackImages[path]}"`) : html)
+  let enriched = (fallbackImages[path] ? html.replace('src="undefined"', `src="${fallbackImages[path]}"`) : html)
     .replace("<h2>Una infografía rápida para elegir</h2>", `<h2>Una infografía rápida para elegir</h2><figure class="cuts-figure"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/cortes-argentinos-vaca.jpg" alt="Mapa visual de los cortes argentinos de la vaca, con la ubicación de cogote, aguja, asado, bife ancho, bife angosto, lomo, cuadril, nalga, peceto, vacío, falda y matambre"><figcaption>Ubicación aproximada de cada corte: puede variar ligeramente según el desposte.</figcaption></figure>`)
     .replace("</article><section class=\"related-articles\"", `${internalLinks}</article><section class="related-articles"`);
+  if (path === "/restaurantes/el-porteno") {
+    enriched = enriched
+      .replace("<title>El Porteño en Valencia | Comida Argentina en Valencia</title>", "<title>El Porteño Valencia: carta, precio y reserva</title>")
+      .replace('content="Restaurantes argentinos en Valencia, cultura y guías."', 'content="Ficha de El Porteño en Valencia: dirección, carta 2026, precios orientativos, qué pedir, reservas y datos comprobados antes de ir"')
+      .replace("<figcaption>FICHA EDITORIAL</figcaption>", '<figcaption>Foto oficial de El Porteño</figcaption>')
+      .replace("<div><b></b><span>TheFork</span></div>", "")
+      .replace("<b>30–45 €</b><span>Precio medio</span>", "<b>30–45 €</b><span>Rango orientativo según carta 2026</span>")
+      .replace("<p>El precio medio es orientativo y puede variar según lo que se pida. Para tener disponibilidad, especialmente en fin de semana, conviene revisar la reserva oficial antes de ir</p>", "<p>El rango de 30–45 € por persona es una orientación calculada con la carta oficial 2026 y depende de la bebida, los entrantes y el corte elegido</p><p><strong>Antes de ir</strong><br>La web oficial muestra horarios diferentes en distintos bloques. Confirmá el horario y la reserva con el restaurante antes de desplazarte</p>")
+      .replace("<p>La referencia disponible es de 30–45 € por persona</p>", "<p>La carta oficial permite estimar un rango de 30–45 € por persona, pero el total cambia según el corte y lo que se comparta</p>")
+      .replace("<p>Podés consultar la disponibilidad desde la web oficial del restaurante</p>", '<p>Usá el sistema de reserva enlazado desde la web oficial o llamá al +34 655 91 68 97</p>')
+      .replace("<p class=\"detail-source\">Precio, valoración y carta consultados en agosto de 2026. Las condiciones y disponibilidad pueden cambiar</p>", '<p class="detail-source"><strong>Última verificación: 10 de agosto de 2026</strong><br>Fuentes: <a href="https://elporteno.es/" target="_blank" rel="noopener">web oficial</a>, <a href="https://elporteno.es/wp-content/uploads/2026/02/Carta-El-Porteno-2026.pdf" target="_blank" rel="noopener">carta 2026</a>, <a href="https://www.instagram.com/elportenoasador/" target="_blank" rel="noopener">Instagram oficial</a>, <a href="https://www.visitvalencia.com/en/what-to-do-valencia/gastronomy/where-to-eat-restaurant-valencia/porteno" target="_blank" rel="noopener">Visit València</a> y <a href="https://elporteno.es/wp-content/uploads/2021/05/BIFE-A-LA-PARRILLA-WEB-EL-PORTEN%CC%83O.jpg" target="_blank" rel="noopener">fuente de la imagen</a></p>')
+      .replace("<a href=\"/guias\">Guías de Valencia</a>", '<a href="/guias/tomatina-bunol-2026">Guía de La Tomatina 2026</a>');
+  }
+  if (path === "/guias") {
+    const guideCard = `<section class="wrap" style="padding:0 22px 52px"><article style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);background:#402914;color:#fff;overflow:hidden"><div style="padding:28px"><p class="eyebrow" style="color:#ffc449">NUEVA GUÍA · AGOSTO 2026</p><h2 style="font-size:36px;margin:10px 0">La Tomatina 2026 desde Valencia</h2><p style="color:#fff3df;line-height:1.55">Fecha, entradas, transporte y consejos para organizar el día en Buñol sin improvisar</p><a href="/guias/tomatina-bunol-2026" style="display:inline-block;background:#ffc449;color:#402914;padding:12px 15px;text-decoration:none;font-weight:900">Abrir la guía →</a></div><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/tomatina-bunol-2026.jpg" alt="Ilustración editorial de La Tomatina de Buñol" style="width:100%;height:100%;min-height:250px;object-fit:cover"></article></section>`;
+    enriched = enriched.replace("</main>", `${guideCard}</main>`);
+  }
+  if (path === "/") {
+    enriched = enriched
+      .replace("Valencia para recién llegados", "La Tomatina 2026 desde Valencia")
+      .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Fecha, entrada, transporte y equipo para vivir la fiesta de Buñol con un plan claro")
+      .replace('href="/guias">Leer la guía →', 'href="/guias/tomatina-bunol-2026">Leer la guía →');
+  }
   return new Response(enriched.replace("</head>", `${imageConsistency}<style>.article-context{margin:34px 0;border-top:3px solid #ffc449;padding-top:18px;display:grid;gap:9px}.article-context p{grid-column:1/-1;margin:0;color:#87300c;font-size:11px;font-weight:900;letter-spacing:.1em}.article-context a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#e8f4fb;color:#402914;text-decoration:none;font-weight:800}.article-context a span{color:#3f86b5}.article-inline-link{background:#fff7e5!important;border-left-color:#ffc449!important}.article-inline-link a{color:#87300c;font-weight:800}.cut-infographic{display:none!important}.cuts-figure{margin:24px 0;border:1px solid #e7c067;background:#fffdf8}.cuts-figure img{display:block;width:100%;height:auto}.cuts-figure figcaption{padding:10px 14px;color:#6b5a48;font-size:13px;line-height:1.4}@media(max-width:560px){.article-context a{font-size:14px}}</style></head>`), response);
 }
