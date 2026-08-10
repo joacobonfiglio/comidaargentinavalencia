@@ -5,6 +5,29 @@ import { renderGuidesIndex } from "../content/guides-index.js";
 export const config = { runtime: "edge" };
 
 const canonicalSite = "https://comidaargentinavalencia.com";
+const defaultImage = "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/el-porteno-bife.jpg";
+const seoPages = {
+  "/": { title: "Restaurantes argentinos en Valencia | Guía local", description: "Encuentra restaurantes argentinos en Valencia, con fichas verificadas, precios orientativos, reservas, guías locales y cultura argentina.", image: defaultImage },
+  "/restaurantes": { title: "Restaurantes argentinos en Valencia: guía y reservas", description: "Directorio de restaurantes argentinos en Valencia con ubicación, precio orientativo, qué pedir y enlaces oficiales para reservar.", image: defaultImage },
+  "/blog": { title: "Blog de comida argentina en Valencia | Guías y cultura", description: "Artículos sobre gastronomía, cultura argentina y Valencia: cortes de carne, mate, costumbres y consejos prácticos.", image: defaultImage },
+  "/guias": { title: "Guías de Valencia para argentinos | Comida Argentina", description: "Guías prácticas para argentinos en Valencia: planes, barrios, transporte y consejos para disfrutar la ciudad y sus alrededores.", image: defaultImage },
+  "/guias/valencia-recien-llegados": { title: "Guía de Valencia para argentinos recién llegados", description: "Primeros pasos para argentinos que llegan a Valencia: barrios, recorridos, costumbres y lugares útiles para orientarse mejor.", image: defaultImage, type: "article" },
+  "/guias/tomatina-bunol-2026": { title: "La Tomatina 2026 desde Valencia: entradas y transporte", description: "Guía para ir a La Tomatina de Buñol 2026 desde Valencia: fecha, entradas, transporte, qué llevar y consejos para organizar el día.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/tomatina-bunol-2026.jpg", type: "article" },
+  "/restaurantes/mila": { title: "Mila Restaurante Valencia: carta, precio y reservas", description: "Ficha de Mila Restaurante en Valencia: ubicación, precio orientativo, qué pedir, contacto y enlace oficial para reservar mesa.", image: defaultImage },
+  "/restaurantes/el-porteno": { title: "El Porteño Valencia: carta, precio y reservas", description: "Ficha de El Porteño en Valencia: parrilla argentina, carta, precios orientativos, dirección, contacto y reserva oficial.", image: defaultImage },
+  "/restaurantes/cruz-pampa": { title: "Cruz Pampa Valencia: parrilla argentina y carta", description: "Ficha de Cruz Pampa en Valencia: parrilla argentina, ubicación, precio orientativo, platos recomendados y web oficial.", image: defaultImage },
+  "/restaurantes/union-carnes-y-vinos": { title: "Unión Carnes y Vinos Valencia: carta y reservas", description: "Ficha de Unión Carnes y Vinos en Ruzafa: parrilla argentina, precio orientativo, platos recomendados y enlace de reserva.", image: defaultImage },
+  "/restaurantes/dona-petrona": { title: "Doña Petrona Valencia: cocina argentina y carta", description: "Ficha de Doña Petrona en Valencia: cocina argentina contemporánea, ubicación, precio orientativo y datos para planificar tu visita.", image: defaultImage },
+  "/restaurantes/viejo-barrio": { title: "Viejo Barrio Valencia: parrilla argentina y precio", description: "Ficha de Viejo Barrio en Benimaclet: parrillada argentina, dirección, precio orientativo, platos recomendados y contacto.", image: defaultImage },
+  "/restaurantes/cayena-restobar": { title: "Cayena Restobar Valencia: carta, precio y ubicación", description: "Ficha de Cayena Restobar cerca de Mestalla: comida argentina, precio orientativo, recomendaciones, ubicación y contacto.", image: defaultImage },
+  "/restaurantes/san-telmo": { title: "Asador San Telmo Valencia: parrilla argentina en Ruzafa", description: "Ficha de Asador San Telmo en Ruzafa: carnes a la parrilla, empanadas, ubicación, contacto y web oficial.", image: defaultImage },
+  "/blog/historia-del-mate": { title: "Historia del mate: origen y ritual argentino | Guía", description: "Conoce la historia del mate, desde la yerba guaraní hasta el ritual argentino de compartir una ronda, también en Valencia.", image: defaultImage, type: "article" },
+  "/blog/bandera-argentina-color-cielo": { title: "Por qué la bandera argentina es celeste y blanca", description: "La historia y los significados detrás de los colores de la bandera argentina, la escarapela y el Sol de Mayo.", image: defaultImage, type: "article" },
+  "/blog/valencianos-y-argentinos-historia": { title: "Valencianos y argentinos: historia y vínculos culturales", description: "La relación histórica entre Valencia y Argentina: migraciones, cultura compartida y los vínculos que siguen vivos hoy.", image: defaultImage, type: "article" },
+  "/blog/truc-o-truco": { title: "Truc valenciano y Truco argentino: diferencias y reglas", description: "Qué comparten y en qué se diferencian el Truc valenciano y el Truco argentino, dos juegos de cartas con mucha picardía.", image: defaultImage, type: "article" },
+  "/blog/cortes-carne-argentina": { title: "Cortes de carne argentinos: guía visual y equivalencias", description: "Guía visual de cortes de carne argentinos: vacío, bife, entraña, asado y sus equivalencias para pedir mejor en una parrilla.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/cortes-argentinos-vaca.jpg", type: "article" },
+  "/blog/pedir-en-parrilla-argentina": { title: "Qué pedir en una parrilla argentina: guía para elegir", description: "Qué pedir en una parrilla argentina según tus gustos: cortes, entradas, puntos de cocción y consejos para disfrutar mejor la experiencia.", image: defaultImage, type: "article" }
+};
 const sitemapEntries = [
   ["/", "daily", "1.0"],
   ["/restaurantes", "daily", "0.9"],
@@ -23,8 +46,45 @@ function renderSitemap() {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
 }
 
+function escapeHtml(value) {
+  return value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+}
+
+function seoHead(path, data) {
+  const url = `${canonicalSite}${path}`;
+  const title = escapeHtml(data.title);
+  const description = escapeHtml(data.description);
+  const image = escapeHtml(data.image || defaultImage);
+  const breadcrumbs = path === "/" ? null : [{ name: "Inicio", item: canonicalSite }, ...path.split("/").filter(Boolean).map((part, index, all) => ({
+    name: index === 0 ? (part === "restaurantes" ? "Restaurantes" : part === "blog" ? "Blog" : "Guías") : data.title,
+    item: `${canonicalSite}/${all.slice(0, index + 1).join("/")}`
+  }))];
+  const schemas = [
+    data.type === "article" ? { "@context": "https://schema.org", "@type": "Article", headline: data.title, description: data.description, image: data.image || defaultImage, mainEntityOfPage: url, datePublished: "2026-08-10", dateModified: "2026-08-10", author: { "@type": "Organization", name: "Comida Argentina en Valencia" }, publisher: { "@type": "Organization", name: "Comida Argentina en Valencia", url: canonicalSite } } : null,
+    breadcrumbs ? { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: breadcrumbs.map((crumb, index) => ({ "@type": "ListItem", position: index + 1, name: crumb.name, item: crumb.item })) } : null
+  ].filter(Boolean);
+  return `<link rel="canonical" href="${url}"><meta property="og:locale" content="es_ES"><meta property="og:type" content="${data.type === "article" ? "article" : "website"}"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:url" content="${url}"><meta property="og:site_name" content="Comida Argentina en Valencia"><meta property="og:image" content="${image}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${description}"><meta name="twitter:image" content="${image}">${schemas.map(schema => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`).join("")}`;
+}
+
+function applySeo(html, path) {
+  const data = seoPages[path];
+  if (!data) return html;
+  const title = escapeHtml(data.title);
+  const description = escapeHtml(data.description);
+  return html
+    .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
+    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${description}">`)
+    .replace("</head>", `<meta name="google-site-verification" content="uuaS-FeyVtmn-TCrF_cpRjCUVSyru9w-4tD5D5zJmWg" />${seoHead(path, data)}</head>`);
+}
+
 export default async function handler(request, context) {
-  const path = new URL(request.url).pathname;
+  const source = new URL(request.url);
+  const path = source.pathname;
+  if (["www.comidaargentinavalencia.com", "comida-argentina-valencia.vercel.app"].includes(source.hostname)) {
+    source.protocol = "https:";
+    source.hostname = "comidaargentinavalencia.com";
+    return Response.redirect(source, 308);
+  }
   if (path === "/sitemap.xml") {
     return new Response(renderSitemap(), { headers: { "content-type": "application/xml; charset=utf-8" } });
   }
@@ -32,7 +92,7 @@ export default async function handler(request, context) {
     return new Response(`User-agent: *\nAllow: /\nSitemap: ${canonicalSite}/sitemap.xml\n`, { headers: { "content-type": "text/plain; charset=utf-8" } });
   }
   if (path === "/guias") {
-    return new Response(renderGuidesIndex(), {
+    return new Response(applySeo(renderGuidesIndex(), path), {
       headers: { "content-type": "text/html;charset=utf-8" }
     });
   }
@@ -42,7 +102,7 @@ export default async function handler(request, context) {
     return site.fetch(new Request(source, request), {}, context);
   }
   if (path === "/guias/tomatina-bunol-2026") {
-    return new Response(renderTomatinaGuide().replace('href="/guias">Valencia para recién llegados →', 'href="/guias/valencia-recien-llegados">Valencia para recién llegados →'), {
+    return new Response(applySeo(renderTomatinaGuide().replace('href="/guias">Valencia para recién llegados →', 'href="/guias/valencia-recien-llegados">Valencia para recién llegados →'), path), {
       headers: { "content-type": "text/html;charset=utf-8" }
     });
   }
@@ -103,6 +163,6 @@ export default async function handler(request, context) {
       .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Fecha, entrada, transporte y equipo para vivir la fiesta de Buñol con un plan claro")
       .replace('href="/guias">Leer la guía →', 'href="/guias/tomatina-bunol-2026">Leer la guía →');
   }
-  enriched = enriched.replace("</head>", '<meta name="google-site-verification" content="uuaS-FeyVtmn-TCrF_cpRjCUVSyru9w-4tD5D5zJmWg" /></head>');
-  return new Response(enriched.replace("</head>", `${imageConsistency}<style>.article-context{margin:34px 0;border-top:3px solid #ffc449;padding-top:18px;display:grid;gap:9px}.article-context p{grid-column:1/-1;margin:0;color:#87300c;font-size:11px;font-weight:900;letter-spacing:.1em}.article-context a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#e8f4fb;color:#402914;text-decoration:none;font-weight:800}.article-context a span{color:#3f86b5}.article-inline-link{background:#fff7e5!important;border-left-color:#ffc449!important}.article-inline-link a{color:#87300c;font-weight:800}.cut-infographic{display:none!important}.cuts-figure{margin:24px 0;border:1px solid #e7c067;background:#fffdf8}.cuts-figure img{display:block;width:100%;height:auto}.cuts-figure figcaption{padding:10px 14px;color:#6b5a48;font-size:13px;line-height:1.4}@media(max-width:560px){.article-context a{font-size:14px}}</style></head>`), response);
+  enriched = enriched.replace("</head>", `${imageConsistency}<style>.article-context{margin:34px 0;border-top:3px solid #ffc449;padding-top:18px;display:grid;gap:9px}.article-context p{grid-column:1/-1;margin:0;color:#87300c;font-size:11px;font-weight:900;letter-spacing:.1em}.article-context a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#e8f4fb;color:#402914;text-decoration:none;font-weight:800}.article-context a span{color:#3f86b5}.article-inline-link{background:#fff7e5!important;border-left-color:#ffc449!important}.article-inline-link a{color:#87300c;font-weight:800}.cut-infographic{display:none!important}.cuts-figure{margin:24px 0;border:1px solid #e7c067;background:#fffdf8}.cuts-figure img{display:block;width:100%;height:auto}.cuts-figure figcaption{padding:10px 14px;color:#6b5a48;font-size:13px;line-height:1.4}@media(max-width:560px){.article-context a{font-size:14px}}</style></head>`);
+  return new Response(applySeo(enriched, path), response);
 }
