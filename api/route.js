@@ -4,8 +4,33 @@ import { renderGuidesIndex } from "../content/guides-index.js";
 
 export const config = { runtime: "edge" };
 
+const canonicalSite = "https://comidaargentinavalencia.com";
+const sitemapEntries = [
+  ["/", "daily", "1.0"],
+  ["/restaurantes", "daily", "0.9"],
+  ["/blog", "weekly", "0.8"],
+  ["/guias", "weekly", "0.8"],
+  ["/restaurantes/mila", "monthly", "0.8"],
+  ...["el-porteno", "cruz-pampa", "union-carnes-y-vinos", "dona-petrona", "viejo-barrio", "cayena-restobar", "san-telmo"].map((slug) => [`/restaurantes/${slug}`, "monthly", "0.8"]),
+  ...["historia-del-mate", "bandera-argentina-color-cielo", "valencianos-y-argentinos-historia", "truc-o-truco", "cortes-carne-argentina", "pedir-en-parrilla-argentina"].map((slug) => [`/blog/${slug}`, "monthly", "0.7"]),
+  ["/guias/valencia-recien-llegados", "monthly", "0.7"],
+  ["/guias/tomatina-bunol-2026", "weekly", "0.7"]
+];
+
+function renderSitemap() {
+  const lastModified = "2026-08-10";
+  const urls = sitemapEntries.map(([path, changefreq, priority]) => `\n  <url><loc>${canonicalSite}${path}</loc><lastmod>${lastModified}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join("");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
+}
+
 export default async function handler(request, context) {
   const path = new URL(request.url).pathname;
+  if (path === "/sitemap.xml") {
+    return new Response(renderSitemap(), { headers: { "content-type": "application/xml; charset=utf-8" } });
+  }
+  if (path === "/robots.txt") {
+    return new Response(`User-agent: *\nAllow: /\nSitemap: ${canonicalSite}/sitemap.xml\n`, { headers: { "content-type": "text/plain; charset=utf-8" } });
+  }
   if (path === "/guias") {
     return new Response(renderGuidesIndex(), {
       headers: { "content-type": "text/html;charset=utf-8" }
