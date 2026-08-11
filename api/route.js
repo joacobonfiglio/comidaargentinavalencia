@@ -73,15 +73,22 @@ function seoHead(path, data) {
   return `<link rel="canonical" href="${url}"><meta property="og:locale" content="es_ES"><meta property="og:type" content="${data.type === "article" ? "article" : "website"}"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:url" content="${url}"><meta property="og:site_name" content="Comida Argentina en Valencia"><meta property="og:image" content="${image}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${description}"><meta name="twitter:image" content="${image}">${schemas.map(schema => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`).join("")}`;
 }
 
+const unifiedHeader = `<header class="top wrap site-header"><a class="brand" href="/" aria-label="Comida Argentina en Valencia, inicio"><span class="brand-mark" aria-hidden="true"><i>☀</i></span><span><strong>COMIDA ARGENTINA</strong><small>EN VALENCIA</small></span></a><nav aria-label="Navegación principal"><a href="/restaurantes">Restaurantes</a><a href="/guias">Guías</a><a href="/blog">Blog</a></nav></header>`;
+const unifiedHeaderStyles = `<style>.site-header{min-height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e7c067}.site-header .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#402914;line-height:1}.site-header .brand-mark{display:inline-grid;place-items:center;width:42px;height:42px;background:linear-gradient(180deg,#75aad5 0 32%,#fff 32% 68%,#75aad5 68%);border-radius:50%;border:1px solid #4d93c3;box-shadow:0 2px 0 #e7c067}.site-header .brand-mark i{font-style:normal;font-size:18px;color:#ffc449;text-shadow:0 1px 0 #87300c}.site-header .brand strong{display:block;font-size:13px;letter-spacing:.08em}.site-header .brand small{display:block;font-size:9px;letter-spacing:.18em;color:#87300c;margin-top:4px;font-weight:800}.site-header nav{display:flex;gap:24px}.site-header nav a{text-decoration:none;font-size:13px;color:#402914;font-weight:700;padding:8px 0;border-bottom:2px solid transparent}.site-header nav a:hover{color:#87300c;border-color:#87300c}@media(max-width:650px){.site-header{min-height:66px}.site-header .brand-mark{width:36px;height:36px}.site-header .brand strong{font-size:11px}.site-header .brand small{font-size:8px}.site-header nav{gap:11px}.site-header nav a{font-size:12px}}</style>`;
+
+function normalizeHeader(html) {
+  return html.replace(/<header class="top wrap">[\s\S]*?<\/header>/, unifiedHeader);
+}
+
 function applySeo(html, path) {
   const data = seoPages[path];
   if (!data) return html;
   const title = escapeHtml(data.title);
   const description = escapeHtml(data.description);
-  return html
+  return normalizeHeader(html)
     .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${description}">`)
-    .replace("</head>", `<meta name="google-site-verification" content="uuaS-FeyVtmn-TCrF_cpRjCUVSyru9w-4tD5D5zJmWg" />${seoHead(path, data)}</head>`);
+    .replace("</head>", `${unifiedHeaderStyles}<meta name="google-site-verification" content="uuaS-FeyVtmn-TCrF_cpRjCUVSyru9w-4tD5D5zJmWg" />${seoHead(path, data)}</head>`);
 }
 
 export default async function handler(request, context) {
