@@ -1,6 +1,8 @@
 import site from "../worker/index.js";
 import { renderTomatinaGuide } from "../content/tomatina-2026.js";
 import { renderGuidesIndex } from "../content/guides-index.js";
+import { renderAsadorElArgentino } from "../content/asador-el-argentino.js";
+import { renderEclipseArticle } from "../content/eclipse-solar-valencia-2026.js";
 
 export const config = { runtime: "edge" };
 
@@ -13,6 +15,8 @@ const seoPages = {
   "/guias": { title: "Guías de Valencia para argentinos | Comida Argentina", description: "Guías prácticas para argentinos en Valencia: planes, barrios, transporte y consejos para disfrutar la ciudad y sus alrededores.", image: defaultImage },
   "/guias/valencia-recien-llegados": { title: "Guía de Valencia para argentinos recién llegados", description: "Primeros pasos para argentinos que llegan a Valencia: barrios, recorridos, costumbres y lugares útiles para orientarse mejor.", image: defaultImage, type: "article" },
   "/guias/tomatina-bunol-2026": { title: "La Tomatina 2026 desde Valencia: entradas y transporte", description: "Guía para ir a La Tomatina de Buñol 2026 desde Valencia: fecha, entradas, transporte, qué llevar y consejos para organizar el día.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/tomatina-bunol-2026.jpg", type: "article" },
+  "/restaurantes/asador-el-argentino": { title: "Asador El Argentino Valencia: carta y precio", description: "Ficha del Asador El Argentino en Monteolivete: dirección, precio orientativo, qué pedir, contacto, fuentes y consejos antes de ir", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg", type: "restaurant", date: "2026-08-11" },
+  "/blog/eclipse-solar-valencia-2026": { title: "Eclipse solar en Valencia 2026: cómo verlo", description: "Hora, seguridad y lugar oficial para ver el eclipse solar del 12 de agosto de 2026 en València sin dañar la vista ni improvisar", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg", type: "article", date: "2026-08-11" },
   "/restaurantes/mila": { title: "Mila Restaurante Valencia: carta, precio y reservas", description: "Ficha de Mila Restaurante en Valencia: ubicación, precio orientativo, qué pedir, contacto y enlace oficial para reservar mesa.", image: defaultImage },
   "/restaurantes/el-porteno": { title: "El Porteño Valencia: carta, precio y reservas", description: "Ficha de El Porteño en Valencia: parrilla argentina, carta, precios orientativos, dirección, contacto y reserva oficial.", image: defaultImage },
   "/restaurantes/cruz-pampa": { title: "Cruz Pampa Valencia: parrilla argentina y carta", description: "Ficha de Cruz Pampa en Valencia: parrilla argentina, ubicación, precio orientativo, platos recomendados y web oficial.", image: defaultImage },
@@ -35,13 +39,15 @@ const sitemapEntries = [
   ["/guias", "weekly", "0.8"],
   ["/restaurantes/mila", "monthly", "0.8"],
   ...["el-porteno", "cruz-pampa", "union-carnes-y-vinos", "dona-petrona", "viejo-barrio", "cayena-restobar", "san-telmo"].map((slug) => [`/restaurantes/${slug}`, "monthly", "0.8"]),
+  ["/restaurantes/asador-el-argentino", "monthly", "0.8"],
   ...["historia-del-mate", "bandera-argentina-color-cielo", "valencianos-y-argentinos-historia", "truc-o-truco", "cortes-carne-argentina", "pedir-en-parrilla-argentina"].map((slug) => [`/blog/${slug}`, "monthly", "0.7"]),
+  ["/blog/eclipse-solar-valencia-2026", "weekly", "0.8"],
   ["/guias/valencia-recien-llegados", "monthly", "0.7"],
   ["/guias/tomatina-bunol-2026", "weekly", "0.7"]
 ];
 
 function renderSitemap() {
-  const lastModified = "2026-08-10";
+  const lastModified = "2026-08-11";
   const urls = sitemapEntries.map(([path, changefreq, priority]) => `\n  <url><loc>${canonicalSite}${path}</loc><lastmod>${lastModified}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
 }
@@ -60,7 +66,8 @@ function seoHead(path, data) {
     item: `${canonicalSite}/${all.slice(0, index + 1).join("/")}`
   }))];
   const schemas = [
-    data.type === "article" ? { "@context": "https://schema.org", "@type": "Article", headline: data.title, description: data.description, image: data.image || defaultImage, mainEntityOfPage: url, datePublished: "2026-08-10", dateModified: "2026-08-10", author: { "@type": "Organization", name: "Comida Argentina en Valencia" }, publisher: { "@type": "Organization", name: "Comida Argentina en Valencia", url: canonicalSite } } : null,
+    data.type === "article" ? { "@context": "https://schema.org", "@type": "Article", headline: data.title, description: data.description, image: data.image || defaultImage, mainEntityOfPage: url, datePublished: data.date || "2026-08-10", dateModified: data.date || "2026-08-10", author: { "@type": "Organization", name: "Comida Argentina en Valencia" }, publisher: { "@type": "Organization", name: "Comida Argentina en Valencia", url: canonicalSite } } : null,
+    data.type === "restaurant" ? { "@context": "https://schema.org", "@type": "Restaurant", name: "Asador El Argentino", url, image: data.image, telephone: "+34 657 77 80 04", servesCuisine: "Argentina", priceRange: "€€", address: { "@type": "PostalAddress", streetAddress: "Carrer de l’Escultor Josep Capuz, 12", postalCode: "46004", addressLocality: "València", addressCountry: "ES" }, sameAs: ["https://www.instagram.com/asador_el_argentino/", "https://www.facebook.com/asadorargentinovalencia/"] } : null,
     breadcrumbs ? { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: breadcrumbs.map((crumb, index) => ({ "@type": "ListItem", position: index + 1, name: crumb.name, item: crumb.item })) } : null
   ].filter(Boolean);
   return `<link rel="canonical" href="${url}"><meta property="og:locale" content="es_ES"><meta property="og:type" content="${data.type === "article" ? "article" : "website"}"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:url" content="${url}"><meta property="og:site_name" content="Comida Argentina en Valencia"><meta property="og:image" content="${image}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${description}"><meta name="twitter:image" content="${image}">${schemas.map(schema => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`).join("")}`;
@@ -102,9 +109,15 @@ export default async function handler(request, context) {
     return site.fetch(new Request(source, request), {}, context);
   }
   if (path === "/guias/tomatina-bunol-2026") {
-    return new Response(applySeo(renderTomatinaGuide().replace('href="/guias">Valencia para recién llegados →', 'href="/guias/valencia-recien-llegados">Valencia para recién llegados →'), path), {
+    return new Response(applySeo(renderTomatinaGuide().replace('href="/guias">Valencia para recién llegados →', 'href="/guias/valencia-recien-llegados">Valencia para recién llegados →').replace('<a href="/restaurantes/el-porteno">El Porteño en Valencia →</a>', '<a href="/blog/eclipse-solar-valencia-2026">Eclipse solar en Valencia 2026 →</a><a href="/restaurantes/el-porteno">El Porteño en Valencia →</a>'), path), {
       headers: { "content-type": "text/html;charset=utf-8" }
     });
+  }
+  if (path === "/restaurantes/asador-el-argentino") {
+    return new Response(applySeo(renderAsadorElArgentino(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
+  if (path === "/blog/eclipse-solar-valencia-2026") {
+    return new Response(applySeo(renderEclipseArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   const response = await site.fetch(request, {}, context);
   const type = response.headers.get("content-type") || "";
@@ -114,10 +127,10 @@ export default async function handler(request, context) {
   const articleLinks = {
     "/blog/historia-del-mate": [["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/guias/valencia-recien-llegados", "Guía Valencia para recién llegados"]],
     "/blog/bandera-argentina-color-cielo": [["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/blog/historia-del-mate", "La historia del mate"]],
-    "/blog/valencianos-y-argentinos-historia": [["/guias/valencia-recien-llegados", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"]],
+    "/blog/valencianos-y-argentinos-historia": [["/guias/valencia-recien-llegados", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"], ["/blog/eclipse-solar-valencia-2026", "Eclipse solar en Valencia 2026"]],
     "/blog/truc-o-truco": [["/blog/historia-del-mate", "La historia del mate"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"]],
     "/blog/cortes-carne-argentina": [["/blog/pedir-en-parrilla-argentina", "Cómo pedir en una parrilla argentina"], ["/restaurantes", "Restaurantes argentinos en Valencia"]],
-    "/blog/pedir-en-parrilla-argentina": [["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes", "Encontrá dónde probarlos en Valencia"], ["/guias/tomatina-bunol-2026", "Organizá La Tomatina 2026 desde Valencia"]]
+    "/blog/pedir-en-parrilla-argentina": [["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes/asador-el-argentino", "Asador El Argentino en Monteolivete"], ["/guias/tomatina-bunol-2026", "Organizá La Tomatina 2026 desde Valencia"]]
   };
   const fallbackImages = {
     "/blog/pedir-en-parrilla-argentina": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1400&q=85"
@@ -157,8 +170,19 @@ export default async function handler(request, context) {
       .replace("<p class=\"detail-source\">Precio, valoración y carta consultados en agosto de 2026. Las condiciones y disponibilidad pueden cambiar</p>", '<p class="detail-source"><strong>Última verificación: 10 de agosto de 2026</strong><br>Fuentes: <a href="https://elporteno.es/" target="_blank" rel="noopener">web oficial</a>, <a href="https://elporteno.es/wp-content/uploads/2026/02/Carta-El-Porteno-2026.pdf" target="_blank" rel="noopener">carta 2026</a>, <a href="https://www.instagram.com/elportenoasador/" target="_blank" rel="noopener">Instagram oficial</a>, <a href="https://www.visitvalencia.com/en/what-to-do-valencia/gastronomy/where-to-eat-restaurant-valencia/porteno" target="_blank" rel="noopener">Visit València</a> y <a href="https://elporteno.es/wp-content/uploads/2021/05/BIFE-A-LA-PARRILLA-WEB-EL-PORTEN%CC%83O.jpg" target="_blank" rel="noopener">fuente de la imagen</a></p>')
       .replace("<a href=\"/guias\">Guías de Valencia</a>", '<a href="/guias/tomatina-bunol-2026">Guía de La Tomatina 2026</a>');
   }
+  const newRestaurantDirectoryCard = '<a class="r-card" href="/restaurantes/asador-el-argentino"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg" alt="Carnes del Asador El Argentino en Valencia" loading="lazy"><div><p class="eyebrow">MONTEOLIVETE · 16–28 €</p><h2>Asador El Argentino</h2><p>Parrilla argentina informal con carnes, empanadas y eventos anunciados por el local</p><span>Ver ficha →</span></div></a>';
+  const newRestaurantHomeCard = '<a class="hn-rest-card" href="/restaurantes/asador-el-argentino"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg" alt="Carnes del Asador El Argentino en Valencia" loading="lazy"><div><p>MONTEOLIVETE · 16–28 €</p><h3>Asador El Argentino</h3><b>Ver ficha →</b></div></a>';
+  const newArticleCard = '<a class="article-card" href="/blog/eclipse-solar-valencia-2026"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg" alt="Eclipse solar total sobre la playa de València" loading="lazy"><span>ACTUALIDAD LOCAL</span></div><div class="article-card-copy"><p>5 MIN DE LECTURA</p><h2>Eclipse solar en Valencia 2026: hora, lugar y seguridad</h2><span>Cómo organizar la observación del 12 de agosto con fuentes oficiales y sin arriesgar la vista</span><b>Leer artículo <i>→</i></b></div></a>';
+  if (path === "/restaurantes") {
+    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${newRestaurantDirectoryCard}`);
+  }
+  if (path === "/blog") {
+    enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${newArticleCard}`);
+  }
   if (path === "/") {
     enriched = enriched
+      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${newRestaurantHomeCard}`)
+      .replace('<div class="hn-articles">', `<div class="hn-articles">${newArticleCard}`)
       .replace("Valencia para recién llegados", "La Tomatina 2026 desde Valencia")
       .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Fecha, entrada, transporte y equipo para vivir la fiesta de Buñol con un plan claro")
       .replace('href="/guias">Leer la guía →', 'href="/guias/tomatina-bunol-2026">Leer la guía →');

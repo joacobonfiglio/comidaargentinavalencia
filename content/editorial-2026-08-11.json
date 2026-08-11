@@ -1,0 +1,29 @@
+{
+  "date": "2026-08-11",
+  "pieces": [
+    {
+      "type": "ficha",
+      "slug": "asador-el-argentino",
+      "intent": "Evaluar Asador El Argentino de Monteolivete antes de reservar o ir a comer",
+      "keyword": "Asador El Argentino Valencia",
+      "secondaryKeywords": ["restaurante argentino Monteolivete", "parrilla argentina Valencia", "Asador El Argentino carta", "comer carne argentina Valencia", "reservar Asador El Argentino"],
+      "seoTitle": "Asador El Argentino Valencia: carta y precio",
+      "metaDescription": "Ficha del Asador El Argentino en Monteolivete: dirección, precio orientativo, qué pedir, contacto, fuentes y consejos antes de ir",
+      "image": "assets/asador-el-argentino.jpg",
+      "imageSource": "https://www.instagram.com/reel/DSCqJQljP7C/",
+      "verified": "2026-08-11"
+    },
+    {
+      "type": "artículo",
+      "slug": "eclipse-solar-valencia-2026",
+      "intent": "Saber a qué hora y dónde ver con seguridad el eclipse solar del 12 de agosto de 2026 en València",
+      "keyword": "eclipse solar Valencia 2026",
+      "secondaryKeywords": ["eclipse 12 agosto Valencia", "hora eclipse Valencia", "dónde ver eclipse Valencia", "gafas eclipse Valencia", "eclipse total España 2026"],
+      "seoTitle": "Eclipse solar en Valencia 2026: cómo verlo",
+      "metaDescription": "Hora, seguridad y lugar oficial para ver el eclipse solar del 12 de agosto de 2026 en València sin dañar la vista ni improvisar",
+      "image": "assets/eclipse-solar-valencia-2026.jpg",
+      "imageSource": "Ilustración editorial original generada para comidaargentinavalencia.com",
+      "verified": "2026-08-11"
+    }
+  ]
+}
