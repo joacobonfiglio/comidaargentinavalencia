@@ -1,0 +1,44 @@
+{
+  "date": "2026-08-12",
+  "status": "ready-for-publication",
+  "alternation": {
+    "previous": "article",
+    "current": "guide"
+  },
+  "pieces": [
+    {
+      "type": "ficha",
+      "name": "Gordon 10",
+      "intent": "Comprobar la carta, el precio, la ubicación y la reserva de Gordon 10 antes de ir",
+      "keyword": "Gordon 10 Valencia",
+      "secondaryKeywords": ["restaurante argentino Cánovas", "parrilla argentina Valencia", "Gordon 10 carta", "Gordon 10 reservas", "carne argentina Valencia"],
+      "slug": "gordon-10",
+      "title": "Gordon 10 Valencia: carta, precio y reservas",
+      "description": "Ficha de Gordon 10 en Cánovas: carta oficial, menús, precio orientativo, dirección, horario, reserva y qué conviene saber antes de ir",
+      "internalLinks": ["/restaurantes", "/restaurantes/el-porteno", "/restaurantes/union-carnes-y-vinos", "/blog/cortes-carne-argentina"],
+      "image": {
+        "file": "assets/gordon-10.jpg",
+        "source": "https://www.gordon10.com/images/local.jpg",
+        "rights": "Imagen publicada por el restaurante en su web oficial; conservar atribución y revisar permiso de reutilización si el negocio lo solicita"
+      },
+      "verified": "2026-08-12"
+    },
+    {
+      "type": "guía",
+      "name": "Cómo empadronarte en Valencia",
+      "intent": "Completar el alta o cambio de domicilio en el padrón de València con la documentación correcta",
+      "keyword": "empadronamiento Valencia",
+      "secondaryKeywords": ["cita padrón Valencia", "documentos empadronamiento Valencia", "empadronarse en Valencia", "alta padrón Valencia", "certificado empadronamiento Valencia"],
+      "slug": "empadronamiento-valencia",
+      "title": "Empadronamiento en Valencia: guía paso a paso",
+      "description": "Documentos, cita, oficinas y pasos para empadronarte en Valencia, con información oficial y casos de alquiler o vivienda ajena",
+      "internalLinks": ["/guias/valencia-recien-llegados", "/guias", "/restaurantes", "/restaurantes/gordon-10"],
+      "image": {
+        "file": "assets/empadronamiento-valencia.jpg",
+        "source": "Imagen editorial original generada para Comida Argentina en Valencia",
+        "rights": "Original editorial"
+      },
+      "verified": "2026-08-12"
+    }
+  ]
+}
