@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-13",
+  "alternation": { "previous": "guide", "current": "article" },
+  "pieces": [
+    {
+      "type": "restaurant",
+      "intent": "Evaluar La Parrilleta de Cánovas antes de reservar",
+      "keyword": "La Parrilleta Valencia",
+      "secondaryKeywords": ["restaurante argentino Cánovas", "La Parrilleta carta", "La Parrilleta reservas", "parrilla argentina Valencia", "comer carne en Cánovas"],
+      "slug": "la-parrilleta",
+      "title": "La Parrilleta Valencia: carta, precio y reserva",
+      "description": "Ficha de La Parrilleta en Cánovas: carta, precio orientativo, horarios, qué pedir, opciones confirmadas y reserva.",
+      "internalLinks": ["/restaurantes/gordon-10", "/restaurantes", "/blog/cortes-carne-argentina", "/blog/pedir-en-parrilla-argentina"],
+      "image": { "file": "assets/la-parrilleta.jpg", "source": "https://laparrilleta.es/wp-content/uploads/2024/08/slider-la-parrilleta-1.jpg", "rights": "Fotografía publicada por el establecimiento en su web oficial", "unique": true }
+    },
+    {
+      "type": "article",
+      "intent": "Entender qué es la horchata valenciana, cómo se toma y cómo reconocer su origen",
+      "keyword": "qué es la horchata valenciana",
+      "secondaryKeywords": ["horchata de chufa", "horchata valenciana", "fartons con horchata", "horchata natural Valencia", "chufa de Valencia"],
+      "slug": "que-es-horchata-valenciana",
+      "title": "Qué es la horchata valenciana y cómo se toma",
+      "description": "Qué lleva la horchata valenciana, por qué se hace con chufa, cómo se toma con fartons y qué mirar para elegir una auténtica.",
+      "internalLinks": ["/blog/valencianos-y-argentinos-historia", "/guias/valencia-recien-llegados", "/blog/historia-del-mate", "/restaurantes"],
+      "image": { "file": "assets/horchata-valenciana.jpg", "source": "Imagen editorial original generada para Comida Argentina en Valencia", "created": "2026-08-13", "unique": true }
+    }
+  ]
+}
