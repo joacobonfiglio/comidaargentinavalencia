@@ -7,6 +7,8 @@ import { renderGordon10 } from "../content/gordon-10.js";
 import { renderEmpadronamientoGuide } from "../content/empadronamiento-valencia.js";
 import { renderLaParrilleta } from "../content/la-parrilleta.js";
 import { renderHorchataArticle } from "../content/horchata-valenciana.js";
+import { renderBatarazaBodegon } from "../content/bataraza-bodegon.js";
+import { renderTransporteGuide } from "../content/transporte-publico-valencia.js";
 
 export const config = { runtime: "edge" };
 
@@ -22,8 +24,10 @@ const seoPages = {
   "/restaurantes/asador-el-argentino": { title: "Asador El Argentino Valencia: carta y precio", description: "Ficha del Asador El Argentino en Monteolivete: dirección, precio orientativo, qué pedir, contacto, fuentes y consejos antes de ir", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg", type: "restaurant", date: "2026-08-11" },
   "/restaurantes/gordon-10": { title: "Gordon 10 Valencia: carta, precio y reservas", description: "Ficha de Gordon 10 en Cánovas: carta oficial, menús, precio orientativo, dirección, horario, reserva y qué conviene saber antes de ir", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg", type: "restaurant", date: "2026-08-12", restaurant: { name: "Gordon 10", telephone: "+34 963 74 07 87", streetAddress: "Calle Conde de Altea, 49", postalCode: "46005", sameAs: ["https://www.gordon10.com/", "https://www.instagram.com/restaurantegordon10valencia/"] } },
   "/restaurantes/la-parrilleta": { title: "La Parrilleta Valencia: carta, precio y reserva", description: "Ficha de La Parrilleta en Cánovas: carta, precio orientativo, horarios, qué pedir, opciones confirmadas y reserva.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg", type: "restaurant", date: "2026-08-13", restaurant: { name: "La Parrilleta", telephone: "+34 962 35 30 07", streetAddress: "Carrer de Salamanca, 14", postalCode: "46005", sameAs: ["https://laparrilleta.es/", "https://www.instagram.com/laparrilleta/"] } },
+  "/restaurantes/bataraza-bodegon": { title: "Bataraza Bodegón Valencia: carta y reserva", description: "Ficha de Bataraza Bodegón: carta argentina, precio orientativo, dirección, vinos, qué pedir y qué confirmar antes de reservar.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bataraza-bodegon.jpg", type: "restaurant", date: "2026-08-14", restaurant: { name: "Bataraza Bodegón", telephone: "+34 625 31 30 14", streetAddress: "C. del Hospital, 18", postalCode: "46001", sameAs: ["https://bataraza.com/", "https://www.instagram.com/batarazabodegon/"] } },
   "/blog/eclipse-solar-valencia-2026": { title: "Eclipse solar en Valencia 2026: cómo verlo", description: "Hora, seguridad y lugar oficial para ver el eclipse solar del 12 de agosto de 2026 en València sin dañar la vista ni improvisar", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg", type: "article", date: "2026-08-11" },
   "/guias/empadronamiento-valencia": { title: "Empadronamiento en Valencia: guía paso a paso", description: "Documentos, cita, oficinas y pasos para empadronarte en Valencia, con información oficial y casos de alquiler o vivienda ajena", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/empadronamiento-valencia.jpg", type: "article", date: "2026-08-12" },
+  "/guias/transporte-publico-valencia": { title: "Transporte público en Valencia: guía práctica", description: "Metro, autobús, tranvía y títulos SUMA: cómo moverte por Valencia, llegar desde el aeropuerto y elegir billete sin pagar de más.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/transporte-publico-valencia.jpg", type: "article", date: "2026-08-14" },
   "/blog/que-es-horchata-valenciana": { title: "Qué es la horchata valenciana y cómo se toma", description: "Qué lleva la horchata valenciana, por qué se hace con chufa, cómo se toma con fartons y qué mirar para elegir una auténtica.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/horchata-valenciana.jpg", type: "article", date: "2026-08-13" },
   "/restaurantes/mila": { title: "Mila Restaurante Valencia: carta, precio y reservas", description: "Ficha de Mila Restaurante en Valencia: ubicación, precio orientativo, qué pedir, contacto y enlace oficial para reservar mesa.", image: defaultImage },
   "/restaurantes/el-porteno": { title: "El Porteño Valencia: carta, precio y reservas", description: "Ficha de El Porteño en Valencia: parrilla argentina, carta, precios orientativos, dirección, contacto y reserva oficial.", image: defaultImage },
@@ -50,16 +54,18 @@ const sitemapEntries = [
   ["/restaurantes/asador-el-argentino", "monthly", "0.8"],
   ["/restaurantes/gordon-10", "monthly", "0.8"],
   ["/restaurantes/la-parrilleta", "monthly", "0.8"],
+  ["/restaurantes/bataraza-bodegon", "monthly", "0.8"],
   ...["historia-del-mate", "bandera-argentina-color-cielo", "valencianos-y-argentinos-historia", "truc-o-truco", "cortes-carne-argentina", "pedir-en-parrilla-argentina"].map((slug) => [`/blog/${slug}`, "monthly", "0.7"]),
   ["/blog/eclipse-solar-valencia-2026", "weekly", "0.8"],
   ["/blog/que-es-horchata-valenciana", "monthly", "0.8"],
   ["/guias/valencia-recien-llegados", "monthly", "0.7"],
   ["/guias/tomatina-bunol-2026", "weekly", "0.7"]
   ,["/guias/empadronamiento-valencia", "monthly", "0.8"]
+  ,["/guias/transporte-publico-valencia", "monthly", "0.8"]
 ];
 
 function renderSitemap() {
-  const lastModified = "2026-08-13";
+  const lastModified = "2026-08-14";
   const urls = sitemapEntries.map(([path, changefreq, priority]) => `\n  <url><loc>${canonicalSite}${path}</loc><lastmod>${lastModified}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
 }
@@ -135,6 +141,9 @@ export default async function handler(request, context) {
   if (path === "/guias/empadronamiento-valencia") {
     return new Response(applySeo(renderEmpadronamientoGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
+  if (path === "/guias/transporte-publico-valencia") {
+    return new Response(applySeo(renderTransporteGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
   if (path === "/restaurantes/asador-el-argentino") {
     return new Response(applySeo(renderAsadorElArgentino(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
@@ -143,6 +152,9 @@ export default async function handler(request, context) {
   }
   if (path === "/restaurantes/la-parrilleta") {
     return new Response(applySeo(renderLaParrilleta(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
+  if (path === "/restaurantes/bataraza-bodegon") {
+    return new Response(applySeo(renderBatarazaBodegon(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/eclipse-solar-valencia-2026") {
     return new Response(applySeo(renderEclipseArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
@@ -199,29 +211,31 @@ export default async function handler(request, context) {
       .replace("<p>La referencia disponible es de 30–45 € por persona</p>", "<p>La carta oficial permite estimar un rango de 30–45 € por persona, pero el total cambia según el corte y lo que se comparta</p>")
       .replace("<p>Podés consultar la disponibilidad desde la web oficial del restaurante</p>", '<p>Usá el sistema de reserva enlazado desde la web oficial o llamá al +34 655 91 68 97</p>')
       .replace("<p class=\"detail-source\">Precio, valoración y carta consultados en agosto de 2026. Las condiciones y disponibilidad pueden cambiar</p>", '<p class="detail-source"><strong>Última verificación: 10 de agosto de 2026</strong><br>Fuentes: <a href="https://elporteno.es/" target="_blank" rel="noopener">web oficial</a>, <a href="https://elporteno.es/wp-content/uploads/2026/02/Carta-El-Porteno-2026.pdf" target="_blank" rel="noopener">carta 2026</a>, <a href="https://www.instagram.com/elportenoasador/" target="_blank" rel="noopener">Instagram oficial</a>, <a href="https://www.visitvalencia.com/en/what-to-do-valencia/gastronomy/where-to-eat-restaurant-valencia/porteno" target="_blank" rel="noopener">Visit València</a> y <a href="https://elporteno.es/wp-content/uploads/2021/05/BIFE-A-LA-PARRILLA-WEB-EL-PORTEN%CC%83O.jpg" target="_blank" rel="noopener">fuente de la imagen</a></p>')
-      .replace("<a href=\"/guias\">Guías de Valencia</a>", '<a href="/guias/tomatina-bunol-2026">Guía de La Tomatina 2026</a>');
+      .replace("<a href=\"/guias\">Guías de Valencia</a>", '<a href="/restaurantes/bataraza-bodegon">Bataraza Bodegón en el centro</a><a href="/guias/transporte-publico-valencia">Cómo moverte por Valencia</a>');
   }
   const newRestaurantDirectoryCard = '<a class="r-card" href="/restaurantes/asador-el-argentino"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg" alt="Carnes del Asador El Argentino en Valencia" loading="lazy"><div><p class="eyebrow">MONTEOLIVETE · 16–28 €</p><h2>Asador El Argentino</h2><p>Parrilla argentina informal con carnes, empanadas y eventos anunciados por el local</p><span>Ver ficha →</span></div></a>';
   const gordonDirectoryCard = '<a class="r-card" href="/restaurantes/gordon-10"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg" alt="Interior del restaurante Gordon 10 en Cánovas" loading="lazy"><div><p class="eyebrow">CÁNOVAS · 43–60 €</p><h2>Gordon 10</h2><p>Parrilla veterana con cortes, menús cerrados y vinos argentinos</p><span>Ver ficha →</span></div></a>';
   const parrilletaDirectoryCard = '<a class="r-card" href="/restaurantes/la-parrilleta"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg" alt="Salón de La Parrilleta en Cánovas" loading="lazy"><div><p class="eyebrow">CÁNOVAS · 18–37 €</p><h2>La Parrilleta</h2><p>Asador con carne, pulpo, menús para compartir y alternativa vegana publicada</p><span>Ver ficha →</span></div></a>';
+  const batarazaDirectoryCard = '<a class="r-card" href="/restaurantes/bataraza-bodegon"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bataraza-bodegon.jpg" alt="Mesa con platos argentinos en Bataraza Bodegón" loading="lazy"><div><p class="eyebrow">EL PILAR · HASTA 30 €</p><h2>Bataraza Bodegón</h2><p>Bodegón argentino con picoteo, platos de fondo, vinos y coctelería en Ciutat Vella</p><span>Ver ficha →</span></div></a>';
   const newRestaurantHomeCard = '<a class="hn-rest-card" href="/restaurantes/asador-el-argentino"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg" alt="Carnes del Asador El Argentino en Valencia" loading="lazy"><div><p>MONTEOLIVETE · 16–28 €</p><h3>Asador El Argentino</h3><b>Ver ficha →</b></div></a>';
   const gordonHomeCard = '<a class="hn-rest-card" href="/restaurantes/gordon-10"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg" alt="Interior del restaurante Gordon 10 en Cánovas" loading="lazy"><div><p>CÁNOVAS · 43–60 €</p><h3>Gordon 10</h3><b>Ver ficha →</b></div></a>';
   const parrilletaHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-parrilleta"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg" alt="Salón de La Parrilleta en Cánovas" loading="lazy"><div><p>CÁNOVAS · 18–37 €</p><h3>La Parrilleta</h3><b>Ver ficha →</b></div></a>';
+  const batarazaHomeCard = '<a class="hn-rest-card" href="/restaurantes/bataraza-bodegon"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bataraza-bodegon.jpg" alt="Mesa con platos argentinos en Bataraza Bodegón" loading="lazy"><div><p>EL PILAR · HASTA 30 €</p><h3>Bataraza Bodegón</h3><b>Ver ficha →</b></div></a>';
   const newArticleCard = '<a class="article-card" href="/blog/eclipse-solar-valencia-2026"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg" alt="Eclipse solar total sobre la playa de València" loading="lazy"><span>ACTUALIDAD LOCAL</span></div><div class="article-card-copy"><p>5 MIN DE LECTURA</p><h2>Eclipse solar en Valencia 2026: hora, lugar y seguridad</h2><span>Cómo organizar la observación del 12 de agosto con fuentes oficiales y sin arriesgar la vista</span><b>Leer artículo <i>→</i></b></div></a>';
   const horchataArticleCard = '<a class="article-card" href="/blog/que-es-horchata-valenciana"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/horchata-valenciana.jpg" alt="Vaso de horchata valenciana con fartons" loading="lazy"><span>GASTRONOMÍA VALENCIANA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Qué es la horchata valenciana y cómo se toma</h2><span>Chufa, fartons, tipos y claves para elegir un vaso con origen reconocido</span><b>Leer artículo <i>→</i></b></div></a>';
   if (path === "/restaurantes") {
-    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
+    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
   }
   if (path === "/blog") {
     enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${horchataArticleCard}${newArticleCard}`);
   }
   if (path === "/") {
     enriched = enriched
-      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
+      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
       .replace('<div class="hn-articles">', `<div class="hn-articles">${horchataArticleCard}${newArticleCard}`)
-      .replace("Valencia para recién llegados", "Cómo empadronarte en Valencia")
-      .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Documentos, cita y pasos para resolver el padrón municipal sin llevar papeles de menos")
-      .replace('href="/guias">Leer la guía →', 'href="/guias/empadronamiento-valencia">Leer la guía →');
+      .replace("Valencia para recién llegados", "Transporte público en Valencia")
+      .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Metro, autobús, tranvía, SUMA y aeropuerto para moverte sin pagar viajes innecesarios")
+      .replace('href="/guias">Leer la guía →', 'href="/guias/transporte-publico-valencia">Leer la guía →');
   }
   enriched = enriched.replace("</head>", `${imageConsistency}<style>.article-context{margin:34px 0;border-top:3px solid #ffc449;padding-top:18px;display:grid;gap:9px}.article-context p{grid-column:1/-1;margin:0;color:#87300c;font-size:11px;font-weight:900;letter-spacing:.1em}.article-context a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#e8f4fb;color:#402914;text-decoration:none;font-weight:800}.article-context a span{color:#3f86b5}.article-inline-link{background:#fff7e5!important;border-left-color:#ffc449!important}.article-inline-link a{color:#87300c;font-weight:800}.cut-infographic{display:none!important}.cuts-figure{margin:24px 0;border:1px solid #e7c067;background:#fffdf8}.cuts-figure img{display:block;width:100%;height:auto}.cuts-figure figcaption{padding:10px 14px;color:#6b5a48;font-size:13px;line-height:1.4}@media(max-width:560px){.article-context a{font-size:14px}}</style></head>`);
   return new Response(applySeo(enriched, path), response);

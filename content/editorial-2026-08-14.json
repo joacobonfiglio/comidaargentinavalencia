@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-14",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar Bataraza Bodegón antes de reservar en el centro de Valencia",
+    "keyword": "Bataraza Bodegón Valencia",
+    "secondaryKeywords": ["restaurante argentino centro Valencia", "Bataraza carta", "Bataraza reservas", "bodegón argentino Valencia", "vino argentino Valencia"],
+    "slug": "bataraza-bodegon",
+    "seoTitle": "Bataraza Bodegón Valencia: carta y reserva",
+    "metaDescription": "Ficha de Bataraza Bodegón: carta argentina, precio orientativo, dirección, vinos, qué pedir y qué confirmar antes de reservar.",
+    "imageSource": "https://bataraza.com/wp-content/uploads/2025/12/comida-argentina-grupo.jpg"
+  },
+  "editorial": {
+    "type": "guía",
+    "intent": "Elegir transporte y título para moverse por Valencia sin pagar viajes innecesarios",
+    "keyword": "transporte público Valencia",
+    "secondaryKeywords": ["metro Valencia", "autobús Valencia", "tarjeta SUMA Valencia", "transporte aeropuerto Valencia", "cómo moverse por Valencia"],
+    "slug": "transporte-publico-valencia",
+    "seoTitle": "Transporte público en Valencia: guía práctica",
+    "metaDescription": "Metro, autobús, tranvía y títulos SUMA: cómo moverte por Valencia, llegar desde el aeropuerto y elegir billete sin pagar de más.",
+    "imageSource": "Imagen editorial original generada para la guía"
+  }
+}
