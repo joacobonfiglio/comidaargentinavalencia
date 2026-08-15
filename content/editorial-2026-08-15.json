@@ -1,0 +1,24 @@
+{
+  "date": "2026-08-15",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar La Diez antes de comer milanesas argentinas en Valencia",
+    "keyword": "La Diez milanesas Valencia",
+    "secondaryKeywords": ["milanesa argentina Valencia", "La Diez carta", "La Diez reservas", "restaurante argentino Mestalla", "milanesa napolitana Valencia"],
+    "slug": "la-diez-milanesas",
+    "seoTitle": "La Diez Valencia: milanesas, carta y reserva",
+    "metaDescription": "Ficha de La Diez en Valencia: milanesas, carta y precios, dirección, reservas, qué pedir y datos comprobados antes de ir.",
+    "imageSource": "https://www.ladiezmilanesas.es/wp-content/uploads/2025/12/Milanesa-Napolitana-con-jamon_1.jpg",
+    "imageCredit": "© Alex DelaRoots según metadatos EXIF del original"
+  },
+  "editorial": {
+    "type": "artículo",
+    "intent": "Entender qué es el fernet con coca, su vínculo con Argentina y cómo se sirve",
+    "keyword": "fernet con coca",
+    "secondaryKeywords": ["qué es el fernet", "cómo preparar fernet con coca", "fernet argentino", "proporción fernet con coca", "fernet en Valencia"],
+    "slug": "fernet-con-coca",
+    "seoTitle": "Fernet con coca: qué es y cómo se prepara",
+    "metaDescription": "Qué es el fernet con coca, por qué es un clásico argentino, cómo ajustar la proporción y dónde encontrarlo en Valencia.",
+    "imageSource": "Imagen editorial original generada para el artículo"
+  }
+}

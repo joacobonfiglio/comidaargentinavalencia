@@ -9,6 +9,8 @@ import { renderLaParrilleta } from "../content/la-parrilleta.js";
 import { renderHorchataArticle } from "../content/horchata-valenciana.js";
 import { renderBatarazaBodegon } from "../content/bataraza-bodegon.js";
 import { renderTransporteGuide } from "../content/transporte-publico-valencia.js";
+import { renderLaDiez } from "../content/la-diez-milanesas.js";
+import { renderFernetArticle } from "../content/fernet-con-coca.js";
 
 export const config = { runtime: "edge" };
 
@@ -25,10 +27,12 @@ const seoPages = {
   "/restaurantes/gordon-10": { title: "Gordon 10 Valencia: carta, precio y reservas", description: "Ficha de Gordon 10 en Cánovas: carta oficial, menús, precio orientativo, dirección, horario, reserva y qué conviene saber antes de ir", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg", type: "restaurant", date: "2026-08-12", restaurant: { name: "Gordon 10", telephone: "+34 963 74 07 87", streetAddress: "Calle Conde de Altea, 49", postalCode: "46005", sameAs: ["https://www.gordon10.com/", "https://www.instagram.com/restaurantegordon10valencia/"] } },
   "/restaurantes/la-parrilleta": { title: "La Parrilleta Valencia: carta, precio y reserva", description: "Ficha de La Parrilleta en Cánovas: carta, precio orientativo, horarios, qué pedir, opciones confirmadas y reserva.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg", type: "restaurant", date: "2026-08-13", restaurant: { name: "La Parrilleta", telephone: "+34 962 35 30 07", streetAddress: "Carrer de Salamanca, 14", postalCode: "46005", sameAs: ["https://laparrilleta.es/", "https://www.instagram.com/laparrilleta/"] } },
   "/restaurantes/bataraza-bodegon": { title: "Bataraza Bodegón Valencia: carta y reserva", description: "Ficha de Bataraza Bodegón: carta argentina, precio orientativo, dirección, vinos, qué pedir y qué confirmar antes de reservar.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bataraza-bodegon.jpg", type: "restaurant", date: "2026-08-14", restaurant: { name: "Bataraza Bodegón", telephone: "+34 625 31 30 14", streetAddress: "C. del Hospital, 18", postalCode: "46001", sameAs: ["https://bataraza.com/", "https://www.instagram.com/batarazabodegon/"] } },
+  "/restaurantes/la-diez-milanesas": { title: "La Diez Valencia: milanesas, carta y reserva", description: "Ficha de La Diez en Valencia: milanesas, carta y precios, dirección, reservas, qué pedir y datos comprobados antes de ir.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-diez-milanesas.jpg", type: "restaurant", date: "2026-08-15", restaurant: { name: "La Diez", telephone: "+34 609 83 03 31", streetAddress: "Carrer d’Armando Palacio Valdés, 1", postalCode: "46010", sameAs: ["https://www.ladiezmilanesas.es/", "https://www.instagram.com/ladiezmilanesas/"] } },
   "/blog/eclipse-solar-valencia-2026": { title: "Eclipse solar en Valencia 2026: cómo verlo", description: "Hora, seguridad y lugar oficial para ver el eclipse solar del 12 de agosto de 2026 en València sin dañar la vista ni improvisar", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg", type: "article", date: "2026-08-11" },
   "/guias/empadronamiento-valencia": { title: "Empadronamiento en Valencia: guía paso a paso", description: "Documentos, cita, oficinas y pasos para empadronarte en Valencia, con información oficial y casos de alquiler o vivienda ajena", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/empadronamiento-valencia.jpg", type: "article", date: "2026-08-12" },
   "/guias/transporte-publico-valencia": { title: "Transporte público en Valencia: guía práctica", description: "Metro, autobús, tranvía y títulos SUMA: cómo moverte por Valencia, llegar desde el aeropuerto y elegir billete sin pagar de más.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/transporte-publico-valencia.jpg", type: "article", date: "2026-08-14" },
   "/blog/que-es-horchata-valenciana": { title: "Qué es la horchata valenciana y cómo se toma", description: "Qué lleva la horchata valenciana, por qué se hace con chufa, cómo se toma con fartons y qué mirar para elegir una auténtica.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/horchata-valenciana.jpg", type: "article", date: "2026-08-13" },
+  "/blog/fernet-con-coca": { title: "Fernet con coca: qué es y cómo se prepara", description: "Qué es el fernet con coca, por qué es un clásico argentino, cómo ajustar la proporción y dónde encontrarlo en Valencia.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/fernet-con-coca.jpg", type: "article", date: "2026-08-15" },
   "/restaurantes/mila": { title: "Mila Restaurante Valencia: carta, precio y reservas", description: "Ficha de Mila Restaurante en Valencia: ubicación, precio orientativo, qué pedir, contacto y enlace oficial para reservar mesa.", image: defaultImage },
   "/restaurantes/el-porteno": { title: "El Porteño Valencia: carta, precio y reservas", description: "Ficha de El Porteño en Valencia: parrilla argentina, carta, precios orientativos, dirección, contacto y reserva oficial.", image: defaultImage },
   "/restaurantes/cruz-pampa": { title: "Cruz Pampa Valencia: parrilla argentina y carta", description: "Ficha de Cruz Pampa en Valencia: parrilla argentina, ubicación, precio orientativo, platos recomendados y web oficial.", image: defaultImage },
@@ -55,9 +59,11 @@ const sitemapEntries = [
   ["/restaurantes/gordon-10", "monthly", "0.8"],
   ["/restaurantes/la-parrilleta", "monthly", "0.8"],
   ["/restaurantes/bataraza-bodegon", "monthly", "0.8"],
+  ["/restaurantes/la-diez-milanesas", "monthly", "0.8"],
   ...["historia-del-mate", "bandera-argentina-color-cielo", "valencianos-y-argentinos-historia", "truc-o-truco", "cortes-carne-argentina", "pedir-en-parrilla-argentina"].map((slug) => [`/blog/${slug}`, "monthly", "0.7"]),
   ["/blog/eclipse-solar-valencia-2026", "weekly", "0.8"],
   ["/blog/que-es-horchata-valenciana", "monthly", "0.8"],
+  ["/blog/fernet-con-coca", "monthly", "0.8"],
   ["/guias/valencia-recien-llegados", "monthly", "0.7"],
   ["/guias/tomatina-bunol-2026", "weekly", "0.7"]
   ,["/guias/empadronamiento-valencia", "monthly", "0.8"]
@@ -65,7 +71,7 @@ const sitemapEntries = [
 ];
 
 function renderSitemap() {
-  const lastModified = "2026-08-14";
+  const lastModified = "2026-08-15";
   const urls = sitemapEntries.map(([path, changefreq, priority]) => `\n  <url><loc>${canonicalSite}${path}</loc><lastmod>${lastModified}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
 }
@@ -154,13 +160,19 @@ export default async function handler(request, context) {
     return new Response(applySeo(renderLaParrilleta(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/restaurantes/bataraza-bodegon") {
-    return new Response(applySeo(renderBatarazaBodegon(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderBatarazaBodegon().replace('Fernet con Coca.', '<a href="/blog/fernet-con-coca">Fernet con Coca</a>.'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
+  if (path === "/restaurantes/la-diez-milanesas") {
+    return new Response(applySeo(renderLaDiez().replace("Ternera, cerdo ibérico, pollo o berenjena", "Ternera, cerdo ibérico o berenjena"), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/eclipse-solar-valencia-2026") {
     return new Response(applySeo(renderEclipseArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/que-es-horchata-valenciana") {
     return new Response(applySeo(renderHorchataArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
+  if (path === "/blog/fernet-con-coca") {
+    return new Response(applySeo(renderFernetArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   const response = await site.fetch(request, {}, context);
   const type = response.headers.get("content-type") || "";
@@ -173,7 +185,7 @@ export default async function handler(request, context) {
     "/blog/valencianos-y-argentinos-historia": [["/guias/valencia-recien-llegados", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"], ["/blog/que-es-horchata-valenciana", "Qué es la horchata valenciana"]],
     "/blog/truc-o-truco": [["/blog/historia-del-mate", "La historia del mate"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"]],
     "/blog/cortes-carne-argentina": [["/blog/pedir-en-parrilla-argentina", "Cómo pedir en una parrilla argentina"], ["/restaurantes/gordon-10", "Gordon 10 en Cánovas"], ["/restaurantes/la-parrilleta", "La Parrilleta en Cánovas"]],
-    "/blog/pedir-en-parrilla-argentina": [["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes/asador-el-argentino", "Asador El Argentino en Monteolivete"], ["/restaurantes/la-parrilleta", "La Parrilleta en Cánovas"]]
+    "/blog/pedir-en-parrilla-argentina": [["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes/la-diez-milanesas", "La Diez: casa de milanesas"], ["/restaurantes/la-parrilleta", "La Parrilleta en Cánovas"]]
   };
   const fallbackImages = {
     "/blog/pedir-en-parrilla-argentina": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1400&q=85"
@@ -217,22 +229,25 @@ export default async function handler(request, context) {
   const gordonDirectoryCard = '<a class="r-card" href="/restaurantes/gordon-10"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg" alt="Interior del restaurante Gordon 10 en Cánovas" loading="lazy"><div><p class="eyebrow">CÁNOVAS · 43–60 €</p><h2>Gordon 10</h2><p>Parrilla veterana con cortes, menús cerrados y vinos argentinos</p><span>Ver ficha →</span></div></a>';
   const parrilletaDirectoryCard = '<a class="r-card" href="/restaurantes/la-parrilleta"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg" alt="Salón de La Parrilleta en Cánovas" loading="lazy"><div><p class="eyebrow">CÁNOVAS · 18–37 €</p><h2>La Parrilleta</h2><p>Asador con carne, pulpo, menús para compartir y alternativa vegana publicada</p><span>Ver ficha →</span></div></a>';
   const batarazaDirectoryCard = '<a class="r-card" href="/restaurantes/bataraza-bodegon"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bataraza-bodegon.jpg" alt="Mesa con platos argentinos en Bataraza Bodegón" loading="lazy"><div><p class="eyebrow">EL PILAR · HASTA 30 €</p><h2>Bataraza Bodegón</h2><p>Bodegón argentino con picoteo, platos de fondo, vinos y coctelería en Ciutat Vella</p><span>Ver ficha →</span></div></a>';
+  const laDiezDirectoryCard = '<a class="r-card" href="/restaurantes/la-diez-milanesas"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-diez-milanesas.jpg" alt="Milanesa napolitana con jamón de La Diez" loading="lazy"><div><p class="eyebrow">EXPOSICIÓ · 20 €</p><h2>La Diez</h2><p>Casa de milanesas argentinas con versiones clásicas, napolitana, fugazzeta y postres</p><span>Ver ficha →</span></div></a>';
   const newRestaurantHomeCard = '<a class="hn-rest-card" href="/restaurantes/asador-el-argentino"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg" alt="Carnes del Asador El Argentino en Valencia" loading="lazy"><div><p>MONTEOLIVETE · 16–28 €</p><h3>Asador El Argentino</h3><b>Ver ficha →</b></div></a>';
   const gordonHomeCard = '<a class="hn-rest-card" href="/restaurantes/gordon-10"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg" alt="Interior del restaurante Gordon 10 en Cánovas" loading="lazy"><div><p>CÁNOVAS · 43–60 €</p><h3>Gordon 10</h3><b>Ver ficha →</b></div></a>';
   const parrilletaHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-parrilleta"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg" alt="Salón de La Parrilleta en Cánovas" loading="lazy"><div><p>CÁNOVAS · 18–37 €</p><h3>La Parrilleta</h3><b>Ver ficha →</b></div></a>';
   const batarazaHomeCard = '<a class="hn-rest-card" href="/restaurantes/bataraza-bodegon"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bataraza-bodegon.jpg" alt="Mesa con platos argentinos en Bataraza Bodegón" loading="lazy"><div><p>EL PILAR · HASTA 30 €</p><h3>Bataraza Bodegón</h3><b>Ver ficha →</b></div></a>';
+  const laDiezHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-diez-milanesas"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-diez-milanesas.jpg" alt="Milanesa napolitana con jamón de La Diez" loading="lazy"><div><p>EXPOSICIÓ · 20 €</p><h3>La Diez</h3><b>Ver ficha →</b></div></a>';
   const newArticleCard = '<a class="article-card" href="/blog/eclipse-solar-valencia-2026"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg" alt="Eclipse solar total sobre la playa de València" loading="lazy"><span>ACTUALIDAD LOCAL</span></div><div class="article-card-copy"><p>5 MIN DE LECTURA</p><h2>Eclipse solar en Valencia 2026: hora, lugar y seguridad</h2><span>Cómo organizar la observación del 12 de agosto con fuentes oficiales y sin arriesgar la vista</span><b>Leer artículo <i>→</i></b></div></a>';
   const horchataArticleCard = '<a class="article-card" href="/blog/que-es-horchata-valenciana"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/horchata-valenciana.jpg" alt="Vaso de horchata valenciana con fartons" loading="lazy"><span>GASTRONOMÍA VALENCIANA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Qué es la horchata valenciana y cómo se toma</h2><span>Chufa, fartons, tipos y claves para elegir un vaso con origen reconocido</span><b>Leer artículo <i>→</i></b></div></a>';
+  const fernetArticleCard = '<a class="article-card" href="/blog/fernet-con-coca"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/fernet-con-coca.jpg" alt="Vaso alto de fernet con cola y hielo" loading="lazy"><span>CULTURA ARGENTINA</span></div><div class="article-card-copy"><p>6 MIN DE LECTURA</p><h2>Fernet con coca: qué es y cómo se prepara</h2><span>Origen, vínculo con Córdoba, preparación flexible y dónde encontrarlo en Valencia</span><b>Leer artículo <i>→</i></b></div></a>';
   if (path === "/restaurantes") {
-    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
+    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${laDiezDirectoryCard}${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
   }
   if (path === "/blog") {
-    enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${horchataArticleCard}${newArticleCard}`);
+    enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${fernetArticleCard}${horchataArticleCard}${newArticleCard}`);
   }
   if (path === "/") {
     enriched = enriched
-      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
-      .replace('<div class="hn-articles">', `<div class="hn-articles">${horchataArticleCard}${newArticleCard}`)
+      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${laDiezHomeCard}${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
+      .replace('<div class="hn-articles">', `<div class="hn-articles">${fernetArticleCard}${horchataArticleCard}${newArticleCard}`)
       .replace("Valencia para recién llegados", "Transporte público en Valencia")
       .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Metro, autobús, tranvía, SUMA y aeropuerto para moverte sin pagar viajes innecesarios")
       .replace('href="/guias">Leer la guía →', 'href="/guias/transporte-publico-valencia">Leer la guía →');
