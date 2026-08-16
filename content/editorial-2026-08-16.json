@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-16",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar Culture antes de comer o reservar en Ruzafa",
+    "keyword": "Culture Ruzafa Valencia",
+    "secondaryKeywords": ["restaurante argentino italiano Ruzafa", "Culture Valencia carta", "Culture reservas", "pizzería argentina Valencia", "empanadas argentinas Ruzafa"],
+    "slug": "culture-ruzafa",
+    "seoTitle": "Culture Ruzafa: carta, precio y reservas",
+    "metaDescription": "Ficha de Culture en Ruzafa: propuesta italiano-argentina, carta, precio orientativo, dirección, terraza y qué confirmar antes de ir.",
+    "imageSource": "https://culturestation.es/wp-content/uploads/2024/09/culture-pizzeria-italiano-argentina-valencia.jpg"
+  },
+  "editorial": {
+    "type": "guía",
+    "intent": "Encontrar tiendas físicas y online con productos argentinos en Valencia",
+    "keyword": "productos argentinos Valencia",
+    "secondaryKeywords": ["tienda argentina Valencia", "dónde comprar yerba mate Valencia", "alfajores argentinos Valencia", "dulce de leche Valencia", "comprar mate Valencia"],
+    "slug": "productos-argentinos-valencia",
+    "seoTitle": "Dónde comprar productos argentinos en Valencia",
+    "metaDescription": "Tiendas de productos argentinos en Valencia: yerba, mates, alfajores, dulce de leche y opciones online, con direcciones verificadas.",
+    "imageSource": "Imagen editorial original creada para esta guía"
+  }
+}

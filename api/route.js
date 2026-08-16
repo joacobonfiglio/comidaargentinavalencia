@@ -11,6 +11,8 @@ import { renderBatarazaBodegon } from "../content/bataraza-bodegon.js";
 import { renderTransporteGuide } from "../content/transporte-publico-valencia.js";
 import { renderLaDiez } from "../content/la-diez-milanesas.js";
 import { renderFernetArticle } from "../content/fernet-con-coca.js";
+import { renderCulture } from "../content/culture-ruzafa.js";
+import { renderProductosArgentinosGuide } from "../content/productos-argentinos-valencia.js";
 
 export const config = { runtime: "edge" };
 
@@ -28,11 +30,13 @@ const seoPages = {
   "/restaurantes/la-parrilleta": { title: "La Parrilleta Valencia: carta, precio y reserva", description: "Ficha de La Parrilleta en Cánovas: carta, precio orientativo, horarios, qué pedir, opciones confirmadas y reserva.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg", type: "restaurant", date: "2026-08-13", restaurant: { name: "La Parrilleta", telephone: "+34 962 35 30 07", streetAddress: "Carrer de Salamanca, 14", postalCode: "46005", sameAs: ["https://laparrilleta.es/", "https://www.instagram.com/laparrilleta/"] } },
   "/restaurantes/bataraza-bodegon": { title: "Bataraza Bodegón Valencia: carta y reserva", description: "Ficha de Bataraza Bodegón: carta argentina, precio orientativo, dirección, vinos, qué pedir y qué confirmar antes de reservar.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bataraza-bodegon.jpg", type: "restaurant", date: "2026-08-14", restaurant: { name: "Bataraza Bodegón", telephone: "+34 625 31 30 14", streetAddress: "C. del Hospital, 18", postalCode: "46001", sameAs: ["https://bataraza.com/", "https://www.instagram.com/batarazabodegon/"] } },
   "/restaurantes/la-diez-milanesas": { title: "La Diez Valencia: milanesas, carta y reserva", description: "Ficha de La Diez en Valencia: milanesas, carta y precios, dirección, reservas, qué pedir y datos comprobados antes de ir.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-diez-milanesas.jpg", type: "restaurant", date: "2026-08-15", restaurant: { name: "La Diez", telephone: "+34 609 83 03 31", streetAddress: "Carrer d’Armando Palacio Valdés, 1", postalCode: "46010", sameAs: ["https://www.ladiezmilanesas.es/", "https://www.instagram.com/ladiezmilanesas/"] } },
+  "/restaurantes/culture-ruzafa": { title: "Culture Ruzafa: carta, precio y reservas", description: "Ficha de Culture en Ruzafa: propuesta italiano-argentina, carta, precio orientativo, dirección, terraza y qué confirmar antes de ir.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/culture-ruzafa.jpg", type: "restaurant", date: "2026-08-16", restaurant: { name: "Culture", telephone: "+34 960 833 481", streetAddress: "Calle Puerto Rico, 16", postalCode: "46006", sameAs: ["https://culturestation.es/", "https://www.instagram.com/culture.ruzafa/"] } },
   "/blog/eclipse-solar-valencia-2026": { title: "Eclipse solar en Valencia 2026: cómo verlo", description: "Hora, seguridad y lugar oficial para ver el eclipse solar del 12 de agosto de 2026 en València sin dañar la vista ni improvisar", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg", type: "article", date: "2026-08-11" },
   "/guias/empadronamiento-valencia": { title: "Empadronamiento en Valencia: guía paso a paso", description: "Documentos, cita, oficinas y pasos para empadronarte en Valencia, con información oficial y casos de alquiler o vivienda ajena", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/empadronamiento-valencia.jpg", type: "article", date: "2026-08-12" },
   "/guias/transporte-publico-valencia": { title: "Transporte público en Valencia: guía práctica", description: "Metro, autobús, tranvía y títulos SUMA: cómo moverte por Valencia, llegar desde el aeropuerto y elegir billete sin pagar de más.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/transporte-publico-valencia.jpg", type: "article", date: "2026-08-14" },
   "/blog/que-es-horchata-valenciana": { title: "Qué es la horchata valenciana y cómo se toma", description: "Qué lleva la horchata valenciana, por qué se hace con chufa, cómo se toma con fartons y qué mirar para elegir una auténtica.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/horchata-valenciana.jpg", type: "article", date: "2026-08-13" },
   "/blog/fernet-con-coca": { title: "Fernet con coca: qué es y cómo se prepara", description: "Qué es el fernet con coca, por qué es un clásico argentino, cómo ajustar la proporción y dónde encontrarlo en Valencia.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/fernet-con-coca.jpg", type: "article", date: "2026-08-15" },
+  "/guias/productos-argentinos-valencia": { title: "Dónde comprar productos argentinos en Valencia", description: "Tiendas de productos argentinos en Valencia: yerba, mates, alfajores, dulce de leche y opciones online, con direcciones verificadas.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/productos-argentinos-valencia.jpg", type: "article", date: "2026-08-16" },
   "/restaurantes/mila": { title: "Mila Restaurante Valencia: carta, precio y reservas", description: "Ficha de Mila Restaurante en Valencia: ubicación, precio orientativo, qué pedir, contacto y enlace oficial para reservar mesa.", image: defaultImage },
   "/restaurantes/el-porteno": { title: "El Porteño Valencia: carta, precio y reservas", description: "Ficha de El Porteño en Valencia: parrilla argentina, carta, precios orientativos, dirección, contacto y reserva oficial.", image: defaultImage },
   "/restaurantes/cruz-pampa": { title: "Cruz Pampa Valencia: parrilla argentina y carta", description: "Ficha de Cruz Pampa en Valencia: parrilla argentina, ubicación, precio orientativo, platos recomendados y web oficial.", image: defaultImage },
@@ -60,6 +64,7 @@ const sitemapEntries = [
   ["/restaurantes/la-parrilleta", "monthly", "0.8"],
   ["/restaurantes/bataraza-bodegon", "monthly", "0.8"],
   ["/restaurantes/la-diez-milanesas", "monthly", "0.8"],
+  ["/restaurantes/culture-ruzafa", "monthly", "0.8"],
   ...["historia-del-mate", "bandera-argentina-color-cielo", "valencianos-y-argentinos-historia", "truc-o-truco", "cortes-carne-argentina", "pedir-en-parrilla-argentina"].map((slug) => [`/blog/${slug}`, "monthly", "0.7"]),
   ["/blog/eclipse-solar-valencia-2026", "weekly", "0.8"],
   ["/blog/que-es-horchata-valenciana", "monthly", "0.8"],
@@ -68,10 +73,11 @@ const sitemapEntries = [
   ["/guias/tomatina-bunol-2026", "weekly", "0.7"]
   ,["/guias/empadronamiento-valencia", "monthly", "0.8"]
   ,["/guias/transporte-publico-valencia", "monthly", "0.8"]
+  ,["/guias/productos-argentinos-valencia", "monthly", "0.8"]
 ];
 
 function renderSitemap() {
-  const lastModified = "2026-08-15";
+  const lastModified = "2026-08-16";
   const urls = sitemapEntries.map(([path, changefreq, priority]) => `\n  <url><loc>${canonicalSite}${path}</loc><lastmod>${lastModified}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
 }
@@ -150,6 +156,9 @@ export default async function handler(request, context) {
   if (path === "/guias/transporte-publico-valencia") {
     return new Response(applySeo(renderTransporteGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
+  if (path === "/guias/productos-argentinos-valencia") {
+    return new Response(applySeo(renderProductosArgentinosGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
   if (path === "/restaurantes/asador-el-argentino") {
     return new Response(applySeo(renderAsadorElArgentino(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
@@ -164,6 +173,9 @@ export default async function handler(request, context) {
   }
   if (path === "/restaurantes/la-diez-milanesas") {
     return new Response(applySeo(renderLaDiez().replace("Ternera, cerdo ibérico, pollo o berenjena", "Ternera, cerdo ibérico o berenjena"), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
+  if (path === "/restaurantes/culture-ruzafa") {
+    return new Response(applySeo(renderCulture(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/eclipse-solar-valencia-2026") {
     return new Response(applySeo(renderEclipseArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
@@ -180,7 +192,7 @@ export default async function handler(request, context) {
 
   const html = await response.text();
   const articleLinks = {
-    "/blog/historia-del-mate": [["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/guias/valencia-recien-llegados", "Guía Valencia para recién llegados"]],
+    "/blog/historia-del-mate": [["/guias/productos-argentinos-valencia", "Dónde comprar yerba y productos argentinos"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/guias/valencia-recien-llegados", "Guía Valencia para recién llegados"]],
     "/blog/bandera-argentina-color-cielo": [["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/blog/historia-del-mate", "La historia del mate"]],
     "/blog/valencianos-y-argentinos-historia": [["/guias/valencia-recien-llegados", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"], ["/blog/que-es-horchata-valenciana", "Qué es la horchata valenciana"]],
     "/blog/truc-o-truco": [["/blog/historia-del-mate", "La historia del mate"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"]],
@@ -230,27 +242,29 @@ export default async function handler(request, context) {
   const parrilletaDirectoryCard = '<a class="r-card" href="/restaurantes/la-parrilleta"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg" alt="Salón de La Parrilleta en Cánovas" loading="lazy"><div><p class="eyebrow">CÁNOVAS · 18–37 €</p><h2>La Parrilleta</h2><p>Asador con carne, pulpo, menús para compartir y alternativa vegana publicada</p><span>Ver ficha →</span></div></a>';
   const batarazaDirectoryCard = '<a class="r-card" href="/restaurantes/bataraza-bodegon"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bataraza-bodegon.jpg" alt="Mesa con platos argentinos en Bataraza Bodegón" loading="lazy"><div><p class="eyebrow">EL PILAR · HASTA 30 €</p><h2>Bataraza Bodegón</h2><p>Bodegón argentino con picoteo, platos de fondo, vinos y coctelería en Ciutat Vella</p><span>Ver ficha →</span></div></a>';
   const laDiezDirectoryCard = '<a class="r-card" href="/restaurantes/la-diez-milanesas"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-diez-milanesas.jpg" alt="Milanesa napolitana con jamón de La Diez" loading="lazy"><div><p class="eyebrow">EXPOSICIÓ · 20 €</p><h2>La Diez</h2><p>Casa de milanesas argentinas con versiones clásicas, napolitana, fugazzeta y postres</p><span>Ver ficha →</span></div></a>';
+  const cultureDirectoryCard = '<a class="r-card" href="/restaurantes/culture-ruzafa"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/culture-ruzafa.jpg" alt="Cocina y emplatado en Culture Ruzafa" loading="lazy"><div><p class="eyebrow">RUZAFA · 10–20 €</p><h2>Culture</h2><p>Restaurante italiano-argentino con empanadas, focaccia, pasta, pizzas y postres caseros</p><span>Ver ficha →</span></div></a>';
   const newRestaurantHomeCard = '<a class="hn-rest-card" href="/restaurantes/asador-el-argentino"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg" alt="Carnes del Asador El Argentino en Valencia" loading="lazy"><div><p>MONTEOLIVETE · 16–28 €</p><h3>Asador El Argentino</h3><b>Ver ficha →</b></div></a>';
   const gordonHomeCard = '<a class="hn-rest-card" href="/restaurantes/gordon-10"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg" alt="Interior del restaurante Gordon 10 en Cánovas" loading="lazy"><div><p>CÁNOVAS · 43–60 €</p><h3>Gordon 10</h3><b>Ver ficha →</b></div></a>';
   const parrilletaHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-parrilleta"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg" alt="Salón de La Parrilleta en Cánovas" loading="lazy"><div><p>CÁNOVAS · 18–37 €</p><h3>La Parrilleta</h3><b>Ver ficha →</b></div></a>';
   const batarazaHomeCard = '<a class="hn-rest-card" href="/restaurantes/bataraza-bodegon"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bataraza-bodegon.jpg" alt="Mesa con platos argentinos en Bataraza Bodegón" loading="lazy"><div><p>EL PILAR · HASTA 30 €</p><h3>Bataraza Bodegón</h3><b>Ver ficha →</b></div></a>';
   const laDiezHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-diez-milanesas"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-diez-milanesas.jpg" alt="Milanesa napolitana con jamón de La Diez" loading="lazy"><div><p>EXPOSICIÓ · 20 €</p><h3>La Diez</h3><b>Ver ficha →</b></div></a>';
+  const cultureHomeCard = '<a class="hn-rest-card" href="/restaurantes/culture-ruzafa"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/culture-ruzafa.jpg" alt="Cocina y emplatado en Culture Ruzafa" loading="lazy"><div><p>RUZAFA · 10–20 €</p><h3>Culture</h3><b>Ver ficha →</b></div></a>';
   const newArticleCard = '<a class="article-card" href="/blog/eclipse-solar-valencia-2026"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg" alt="Eclipse solar total sobre la playa de València" loading="lazy"><span>ACTUALIDAD LOCAL</span></div><div class="article-card-copy"><p>5 MIN DE LECTURA</p><h2>Eclipse solar en Valencia 2026: hora, lugar y seguridad</h2><span>Cómo organizar la observación del 12 de agosto con fuentes oficiales y sin arriesgar la vista</span><b>Leer artículo <i>→</i></b></div></a>';
   const horchataArticleCard = '<a class="article-card" href="/blog/que-es-horchata-valenciana"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/horchata-valenciana.jpg" alt="Vaso de horchata valenciana con fartons" loading="lazy"><span>GASTRONOMÍA VALENCIANA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Qué es la horchata valenciana y cómo se toma</h2><span>Chufa, fartons, tipos y claves para elegir un vaso con origen reconocido</span><b>Leer artículo <i>→</i></b></div></a>';
   const fernetArticleCard = '<a class="article-card" href="/blog/fernet-con-coca"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/fernet-con-coca.jpg" alt="Vaso alto de fernet con cola y hielo" loading="lazy"><span>CULTURA ARGENTINA</span></div><div class="article-card-copy"><p>6 MIN DE LECTURA</p><h2>Fernet con coca: qué es y cómo se prepara</h2><span>Origen, vínculo con Córdoba, preparación flexible y dónde encontrarlo en Valencia</span><b>Leer artículo <i>→</i></b></div></a>';
   if (path === "/restaurantes") {
-    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${laDiezDirectoryCard}${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
+    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${cultureDirectoryCard}${laDiezDirectoryCard}${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
   }
   if (path === "/blog") {
     enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${fernetArticleCard}${horchataArticleCard}${newArticleCard}`);
   }
   if (path === "/") {
     enriched = enriched
-      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${laDiezHomeCard}${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
+      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${cultureHomeCard}${laDiezHomeCard}${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
       .replace('<div class="hn-articles">', `<div class="hn-articles">${fernetArticleCard}${horchataArticleCard}${newArticleCard}`)
-      .replace("Valencia para recién llegados", "Transporte público en Valencia")
-      .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Metro, autobús, tranvía, SUMA y aeropuerto para moverte sin pagar viajes innecesarios")
-      .replace('href="/guias">Leer la guía →', 'href="/guias/transporte-publico-valencia">Leer la guía →');
+      .replace("Valencia para recién llegados", "Productos argentinos en Valencia")
+      .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Tiendas verificadas para buscar yerba, mates, alfajores y dulce de leche por zona")
+      .replace('href="/guias">Leer la guía →', 'href="/guias/productos-argentinos-valencia">Leer la guía →');
   }
   enriched = enriched.replace("</head>", `${imageConsistency}<style>.article-context{margin:34px 0;border-top:3px solid #ffc449;padding-top:18px;display:grid;gap:9px}.article-context p{grid-column:1/-1;margin:0;color:#87300c;font-size:11px;font-weight:900;letter-spacing:.1em}.article-context a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#e8f4fb;color:#402914;text-decoration:none;font-weight:800}.article-context a span{color:#3f86b5}.article-inline-link{background:#fff7e5!important;border-left-color:#ffc449!important}.article-inline-link a{color:#87300c;font-weight:800}.cut-infographic{display:none!important}.cuts-figure{margin:24px 0;border:1px solid #e7c067;background:#fffdf8}.cuts-figure img{display:block;width:100%;height:auto}.cuts-figure figcaption{padding:10px 14px;color:#6b5a48;font-size:13px;line-height:1.4}@media(max-width:560px){.article-context a{font-size:14px}}</style></head>`);
   return new Response(applySeo(enriched, path), response);
