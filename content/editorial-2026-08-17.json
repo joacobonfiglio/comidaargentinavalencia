@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-17",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar Che Tango antes de comer o reservar cerca de la Ciudad de las Artes",
+    "keyword": "Che Tango Valencia",
+    "secondaryKeywords": ["restaurante argentino Avenida de Francia", "Che Tango carta", "Che Tango reservas", "parrillada argentina Valencia", "carne argentina Ciudad de las Artes"],
+    "slug": "che-tango-valencia",
+    "seoTitle": "Che Tango Valencia: carta, precio y reservas",
+    "metaDescription": "Ficha de Che Tango en Valencia: parrilla argentina, carta, precios, dirección, horarios, reserva y qué conviene confirmar antes de ir.",
+    "imageSource": "https://chetango.es/wp-content/uploads/2023/09/IMG-20230807-WA0014.jpg"
+  },
+  "editorial": {
+    "type": "artículo",
+    "intent": "Entender qué se conmemora el 17 de agosto en Argentina y por qué se recuerda a San Martín",
+    "keyword": "qué se conmemora el 17 de agosto",
+    "secondaryKeywords": ["17 de agosto San Martín", "Paso a la Inmortalidad del General San Martín", "José de San Martín", "feriado 17 de agosto", "San Martín en Valencia"],
+    "slug": "17-agosto-san-martin",
+    "seoTitle": "17 de agosto: qué se conmemora en Argentina",
+    "metaDescription": "Qué se conmemora el 17 de agosto en Argentina, por qué se recuerda a San Martín y cómo funciona el feriado nacional en 2026.",
+    "imageSource": "Ilustración editorial original creada para el artículo"
+  }
+}
