@@ -15,6 +15,8 @@ import { renderCulture } from "../content/culture-ruzafa.js";
 import { renderProductosArgentinosGuide } from "../content/productos-argentinos-valencia.js";
 import { renderCheTango } from "../content/che-tango-valencia.js";
 import { renderSanMartinArticle } from "../content/17-agosto-san-martin.js";
+import { renderBarVeni } from "../content/bar-veni-valencia.js";
+import { renderCanjeCarnetGuide } from "../content/canje-carnet-argentino-espana.js";
 
 export const config = { runtime: "edge" };
 
@@ -41,6 +43,8 @@ const seoPages = {
   "/guias/productos-argentinos-valencia": { title: "Dónde comprar productos argentinos en Valencia", description: "Tiendas de productos argentinos en Valencia: yerba, mates, alfajores, dulce de leche y opciones online, con direcciones verificadas.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/productos-argentinos-valencia.jpg", type: "article", date: "2026-08-16" },
   "/restaurantes/che-tango-valencia": { title: "Che Tango Valencia: carta, precio y reservas", description: "Ficha de Che Tango en Valencia: parrilla argentina, carta, precios, dirección, horarios, reserva y qué conviene confirmar antes de ir.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/che-tango-valencia.jpg", type: "restaurant", date: "2026-08-17", restaurant: { name: "Che Tango", telephone: "+34 960 04 84 93", streetAddress: "Av. de França, 65", postalCode: "46023", sameAs: ["https://chetango.es/", "https://www.instagram.com/restaurante_asador_chetango/"] } },
   "/blog/17-agosto-san-martin": { title: "17 de agosto: qué se conmemora en Argentina", description: "Qué se conmemora el 17 de agosto en Argentina, por qué se recuerda a San Martín y cómo funciona el feriado nacional en 2026.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/17-agosto-san-martin.jpg", type: "article", date: "2026-08-17" },
+  "/restaurantes/bar-veni-valencia": { title: "Bar Veni Valencia: carta, precio y reservas", description: "Ficha de Bar Veni en Valencia: milanesas, hamburguesas, precio, dirección, reservas, ambiente y datos comprobados antes de ir.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bar-veni-valencia.jpg", type: "restaurant", date: "2026-08-18", restaurant: { name: "Bar Veni", telephone: "+34 682 89 48 09", streetAddress: "Gran Via del Marqués del Túria, 65", postalCode: "46005", sameAs: ["https://gluckvalencia.eatbu.com/", "https://www.instagram.com/barveni.valencia/"] } },
+  "/guias/canje-carnet-argentino-espana": { title: "Canjear el carnet argentino en España: guía 2026", description: "Requisitos, documentos, tasas y pasos para canjear una licencia argentina en España desde Valencia, con fuentes oficiales actualizadas.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/canje-carnet-argentino-espana.jpg", type: "article", date: "2026-08-18" },
   "/restaurantes/mila": { title: "Mila Restaurante Valencia: carta, precio y reservas", description: "Ficha de Mila Restaurante en Valencia: ubicación, precio orientativo, qué pedir, contacto y enlace oficial para reservar mesa.", image: defaultImage },
   "/restaurantes/el-porteno": { title: "El Porteño Valencia: carta, precio y reservas", description: "Ficha de El Porteño en Valencia: parrilla argentina, carta, precios orientativos, dirección, contacto y reserva oficial.", image: defaultImage },
   "/restaurantes/cruz-pampa": { title: "Cruz Pampa Valencia: parrilla argentina y carta", description: "Ficha de Cruz Pampa en Valencia: parrilla argentina, ubicación, precio orientativo, platos recomendados y web oficial.", image: defaultImage },
@@ -70,6 +74,7 @@ const sitemapEntries = [
   ["/restaurantes/la-diez-milanesas", "monthly", "0.8"],
   ["/restaurantes/culture-ruzafa", "monthly", "0.8"],
   ["/restaurantes/che-tango-valencia", "monthly", "0.8"],
+  ["/restaurantes/bar-veni-valencia", "monthly", "0.8"],
   ...["historia-del-mate", "bandera-argentina-color-cielo", "valencianos-y-argentinos-historia", "truc-o-truco", "cortes-carne-argentina", "pedir-en-parrilla-argentina"].map((slug) => [`/blog/${slug}`, "monthly", "0.7"]),
   ["/blog/eclipse-solar-valencia-2026", "weekly", "0.8"],
   ["/blog/que-es-horchata-valenciana", "monthly", "0.8"],
@@ -80,10 +85,11 @@ const sitemapEntries = [
   ,["/guias/empadronamiento-valencia", "monthly", "0.8"]
   ,["/guias/transporte-publico-valencia", "monthly", "0.8"]
   ,["/guias/productos-argentinos-valencia", "monthly", "0.8"]
+  ,["/guias/canje-carnet-argentino-espana", "monthly", "0.8"]
 ];
 
 function renderSitemap() {
-  const lastModified = "2026-08-17";
+  const lastModified = "2026-08-18";
   const urls = sitemapEntries.map(([path, changefreq, priority]) => `\n  <url><loc>${canonicalSite}${path}</loc><lastmod>${lastModified}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
 }
@@ -157,10 +163,10 @@ export default async function handler(request, context) {
     });
   }
   if (path === "/guias/empadronamiento-valencia") {
-    return new Response(applySeo(renderEmpadronamientoGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderEmpadronamientoGuide().replace('<a href="/guias">Todas las guías prácticas →</a>', '<a href="/guias/canje-carnet-argentino-espana">Canje del carnet argentino →</a><a href="/guias">Todas las guías prácticas →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/guias/transporte-publico-valencia") {
-    return new Response(applySeo(renderTransporteGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderTransporteGuide().replace('<a href="/guias/empadronamiento-valencia">Cómo empadronarte en Valencia →</a>', '<a href="/guias/canje-carnet-argentino-espana">Canje del carnet argentino →</a><a href="/guias/empadronamiento-valencia">Cómo empadronarte en Valencia →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/guias/productos-argentinos-valencia") {
     return new Response(applySeo(renderProductosArgentinosGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
@@ -186,6 +192,12 @@ export default async function handler(request, context) {
   if (path === "/restaurantes/che-tango-valencia") {
     return new Response(applySeo(renderCheTango(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
+  if (path === "/restaurantes/bar-veni-valencia") {
+    return new Response(applySeo(renderBarVeni(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
+  if (path === "/guias/canje-carnet-argentino-espana") {
+    return new Response(applySeo(renderCanjeCarnetGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
   if (path === "/blog/eclipse-solar-valencia-2026") {
     return new Response(applySeo(renderEclipseArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
@@ -193,7 +205,7 @@ export default async function handler(request, context) {
     return new Response(applySeo(renderHorchataArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/fernet-con-coca") {
-    return new Response(applySeo(renderFernetArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderFernetArticle().replace('<a href="/restaurantes/bataraza-bodegon">Bataraza Bodegón en el centro →</a>', '<a href="/restaurantes/bar-veni-valencia">Bar Veni en Cánovas →</a><a href="/restaurantes/bataraza-bodegon">Bataraza Bodegón en el centro →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/17-agosto-san-martin") {
     return new Response(applySeo(renderSanMartinArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
@@ -256,6 +268,7 @@ export default async function handler(request, context) {
   const laDiezDirectoryCard = '<a class="r-card" href="/restaurantes/la-diez-milanesas"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-diez-milanesas.jpg" alt="Milanesa napolitana con jamón de La Diez" loading="lazy"><div><p class="eyebrow">EXPOSICIÓ · 20 €</p><h2>La Diez</h2><p>Casa de milanesas argentinas con versiones clásicas, napolitana, fugazzeta y postres</p><span>Ver ficha →</span></div></a>';
   const cultureDirectoryCard = '<a class="r-card" href="/restaurantes/culture-ruzafa"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/culture-ruzafa.jpg" alt="Cocina y emplatado en Culture Ruzafa" loading="lazy"><div><p class="eyebrow">RUZAFA · 10–20 €</p><h2>Culture</h2><p>Restaurante italiano-argentino con empanadas, focaccia, pasta, pizzas y postres caseros</p><span>Ver ficha →</span></div></a>';
   const cheTangoDirectoryCard = '<a class="r-card" href="/restaurantes/che-tango-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/che-tango-valencia.jpg" alt="Parrillada servida por Che Tango en Valencia" loading="lazy"><div><p class="eyebrow">CAMINS AL GRAU · 25 €</p><h2>Che Tango</h2><p>Parrilla argentina con empanadas, cortes a la brasa, Malbec y postres caseros</p><span>Ver ficha →</span></div></a>';
+  const barVeniDirectoryCard = '<a class="r-card" href="/restaurantes/bar-veni-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bar-veni-valencia.jpg" alt="Plato servido por Bar Veni en Valencia" loading="lazy"><div><p class="eyebrow">CÁNOVAS · 18 €</p><h2>Bar Veni</h2><p>Milanesas, hamburguesas de entraña y pantallas para seguir partidos</p><span>Ver ficha →</span></div></a>';
   const newRestaurantHomeCard = '<a class="hn-rest-card" href="/restaurantes/asador-el-argentino"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg" alt="Carnes del Asador El Argentino en Valencia" loading="lazy"><div><p>MONTEOLIVETE · 16–28 €</p><h3>Asador El Argentino</h3><b>Ver ficha →</b></div></a>';
   const gordonHomeCard = '<a class="hn-rest-card" href="/restaurantes/gordon-10"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg" alt="Interior del restaurante Gordon 10 en Cánovas" loading="lazy"><div><p>CÁNOVAS · 43–60 €</p><h3>Gordon 10</h3><b>Ver ficha →</b></div></a>';
   const parrilletaHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-parrilleta"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg" alt="Salón de La Parrilleta en Cánovas" loading="lazy"><div><p>CÁNOVAS · 18–37 €</p><h3>La Parrilleta</h3><b>Ver ficha →</b></div></a>';
@@ -263,23 +276,24 @@ export default async function handler(request, context) {
   const laDiezHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-diez-milanesas"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-diez-milanesas.jpg" alt="Milanesa napolitana con jamón de La Diez" loading="lazy"><div><p>EXPOSICIÓ · 20 €</p><h3>La Diez</h3><b>Ver ficha →</b></div></a>';
   const cultureHomeCard = '<a class="hn-rest-card" href="/restaurantes/culture-ruzafa"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/culture-ruzafa.jpg" alt="Cocina y emplatado en Culture Ruzafa" loading="lazy"><div><p>RUZAFA · 10–20 €</p><h3>Culture</h3><b>Ver ficha →</b></div></a>';
   const cheTangoHomeCard = '<a class="hn-rest-card" href="/restaurantes/che-tango-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/che-tango-valencia.jpg" alt="Parrillada servida por Che Tango en Valencia" loading="lazy"><div><p>CAMINS AL GRAU · 25 €</p><h3>Che Tango</h3><b>Ver ficha →</b></div></a>';
+  const barVeniHomeCard = '<a class="hn-rest-card" href="/restaurantes/bar-veni-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/bar-veni-valencia.jpg" alt="Plato servido por Bar Veni en Valencia" loading="lazy"><div><p>CÁNOVAS · 18 €</p><h3>Bar Veni</h3><b>Ver ficha →</b></div></a>';
   const newArticleCard = '<a class="article-card" href="/blog/eclipse-solar-valencia-2026"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg" alt="Eclipse solar total sobre la playa de València" loading="lazy"><span>ACTUALIDAD LOCAL</span></div><div class="article-card-copy"><p>5 MIN DE LECTURA</p><h2>Eclipse solar en Valencia 2026: hora, lugar y seguridad</h2><span>Cómo organizar la observación del 12 de agosto con fuentes oficiales y sin arriesgar la vista</span><b>Leer artículo <i>→</i></b></div></a>';
   const horchataArticleCard = '<a class="article-card" href="/blog/que-es-horchata-valenciana"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/horchata-valenciana.jpg" alt="Vaso de horchata valenciana con fartons" loading="lazy"><span>GASTRONOMÍA VALENCIANA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Qué es la horchata valenciana y cómo se toma</h2><span>Chufa, fartons, tipos y claves para elegir un vaso con origen reconocido</span><b>Leer artículo <i>→</i></b></div></a>';
   const fernetArticleCard = '<a class="article-card" href="/blog/fernet-con-coca"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/fernet-con-coca.jpg" alt="Vaso alto de fernet con cola y hielo" loading="lazy"><span>CULTURA ARGENTINA</span></div><div class="article-card-copy"><p>6 MIN DE LECTURA</p><h2>Fernet con coca: qué es y cómo se prepara</h2><span>Origen, vínculo con Córdoba, preparación flexible y dónde encontrarlo en Valencia</span><b>Leer artículo <i>→</i></b></div></a>';
   const sanMartinArticleCard = '<a class="article-card" href="/blog/17-agosto-san-martin"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/17-agosto-san-martin.jpg" alt="Ilustración editorial de San Martín y el cruce de los Andes" loading="lazy"><span>HISTORIA ARGENTINA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>17 de agosto: qué se conmemora en Argentina</h2><span>Por qué se recuerda a San Martín, una cronología breve y cómo funciona el feriado en 2026</span><b>Leer artículo <i>→</i></b></div></a>';
   if (path === "/restaurantes") {
-    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${cheTangoDirectoryCard}${cultureDirectoryCard}${laDiezDirectoryCard}${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
+    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${barVeniDirectoryCard}${cheTangoDirectoryCard}${cultureDirectoryCard}${laDiezDirectoryCard}${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
   }
   if (path === "/blog") {
     enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`);
   }
   if (path === "/") {
     enriched = enriched
-      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${cheTangoHomeCard}${cultureHomeCard}${laDiezHomeCard}${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
+      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${barVeniHomeCard}${cheTangoHomeCard}${cultureHomeCard}${laDiezHomeCard}${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
       .replace('<div class="hn-articles">', `<div class="hn-articles">${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`)
-      .replace("Valencia para recién llegados", "Productos argentinos en Valencia")
-      .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Tiendas verificadas para buscar yerba, mates, alfajores y dulce de leche por zona")
-      .replace('href="/guias">Leer la guía →', 'href="/guias/productos-argentinos-valencia">Leer la guía →');
+      .replace("Valencia para recién llegados", "Canjear el carnet argentino en España")
+      .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Requisitos, certificado, tasas y pasos para gestionar el canje desde Valencia")
+      .replace('href="/guias">Leer la guía →', 'href="/guias/canje-carnet-argentino-espana">Leer la guía →');
   }
   enriched = enriched.replace("</head>", `${imageConsistency}<style>.article-context{margin:34px 0;border-top:3px solid #ffc449;padding-top:18px;display:grid;gap:9px}.article-context p{grid-column:1/-1;margin:0;color:#87300c;font-size:11px;font-weight:900;letter-spacing:.1em}.article-context a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#e8f4fb;color:#402914;text-decoration:none;font-weight:800}.article-context a span{color:#3f86b5}.article-inline-link{background:#fff7e5!important;border-left-color:#ffc449!important}.article-inline-link a{color:#87300c;font-weight:800}.cut-infographic{display:none!important}.cuts-figure{margin:24px 0;border:1px solid #e7c067;background:#fffdf8}.cuts-figure img{display:block;width:100%;height:auto}.cuts-figure figcaption{padding:10px 14px;color:#6b5a48;font-size:13px;line-height:1.4}@media(max-width:560px){.article-context a{font-size:14px}}</style></head>`);
   return new Response(applySeo(enriched, path), response);

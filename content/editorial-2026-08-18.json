@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-18",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar Bar Veni antes de comer, ver un partido o reservar en Cánovas",
+    "keyword": "Bar Veni Valencia",
+    "secondaryKeywords": ["Bar Veni carta", "Bar Veni reservas", "milanesas argentinas Valencia", "sports bar argentino Valencia", "hamburguesas de entraña Valencia"],
+    "slug": "bar-veni-valencia",
+    "seoTitle": "Bar Veni Valencia: carta, precio y reservas",
+    "metaDescription": "Ficha de Bar Veni en Valencia: milanesas, hamburguesas, precio, dirección, reservas, ambiente y datos comprobados antes de ir.",
+    "imageSource": "https://www.instagram.com/p/DYZeXK7DmjT/"
+  },
+  "editorial": {
+    "type": "guía",
+    "intent": "Canjear una licencia argentina por un permiso español viviendo en Valencia",
+    "keyword": "canjear carnet argentino en España",
+    "secondaryKeywords": ["canje licencia argentina España", "canje carnet conducir Valencia", "certificado legalidad licencia argentina", "cita DGT canje Argentina", "requisitos canje permiso argentino"],
+    "slug": "canje-carnet-argentino-espana",
+    "seoTitle": "Canjear el carnet argentino en España: guía 2026",
+    "metaDescription": "Requisitos, documentos, tasas y pasos para canjear una licencia argentina en España desde Valencia, con fuentes oficiales actualizadas.",
+    "imageSource": "Imagen editorial original creada para la guía"
+  }
+}
