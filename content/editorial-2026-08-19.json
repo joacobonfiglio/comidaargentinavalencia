@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-19",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar Moby Dick Valencia antes de comer, reservar o salir con amigos en Ruzafa",
+    "keyword": "Moby Dick Valencia",
+    "secondaryKeywords": ["Moby Dick Valencia carta", "Moby Dick Valencia reservas", "milanesa argentina Ruzafa", "restaurante argentino Ruzafa", "Moby Dick Carrer de Sueca"],
+    "slug": "moby-dick-valencia",
+    "seoTitle": "Moby Dick Valencia: carta, precio y reservas",
+    "metaDescription": "Ficha de Moby Dick Valencia: milanesas, carta, precio, dirección, reservas, terraza, ambiente y datos comprobados antes de ir.",
+    "imageSource": "https://www.instagram.com/p/DWR1x7QDEhM/"
+  },
+  "editorial": {
+    "type": "artículo",
+    "intent": "Entender qué es la milanesa napolitana, su origen porteño, qué lleva y dónde probarla en Valencia",
+    "keyword": "milanesa napolitana",
+    "secondaryKeywords": ["origen de la milanesa napolitana", "ingredientes milanesa napolitana", "milanesa argentina", "milanesa napolitana Valencia", "qué lleva la milanesa napolitana"],
+    "slug": "milanesa-napolitana-origen",
+    "seoTitle": "Milanesa napolitana: origen y qué lleva",
+    "metaDescription": "La historia porteña de la milanesa napolitana, sus ingredientes, variantes y dónde probarla en restaurantes argentinos de Valencia.",
+    "imageSource": "Imagen editorial original creada para el artículo"
+  }
+}
