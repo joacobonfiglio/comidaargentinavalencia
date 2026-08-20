@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-20",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar La Vendetta Valencia antes de reservar o comer pizza, milanesa y empanadas en Ruzafa",
+    "keyword": "La Vendetta Valencia",
+    "secondaryKeywords": ["La Vendetta Valencia carta", "La Vendetta Valencia reservas", "pizza a la parrilla Valencia", "restaurante argentino Ruzafa", "pizza argentina Valencia"],
+    "slug": "la-vendetta-valencia",
+    "seoTitle": "La Vendetta Valencia: carta, precio y reservas",
+    "metaDescription": "Ficha de La Vendetta en Ruzafa: pizza, milanesas, empanadas, precio, dirección, reservas, terraza y datos comprobados antes de ir.",
+    "imageSource": "https://www.instagram.com/p/C3cxXKxCOry/"
+  },
+  "editorial": {
+    "type": "guía",
+    "intent": "Encontrar dónde comer empanadas argentinas en Valencia según zona, sabor y tipo de plan",
+    "keyword": "empanadas argentinas Valencia",
+    "secondaryKeywords": ["dónde comer empanadas en Valencia", "empanadas argentinas Ruzafa", "empanadas de carne Valencia", "restaurantes argentinos con empanadas", "empanadas argentinas para llevar Valencia"],
+    "slug": "empanadas-argentinas-valencia",
+    "seoTitle": "Dónde comer empanadas argentinas en Valencia",
+    "metaDescription": "Guía de empanadas argentinas en Valencia: restaurantes verificados, sabores, precios orientativos, zonas y consejos para elegir.",
+    "imageSource": "Imagen editorial original creada específicamente para la guía"
+  }
+}
