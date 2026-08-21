@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-21",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar Papanato Plaza del Mercat antes de reservar o comer patatas, milanesas y lomitos argentinos en el centro de Valencia",
+    "keyword": "Papanato Valencia",
+    "secondaryKeywords": ["Papanato Plaza del Mercat", "Papanato Valencia carta", "Papanato Valencia reservas", "lomito argentino Valencia", "restaurante argentino Mercado Central Valencia"],
+    "slug": "papanato-valencia",
+    "seoTitle": "Papanato Valencia: carta, precio y reservas",
+    "metaDescription": "Ficha de Papanato junto al Mercado Central: carta, precios, patatas, milanesas, lomito, reservas y datos comprobados antes de ir.",
+    "imageSource": "https://papanato.es/wp-content/uploads/2026/04/suc-plaza-mercat.webp"
+  },
+  "editorial": {
+    "type": "artículo",
+    "intent": "Entender qué lleva el chimichurri argentino, cómo se prepara y cómo usarlo de forma segura",
+    "keyword": "chimichurri argentino",
+    "secondaryKeywords": ["qué lleva el chimichurri", "receta chimichurri argentino", "cómo usar chimichurri", "chimichurri para asado", "salsa argentina"],
+    "slug": "chimichurri-argentino",
+    "seoTitle": "Chimichurri argentino: qué lleva y cómo se usa",
+    "metaDescription": "Qué lleva el chimichurri argentino, cómo prepararlo, ajustar el picante y usarlo con asado, verduras, choripán o empanadas.",
+    "imageSource": "Imagen editorial original creada específicamente para el artículo"
+  }
+}
