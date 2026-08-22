@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-22",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar Entre Cortes antes de reservar un asador argentino en L'Eliana",
+    "keyword": "Entre Cortes L'Eliana",
+    "secondaryKeywords": ["asador argentino L'Eliana", "Entre Cortes Valencia carta", "parrilla argentina área metropolitana Valencia", "Entre Cortes reservas", "carne a la brasa L'Eliana"],
+    "slug": "entrecortes-valencia",
+    "seoTitle": "Entre Cortes L'Eliana: carta y reservas",
+    "metaDescription": "Ficha de Entre Cortes en L'Eliana: carta, precios orientativos, parrilla argentina, dirección, teléfono, reservas y datos verificados.",
+    "imageSource": "https://www.instagram.com/p/DS5E7itjJsc/"
+  },
+  "editorial": {
+    "type": "guía",
+    "intent": "Solicitar la tarjeta sanitaria SIP al instalarse en Valencia y saber qué vía corresponde según la cobertura",
+    "keyword": "tarjeta SIP Valencia",
+    "secondaryKeywords": ["cómo sacar tarjeta SIP", "tarjeta sanitaria Valencia extranjeros", "alta SIP Valencia", "centro de salud Valencia", "SIP para argentinos en Valencia"],
+    "slug": "tarjeta-sip-valencia",
+    "seoTitle": "Tarjeta SIP en Valencia: cómo solicitarla",
+    "metaDescription": "Guía para solicitar la tarjeta SIP en Valencia: requisitos, documentos, centro de salud, casos habituales y fuentes oficiales actualizadas.",
+    "imageSource": "Imagen editorial original creada específicamente para la guía"
+  }
+}
