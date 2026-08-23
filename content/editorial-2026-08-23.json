@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-23",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar Asador San Telmo antes de reservar una parrilla argentina en Ruzafa",
+    "keyword": "Asador San Telmo Valencia",
+    "secondaryKeywords": ["San Telmo Ruzafa", "parrilla argentina Ruzafa", "San Telmo Valencia carta", "asador argentino Valencia", "San Telmo reservas"],
+    "slug": "san-telmo",
+    "seoTitle": "Asador San Telmo Valencia: carta y reservas",
+    "metaDescription": "Ficha de Asador San Telmo en Ruzafa: parrilla argentina, carta, precio orientativo, horarios, dirección, reservas y datos verificados.",
+    "imageSource": "https://asadorsantelmo.com/wp-content/uploads/2021/11/asador-1.jpg"
+  },
+  "editorial": {
+    "type": "artículo",
+    "intent": "Entender por qué el 24 de agosto es el Día del Lector en Argentina y cómo celebrarlo desde Valencia",
+    "keyword": "Día del Lector Argentina",
+    "secondaryKeywords": ["24 de agosto Argentina", "por qué se celebra el Día del Lector", "Jorge Luis Borges 24 de agosto", "qué leer de Borges", "bibliotecas Valencia"],
+    "slug": "dia-del-lector-argentina",
+    "seoTitle": "Día del Lector en Argentina: por qué se celebra",
+    "metaDescription": "Por qué el 24 de agosto es el Día del Lector en Argentina, su vínculo con Borges y cómo celebrarlo leyendo o usando bibliotecas de Valencia.",
+    "imageSource": "Imagen editorial original creada específicamente para el artículo"
+  }
+}

@@ -25,6 +25,8 @@ import { renderPapanato } from "../content/papanato-valencia.js";
 import { renderChimichurriArticle } from "../content/chimichurri-argentino.js";
 import { renderEntreCortes } from "../content/entrecortes-valencia.js";
 import { renderTarjetaSipGuide } from "../content/tarjeta-sip-valencia.js";
+import { renderSanTelmo } from "../content/san-telmo-valencia.js";
+import { renderDiaLectorArticle } from "../content/dia-del-lector-argentina.js";
 
 export const config = { runtime: "edge" };
 
@@ -61,6 +63,7 @@ const seoPages = {
   "/blog/chimichurri-argentino": { title: "Chimichurri argentino: qué lleva y cómo se usa", description: "Qué lleva el chimichurri argentino, cómo prepararlo, ajustar el picante y usarlo con asado, verduras, choripán o empanadas.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/chimichurri-argentino.jpg", type: "article", date: "2026-08-21" },
   "/restaurantes/entrecortes-valencia": { title: "Entre Cortes L'Eliana: carta y reservas", description: "Ficha de Entre Cortes en L'Eliana: carta, precios orientativos, parrilla argentina, dirección, teléfono, reservas y datos verificados.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/entrecortes-valencia.jpg", type: "restaurant", date: "2026-08-22", restaurant: { name: "Entre Cortes", telephone: "+34 624 46 33 16", streetAddress: "Carrer de Benissanó, 13", postalCode: "46183", sameAs: ["https://entrecortesvalencia.es/", "https://www.instagram.com/entrecortesvalencia/"] } },
   "/guias/tarjeta-sip-valencia": { title: "Tarjeta SIP en Valencia: cómo solicitarla", description: "Guía para solicitar la tarjeta SIP en Valencia: requisitos, documentos, centro de salud, casos habituales y fuentes oficiales actualizadas.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/tarjeta-sip-valencia.jpg", type: "article", date: "2026-08-22" },
+  "/blog/dia-del-lector-argentina": { title: "Día del Lector en Argentina: por qué se celebra", description: "Por qué el 24 de agosto es el Día del Lector en Argentina, su vínculo con Borges y cómo celebrarlo leyendo o usando bibliotecas de Valencia.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/dia-del-lector-argentina.jpg", type: "article", date: "2026-08-23" },
   "/restaurantes/mila": { title: "Mila Restaurante Valencia: carta, precio y reservas", description: "Ficha de Mila Restaurante en Valencia: ubicación, precio orientativo, qué pedir, contacto y enlace oficial para reservar mesa.", image: defaultImage },
   "/restaurantes/el-porteno": { title: "El Porteño Valencia: carta, precio y reservas", description: "Ficha de El Porteño en Valencia: parrilla argentina, carta, precios orientativos, dirección, contacto y reserva oficial.", image: defaultImage },
   "/restaurantes/cruz-pampa": { title: "Cruz Pampa Valencia: parrilla argentina y carta", description: "Ficha de Cruz Pampa en Valencia: parrilla argentina, ubicación, precio orientativo, platos recomendados y web oficial.", image: defaultImage },
@@ -68,7 +71,7 @@ const seoPages = {
   "/restaurantes/dona-petrona": { title: "Doña Petrona Valencia: cocina argentina y carta", description: "Ficha de Doña Petrona en Valencia: cocina argentina contemporánea, ubicación, precio orientativo y datos para planificar tu visita.", image: defaultImage },
   "/restaurantes/viejo-barrio": { title: "Viejo Barrio Valencia: parrilla argentina y precio", description: "Ficha de Viejo Barrio en Benimaclet: parrillada argentina, dirección, precio orientativo, platos recomendados y contacto.", image: defaultImage },
   "/restaurantes/cayena-restobar": { title: "Cayena Restobar Valencia: carta, precio y ubicación", description: "Ficha de Cayena Restobar cerca de Mestalla: comida argentina, precio orientativo, recomendaciones, ubicación y contacto.", image: defaultImage },
-  "/restaurantes/san-telmo": { title: "Asador San Telmo Valencia: parrilla argentina en Ruzafa", description: "Ficha de Asador San Telmo en Ruzafa: carnes a la parrilla, empanadas, ubicación, contacto y web oficial.", image: defaultImage },
+  "/restaurantes/san-telmo": { title: "Asador San Telmo Valencia: carta y reservas", description: "Ficha de Asador San Telmo en Ruzafa: parrilla argentina, carta, precio orientativo, horarios, dirección, reservas y datos verificados.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/san-telmo-valencia.jpg", type: "restaurant", date: "2026-08-23", restaurant: { name: "Asador San Telmo", telephone: "+34 638 611 863", streetAddress: "Calle Puerto Rico, 14", postalCode: "46006", sameAs: ["https://asadorsantelmo.com/", "https://www.instagram.com/asador_santelmo/"] } },
   "/blog/historia-del-mate": { title: "Historia del mate: origen y ritual argentino | Guía", description: "Conoce la historia del mate, desde la yerba guaraní hasta el ritual argentino de compartir una ronda, también en Valencia.", image: defaultImage, type: "article" },
   "/blog/bandera-argentina-color-cielo": { title: "Por qué la bandera argentina es celeste y blanca", description: "La historia y los significados detrás de los colores de la bandera argentina, la escarapela y el Sol de Mayo.", image: defaultImage, type: "article" },
   "/blog/valencianos-y-argentinos-historia": { title: "Valencianos y argentinos: historia y vínculos culturales", description: "La relación histórica entre Valencia y Argentina: migraciones, cultura compartida y los vínculos que siguen vivos hoy.", image: defaultImage, type: "article" },
@@ -102,6 +105,7 @@ const sitemapEntries = [
   ["/blog/17-agosto-san-martin", "monthly", "0.8"],
   ["/blog/milanesa-napolitana-origen", "monthly", "0.8"],
   ["/blog/chimichurri-argentino", "monthly", "0.8"],
+  ["/blog/dia-del-lector-argentina", "monthly", "0.8"],
   ["/guias/valencia-recien-llegados", "monthly", "0.7"],
   ["/guias/tomatina-bunol-2026", "weekly", "0.7"]
   ,["/guias/empadronamiento-valencia", "monthly", "0.8"]
@@ -113,7 +117,7 @@ const sitemapEntries = [
 ];
 
 function renderSitemap() {
-  const lastModified = "2026-08-22";
+  const lastModified = "2026-08-23";
   const urls = sitemapEntries.map(([path, changefreq, priority]) => `\n  <url><loc>${canonicalSite}${path}</loc><lastmod>${lastModified}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
 }
@@ -231,6 +235,9 @@ export default async function handler(request, context) {
   if (path === "/restaurantes/entrecortes-valencia") {
     return new Response(applySeo(renderEntreCortes(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
+  if (path === "/restaurantes/san-telmo") {
+    return new Response(applySeo(renderSanTelmo(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
   if (path === "/guias/canje-carnet-argentino-espana") {
     return new Response(applySeo(renderCanjeCarnetGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
@@ -258,6 +265,9 @@ export default async function handler(request, context) {
   if (path === "/blog/chimichurri-argentino") {
     return new Response(applySeo(renderChimichurriArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
+  if (path === "/blog/dia-del-lector-argentina") {
+    return new Response(applySeo(renderDiaLectorArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
   const response = await site.fetch(request, {}, context);
   const type = response.headers.get("content-type") || "";
   if (!type.includes("text/html")) return response;
@@ -265,11 +275,11 @@ export default async function handler(request, context) {
   const html = await response.text();
   const articleLinks = {
     "/blog/historia-del-mate": [["/guias/productos-argentinos-valencia", "Dónde comprar yerba y productos argentinos"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/guias/valencia-recien-llegados", "Guía Valencia para recién llegados"]],
-    "/blog/bandera-argentina-color-cielo": [["/blog/17-agosto-san-martin", "Qué se conmemora el 17 de agosto"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/blog/historia-del-mate", "La historia del mate"]],
-    "/blog/valencianos-y-argentinos-historia": [["/blog/17-agosto-san-martin", "San Martín y el 17 de agosto"], ["/guias/valencia-recien-llegados", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"], ["/blog/que-es-horchata-valenciana", "Qué es la horchata valenciana"]],
+    "/blog/bandera-argentina-color-cielo": [["/blog/dia-del-lector-argentina", "Día del Lector y Borges"], ["/blog/17-agosto-san-martin", "Qué se conmemora el 17 de agosto"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/blog/historia-del-mate", "La historia del mate"]],
+    "/blog/valencianos-y-argentinos-historia": [["/blog/dia-del-lector-argentina", "Por qué se celebra el Día del Lector"], ["/blog/17-agosto-san-martin", "San Martín y el 17 de agosto"], ["/guias/valencia-recien-llegados", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"], ["/blog/que-es-horchata-valenciana", "Qué es la horchata valenciana"]],
     "/blog/truc-o-truco": [["/blog/historia-del-mate", "La historia del mate"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"]],
-    "/blog/cortes-carne-argentina": [["/restaurantes/entrecortes-valencia", "Entre Cortes en L'Eliana"], ["/blog/chimichurri-argentino", "Qué lleva el chimichurri argentino"], ["/restaurantes/che-tango-valencia", "Che Tango en Avenida de Francia"], ["/blog/pedir-en-parrilla-argentina", "Cómo pedir en una parrilla argentina"], ["/restaurantes/gordon-10", "Gordon 10 en Cánovas"]],
-    "/blog/pedir-en-parrilla-argentina": [["/restaurantes/entrecortes-valencia", "Entre Cortes en L'Eliana"], ["/blog/chimichurri-argentino", "Chimichurri argentino: ingredientes y usos"], ["/blog/milanesa-napolitana-origen", "Origen de la milanesa napolitana"], ["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes/la-diez-milanesas", "La Diez: casa de milanesas"]]
+    "/blog/cortes-carne-argentina": [["/restaurantes/san-telmo", "Asador San Telmo en Ruzafa"], ["/restaurantes/entrecortes-valencia", "Entre Cortes en L'Eliana"], ["/blog/chimichurri-argentino", "Qué lleva el chimichurri argentino"], ["/restaurantes/che-tango-valencia", "Che Tango en Avenida de Francia"], ["/blog/pedir-en-parrilla-argentina", "Cómo pedir en una parrilla argentina"], ["/restaurantes/gordon-10", "Gordon 10 en Cánovas"]],
+    "/blog/pedir-en-parrilla-argentina": [["/restaurantes/san-telmo", "Asador San Telmo en Ruzafa"], ["/restaurantes/entrecortes-valencia", "Entre Cortes en L'Eliana"], ["/blog/chimichurri-argentino", "Chimichurri argentino: ingredientes y usos"], ["/blog/milanesa-napolitana-origen", "Origen de la milanesa napolitana"], ["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes/la-diez-milanesas", "La Diez: casa de milanesas"]]
   };
   const fallbackImages = {
     "/blog/pedir-en-parrilla-argentina": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1400&q=85"
@@ -321,6 +331,7 @@ export default async function handler(request, context) {
   const laVendettaDirectoryCard = '<a class="r-card" href="/restaurantes/la-vendetta-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-vendetta-valencia.jpg" alt="Pizza de La Vendetta Valencia" loading="lazy"><div><p class="eyebrow">RUZAFA · 23 €</p><h2>La Vendetta</h2><p>Restaurante italo-argentino con pizza a la parrilla, milanesas, empanadas y pasta</p><span>Ver ficha →</span></div></a>';
   const papanatoDirectoryCard = '<a class="r-card" href="/restaurantes/papanato-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/papanato-valencia.jpg" alt="Fachada de Papanato Plaza del Mercat" loading="lazy"><div><p class="eyebrow">EL MERCAT · 23 €</p><h2>Papanato</h2><p>Bar de patatas argentino con milanesas, lomitos, empanadas y parrillada</p><span>Ver ficha →</span></div></a>';
   const entrecortesDirectoryCard = '<a class="r-card" href="/restaurantes/entrecortes-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/entrecortes-valencia.jpg" alt="Carnes argentinas en la brasa de Entre Cortes" loading="lazy"><div><p class="eyebrow">L\'ELIANA · 25–45 €</p><h2>Entre Cortes</h2><p>Asador con fuego argentino, horno Josper, cortes y producto mediterráneo</p><span>Ver ficha →</span></div></a>';
+  const sanTelmoDirectoryCard = '<a class="r-card" href="/restaurantes/san-telmo"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/san-telmo-valencia.jpg" alt="Fachada de Asador San Telmo en Ruzafa" loading="lazy"><div><p class="eyebrow">RUZAFA · 31–50 €</p><h2>Asador San Telmo</h2><p>Parrilla argentina de barrio con carnes, empanadas y una carta de vinos amplia</p><span>Ver ficha →</span></div></a>';
   const newRestaurantHomeCard = '<a class="hn-rest-card" href="/restaurantes/asador-el-argentino"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg" alt="Carnes del Asador El Argentino en Valencia" loading="lazy"><div><p>MONTEOLIVETE · 16–28 €</p><h3>Asador El Argentino</h3><b>Ver ficha →</b></div></a>';
   const gordonHomeCard = '<a class="hn-rest-card" href="/restaurantes/gordon-10"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg" alt="Interior del restaurante Gordon 10 en Cánovas" loading="lazy"><div><p>CÁNOVAS · 43–60 €</p><h3>Gordon 10</h3><b>Ver ficha →</b></div></a>';
   const parrilletaHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-parrilleta"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg" alt="Salón de La Parrilleta en Cánovas" loading="lazy"><div><p>CÁNOVAS · 18–37 €</p><h3>La Parrilleta</h3><b>Ver ficha →</b></div></a>';
@@ -333,22 +344,24 @@ export default async function handler(request, context) {
   const laVendettaHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-vendetta-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-vendetta-valencia.jpg" alt="Pizza de La Vendetta Valencia" loading="lazy"><div><p>RUZAFA · 23 €</p><h3>La Vendetta</h3><b>Ver ficha →</b></div></a>';
   const papanatoHomeCard = '<a class="hn-rest-card" href="/restaurantes/papanato-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/papanato-valencia.jpg" alt="Fachada de Papanato Plaza del Mercat" loading="lazy"><div><p>EL MERCAT · 23 €</p><h3>Papanato</h3><b>Ver ficha →</b></div></a>';
   const entrecortesHomeCard = '<a class="hn-rest-card" href="/restaurantes/entrecortes-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/entrecortes-valencia.jpg" alt="Carnes argentinas en la brasa de Entre Cortes" loading="lazy"><div><p>L\'ELIANA · 25–45 €</p><h3>Entre Cortes</h3><b>Ver ficha →</b></div></a>';
+  const sanTelmoHomeCard = '<a class="hn-rest-card" href="/restaurantes/san-telmo"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/san-telmo-valencia.jpg" alt="Fachada de Asador San Telmo en Ruzafa" loading="lazy"><div><p>RUZAFA · 31–50 €</p><h3>Asador San Telmo</h3><b>Ver ficha →</b></div></a>';
   const newArticleCard = '<a class="article-card" href="/blog/eclipse-solar-valencia-2026"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg" alt="Eclipse solar total sobre la playa de València" loading="lazy"><span>ACTUALIDAD LOCAL</span></div><div class="article-card-copy"><p>5 MIN DE LECTURA</p><h2>Eclipse solar en Valencia 2026: hora, lugar y seguridad</h2><span>Cómo organizar la observación del 12 de agosto con fuentes oficiales y sin arriesgar la vista</span><b>Leer artículo <i>→</i></b></div></a>';
   const horchataArticleCard = '<a class="article-card" href="/blog/que-es-horchata-valenciana"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/horchata-valenciana.jpg" alt="Vaso de horchata valenciana con fartons" loading="lazy"><span>GASTRONOMÍA VALENCIANA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Qué es la horchata valenciana y cómo se toma</h2><span>Chufa, fartons, tipos y claves para elegir un vaso con origen reconocido</span><b>Leer artículo <i>→</i></b></div></a>';
   const fernetArticleCard = '<a class="article-card" href="/blog/fernet-con-coca"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/fernet-con-coca.jpg" alt="Vaso alto de fernet con cola y hielo" loading="lazy"><span>CULTURA ARGENTINA</span></div><div class="article-card-copy"><p>6 MIN DE LECTURA</p><h2>Fernet con coca: qué es y cómo se prepara</h2><span>Origen, vínculo con Córdoba, preparación flexible y dónde encontrarlo en Valencia</span><b>Leer artículo <i>→</i></b></div></a>';
   const sanMartinArticleCard = '<a class="article-card" href="/blog/17-agosto-san-martin"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/17-agosto-san-martin.jpg" alt="Ilustración editorial de San Martín y el cruce de los Andes" loading="lazy"><span>HISTORIA ARGENTINA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>17 de agosto: qué se conmemora en Argentina</h2><span>Por qué se recuerda a San Martín, una cronología breve y cómo funciona el feriado en 2026</span><b>Leer artículo <i>→</i></b></div></a>';
   const milanesaArticleCard = '<a class="article-card" href="/blog/milanesa-napolitana-origen"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/milanesa-napolitana-origen.jpg" alt="Milanesa napolitana con jamón, queso y papas fritas" loading="lazy"><span>GASTRONOMÍA ARGENTINA</span></div><div class="article-card-copy"><p>8 MIN DE LECTURA</p><h2>Milanesa napolitana: origen y qué lleva</h2><span>La historia porteña, los ingredientes clásicos, variantes y dónde probarla en Valencia</span><b>Leer artículo <i>→</i></b></div></a>';
   const chimichurriArticleCard = '<a class="article-card" href="/blog/chimichurri-argentino"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/chimichurri-argentino.jpg" alt="Cuenco de chimichurri argentino junto a una parrilla" loading="lazy"><span>GASTRONOMÍA ARGENTINA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Chimichurri argentino: qué lleva y cómo se usa</h2><span>Ingredientes, preparación, usos y una precaución importante para conservarlo</span><b>Leer artículo <i>→</i></b></div></a>';
+  const diaLectorArticleCard = '<a class="article-card" href="/blog/dia-del-lector-argentina"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/dia-del-lector-argentina.jpg" alt="Libro abierto, anteojos y sombra de un laberinto" loading="lazy"><span>CULTURA ARGENTINA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Día del Lector en Argentina: por qué se celebra</h2><span>El vínculo con Borges, cinco lecturas posibles y cómo usar las bibliotecas de Valencia</span><b>Leer artículo <i>→</i></b></div></a>';
   if (path === "/restaurantes") {
-    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${entrecortesDirectoryCard}${papanatoDirectoryCard}${laVendettaDirectoryCard}${mobyDickDirectoryCard}${barVeniDirectoryCard}${cheTangoDirectoryCard}${cultureDirectoryCard}${laDiezDirectoryCard}${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
+    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${sanTelmoDirectoryCard}${entrecortesDirectoryCard}${papanatoDirectoryCard}${laVendettaDirectoryCard}${mobyDickDirectoryCard}${barVeniDirectoryCard}${cheTangoDirectoryCard}${cultureDirectoryCard}${laDiezDirectoryCard}${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
   }
   if (path === "/blog") {
-    enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${chimichurriArticleCard}${milanesaArticleCard}${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`);
+    enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${diaLectorArticleCard}${chimichurriArticleCard}${milanesaArticleCard}${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`);
   }
   if (path === "/") {
     enriched = enriched
-      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${entrecortesHomeCard}${papanatoHomeCard}${laVendettaHomeCard}${mobyDickHomeCard}${barVeniHomeCard}${cheTangoHomeCard}${cultureHomeCard}${laDiezHomeCard}${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
-      .replace('<div class="hn-articles">', `<div class="hn-articles">${chimichurriArticleCard}${milanesaArticleCard}${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`)
+      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${sanTelmoHomeCard}${entrecortesHomeCard}${papanatoHomeCard}${laVendettaHomeCard}${mobyDickHomeCard}${barVeniHomeCard}${cheTangoHomeCard}${cultureHomeCard}${laDiezHomeCard}${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
+      .replace('<div class="hn-articles">', `<div class="hn-articles">${diaLectorArticleCard}${chimichurriArticleCard}${milanesaArticleCard}${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`)
       .replace("Valencia para recién llegados", "Cómo solicitar la tarjeta SIP en Valencia")
       .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Cobertura, documentos, alta y centro de salud explicados con fuentes oficiales de 2026")
       .replace('href="/guias">Leer la guía →', 'href="/guias/tarjeta-sip-valencia">Leer la guía →');
