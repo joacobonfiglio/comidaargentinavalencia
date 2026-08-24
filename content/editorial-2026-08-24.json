@@ -1,0 +1,50 @@
+{
+  "date": "2026-08-24",
+  "restaurant": {
+    "type": "ficha",
+    "intent": "Evaluar Nativo Origen antes de reservar un restaurante argentino de brasa en Ruzafa",
+    "keyword": "Nativo Origen Valencia",
+    "secondaryKeywords": [
+      "restaurante argentino Ruzafa",
+      "Nativo Origen carta",
+      "carne argentina Valencia",
+      "parrilla argentina Ruzafa",
+      "Nativo Origen reservas"
+    ],
+    "slug": "nativo-origen-valencia",
+    "title": "Nativo Origen Valencia: carta y reservas",
+    "description": "Ficha de Nativo Origen en Ruzafa: carta, carnes a la brasa, precios orientativos, dirección, reservas y datos verificados.",
+    "url": "/restaurantes/nativo-origen-valencia",
+    "image": "assets/nativo-origen-valencia.jpg",
+    "imageSource": "https://www.instagram.com/p/DZpidvEjSNz/"
+  },
+  "editorial": {
+    "type": "guía",
+    "intent": "Entender la diferencia entre NIE y TIE y saber qué trámite corresponde al instalarse en Valencia",
+    "keyword": "diferencia entre NIE y TIE",
+    "secondaryKeywords": [
+      "NIE o TIE",
+      "cómo solicitar TIE Valencia",
+      "NIE para argentinos en España",
+      "cita huellas TIE Valencia",
+      "documentos TIE Valencia"
+    ],
+    "slug": "nie-tie-valencia",
+    "title": "NIE y TIE en Valencia: diferencias y trámites",
+    "description": "Qué diferencia hay entre NIE y TIE, quién necesita cada uno y cómo gestionar cita, documentación y recogida en Valencia con fuentes oficiales.",
+    "url": "/guias/nie-tie-valencia",
+    "image": "assets/nie-tie-valencia.jpg",
+    "imageSource": "Imagen editorial original generada para la guía"
+  },
+  "internalLinks": [
+    "/guias/empadronamiento-valencia",
+    "/guias/tarjeta-sip-valencia",
+    "/guias/canje-carnet-argentino-espana",
+    "/blog/cortes-carne-argentina",
+    "/blog/pedir-en-parrilla-argentina",
+    "/restaurantes/san-telmo",
+    "/restaurantes/che-tango-valencia"
+  ],
+  "verifiedAt": "2026-08-24"
+}
+
