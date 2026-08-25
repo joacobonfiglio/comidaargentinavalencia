@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-08-25",
+  "restaurant": {
+    "intent": "Evaluar Cruz Pampa antes de reservar un asador argentino a leña en Cánovas",
+    "keyword": "Cruz Pampa Valencia",
+    "secondaryKeywords": ["Cruz Pampa carta", "asador argentino Cánovas", "carne argentina Valencia", "Cruz Pampa reservas", "parrilla argentina Valencia"],
+    "slug": "cruz-pampa",
+    "seoTitle": "Cruz Pampa Valencia: carta, precio y reservas",
+    "metaDescription": "Ficha de Cruz Pampa en Cánovas: carta 2026, carnes Black Angus, precio orientativo, dirección, teléfono, reservas y datos verificados.",
+    "internalLinks": ["/restaurantes/gordon-10", "/restaurantes/la-parrilleta", "/blog/cortes-carne-argentina", "/blog/pedir-en-parrilla-argentina"],
+    "image": {
+      "path": "assets/cruz-pampa-valencia.jpg",
+      "source": "https://asadorargentinovalencia.es/wp-content/uploads/2024/11/costilla.jpg",
+      "licenseNote": "Fotografía publicada por el negocio; conviene documentar autorización de reutilización permanente"
+    }
+  },
+  "article": {
+    "intent": "Entender qué es un alfajor argentino y comparar sus principales estilos antes de elegir",
+    "keyword": "alfajores argentinos",
+    "secondaryKeywords": ["tipos de alfajores argentinos", "alfajor de maicena", "alfajor santafesino", "alfajor cordobés", "alfajor marplatense"],
+    "slug": "alfajores-argentinos-tipos",
+    "seoTitle": "Alfajores argentinos: tipos y diferencias",
+    "metaDescription": "Qué es un alfajor argentino y cómo se diferencian los de maicena, chocolate, Córdoba, Santa Fe y Mar del Plata, con una guía para elegir.",
+    "internalLinks": ["/guias/productos-argentinos-valencia", "/blog/historia-del-mate", "/blog/fernet-con-coca", "/restaurantes/bataraza-bodegon"],
+    "image": {
+      "path": "assets/alfajores-argentinos-tipos.jpg",
+      "source": "Imagen editorial original generada para Comida Argentina en Valencia",
+      "licenseNote": "Sin marcas, texto ni personas; uso editorial propio"
+    }
+  }
+}
