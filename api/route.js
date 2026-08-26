@@ -31,6 +31,8 @@ import { renderNativoOrigen } from "../content/nativo-origen-valencia.js";
 import { renderNieTieGuide } from "../content/nie-tie-valencia.js";
 import { renderCruzPampa } from "../content/cruz-pampa-valencia.js";
 import { renderAlfajoresArticle } from "../content/alfajores-argentinos-tipos.js";
+import { renderUnionCarnes } from "../content/union-carnes-y-vinos-valencia.js";
+import { renderCertificadoClaveGuide } from "../content/certificado-digital-clave-valencia.js";
 
 export const config = { runtime: "edge" };
 
@@ -71,7 +73,7 @@ const seoPages = {
   "/restaurantes/mila": { title: "Mila Restaurante Valencia: carta, precio y reservas", description: "Ficha de Mila Restaurante en Valencia: ubicación, precio orientativo, qué pedir, contacto y enlace oficial para reservar mesa.", image: defaultImage },
   "/restaurantes/el-porteno": { title: "El Porteño Valencia: carta, precio y reservas", description: "Ficha de El Porteño en Valencia: parrilla argentina, carta, precios orientativos, dirección, contacto y reserva oficial.", image: defaultImage },
   "/restaurantes/cruz-pampa": { title: "Cruz Pampa Valencia: carta, precio y reservas", description: "Ficha de Cruz Pampa en Cánovas: carta 2026, carnes Black Angus, precio orientativo, dirección, teléfono, reservas y datos verificados.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/cruz-pampa-valencia.jpg", type: "restaurant", date: "2026-08-25", restaurant: { name: "Cruz Pampa", telephone: "+34 664 68 95 98", streetAddress: "Carrer del Comte d'Altea, 29", postalCode: "46005", sameAs: ["https://asadorargentinovalencia.es/", "https://www.instagram.com/cruzpampa_asador/"] } },
-  "/restaurantes/union-carnes-y-vinos": { title: "Unión Carnes y Vinos Valencia: carta y reservas", description: "Ficha de Unión Carnes y Vinos en Ruzafa: parrilla argentina, precio orientativo, platos recomendados y enlace de reserva.", image: defaultImage },
+  "/restaurantes/union-carnes-y-vinos": { title: "Unión Carnes y Vinos: carta y reservas", description: "Ficha de Unión Carnes y Vinos en Ruzafa: carta, precio orientativo, dirección, horario, teléfono, reservas y datos verificados.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/union-carnes-y-vinos-valencia.jpg", type: "restaurant", date: "2026-08-26", restaurant: { name: "Unión Carnes y Vinos", telephone: "+34 619 24 04 02", streetAddress: "Carrer de Puerto Rico, 38", postalCode: "46006", sameAs: ["https://unioncarnesyvinos.com/", "https://www.instagram.com/union_carnesyvinos/"] } },
   "/restaurantes/dona-petrona": { title: "Doña Petrona Valencia: cocina argentina y carta", description: "Ficha de Doña Petrona en Valencia: cocina argentina contemporánea, ubicación, precio orientativo y datos para planificar tu visita.", image: defaultImage },
   "/restaurantes/viejo-barrio": { title: "Viejo Barrio Valencia: parrilla argentina y precio", description: "Ficha de Viejo Barrio en Benimaclet: parrillada argentina, dirección, precio orientativo, platos recomendados y contacto.", image: defaultImage },
   "/restaurantes/cayena-restobar": { title: "Cayena Restobar Valencia: carta, precio y ubicación", description: "Ficha de Cayena Restobar cerca de Mestalla: comida argentina, precio orientativo, recomendaciones, ubicación y contacto.", image: defaultImage },
@@ -79,6 +81,7 @@ const seoPages = {
   "/restaurantes/nativo-origen-valencia": { title: "Nativo Origen Valencia: carta y reservas", description: "Ficha de Nativo Origen en Ruzafa: carta, carnes a la brasa, precios orientativos, dirección, reservas y datos verificados.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/nativo-origen-valencia.jpg", type: "restaurant", date: "2026-08-24", restaurant: { name: "Nativo Origen", telephone: "+34 677 57 58 95", streetAddress: "C/ de Pere III el Gran, 40", postalCode: "46005", sameAs: ["https://www.instagram.com/nativo.origen/", "https://www.facebook.com/p/Nativo-Origen-61565873302649/"] } },
   "/guias/nie-tie-valencia": { title: "NIE y TIE en Valencia: diferencias y trámites", description: "Qué diferencia hay entre NIE y TIE, quién necesita cada uno y cómo gestionar cita, documentación y recogida en Valencia con fuentes oficiales.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/nie-tie-valencia.jpg", type: "article", date: "2026-08-24" },
   "/blog/alfajores-argentinos-tipos": { title: "Alfajores argentinos: tipos y diferencias", description: "Qué es un alfajor argentino y cómo se diferencian los de maicena, chocolate, Córdoba, Santa Fe y Mar del Plata, con una guía para elegir.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/alfajores-argentinos-tipos.jpg", type: "article", date: "2026-08-25" },
+  "/guias/certificado-digital-clave-valencia": { title: "Certificado digital y Cl@ve en Valencia", description: "Guía para obtener Cl@ve o certificado digital en Valencia: diferencias, requisitos, registro, acreditación y consejos para personas con NIE.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/certificado-digital-clave-valencia.jpg", type: "article", date: "2026-08-26" },
   "/blog/historia-del-mate": { title: "Historia del mate: origen y ritual argentino | Guía", description: "Conoce la historia del mate, desde la yerba guaraní hasta el ritual argentino de compartir una ronda, también en Valencia.", image: defaultImage, type: "article" },
   "/blog/bandera-argentina-color-cielo": { title: "Por qué la bandera argentina es celeste y blanca", description: "La historia y los significados detrás de los colores de la bandera argentina, la escarapela y el Sol de Mayo.", image: defaultImage, type: "article" },
   "/blog/valencianos-y-argentinos-historia": { title: "Valencianos y argentinos: historia y vínculos culturales", description: "La relación histórica entre Valencia y Argentina: migraciones, cultura compartida y los vínculos que siguen vivos hoy.", image: defaultImage, type: "article" },
@@ -124,10 +127,11 @@ const sitemapEntries = [
   ,["/guias/empanadas-argentinas-valencia", "monthly", "0.8"]
   ,["/guias/tarjeta-sip-valencia", "monthly", "0.8"]
   ,["/guias/nie-tie-valencia", "monthly", "0.8"]
+  ,["/guias/certificado-digital-clave-valencia", "monthly", "0.8"]
 ];
 
 function renderSitemap() {
-  const lastModified = "2026-08-25";
+  const lastModified = "2026-08-26";
   const urls = sitemapEntries.map(([path, changefreq, priority]) => `\n  <url><loc>${canonicalSite}${path}</loc><lastmod>${lastModified}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
 }
@@ -201,7 +205,7 @@ export default async function handler(request, context) {
     });
   }
   if (path === "/guias/empadronamiento-valencia") {
-    return new Response(applySeo(renderEmpadronamientoGuide().replace('<a href="/guias">Todas las guías prácticas →</a>', '<a href="/guias/nie-tie-valencia">NIE y TIE en Valencia →</a><a href="/guias/tarjeta-sip-valencia">Cómo solicitar la tarjeta SIP →</a><a href="/guias/canje-carnet-argentino-espana">Canje del carnet argentino →</a><a href="/guias">Todas las guías prácticas →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderEmpadronamientoGuide().replace('<a href="/guias">Todas las guías prácticas →</a>', '<a href="/guias/certificado-digital-clave-valencia">Certificado digital y Cl@ve →</a><a href="/guias/nie-tie-valencia">NIE y TIE en Valencia →</a><a href="/guias/tarjeta-sip-valencia">Cómo solicitar la tarjeta SIP →</a><a href="/guias/canje-carnet-argentino-espana">Canje del carnet argentino →</a><a href="/guias">Todas las guías prácticas →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/guias/transporte-publico-valencia") {
     return new Response(applySeo(renderTransporteGuide().replace('<a href="/guias/empadronamiento-valencia">Cómo empadronarte en Valencia →</a>', '<a href="/guias/canje-carnet-argentino-espana">Canje del carnet argentino →</a><a href="/guias/empadronamiento-valencia">Cómo empadronarte en Valencia →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
@@ -254,6 +258,9 @@ export default async function handler(request, context) {
   if (path === "/restaurantes/cruz-pampa") {
     return new Response(applySeo(renderCruzPampa(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
+  if (path === "/restaurantes/union-carnes-y-vinos") {
+    return new Response(applySeo(renderUnionCarnes(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
   if (path === "/guias/canje-carnet-argentino-espana") {
     return new Response(applySeo(renderCanjeCarnetGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
@@ -261,10 +268,13 @@ export default async function handler(request, context) {
     return new Response(applySeo(renderEmpanadasValenciaGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/guias/tarjeta-sip-valencia") {
-    return new Response(applySeo(renderTarjetaSipGuide().replace('<a href="/guias/empadronamiento-valencia">Empadronamiento en Valencia →</a>', '<a href="/guias/nie-tie-valencia">NIE y TIE en Valencia →</a><a href="/guias/empadronamiento-valencia">Empadronamiento en Valencia →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderTarjetaSipGuide().replace('<a href="/guias/empadronamiento-valencia">Empadronamiento en Valencia →</a>', '<a href="/guias/certificado-digital-clave-valencia">Certificado digital y Cl@ve →</a><a href="/guias/nie-tie-valencia">NIE y TIE en Valencia →</a><a href="/guias/empadronamiento-valencia">Empadronamiento en Valencia →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/guias/nie-tie-valencia") {
-    return new Response(applySeo(renderNieTieGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderNieTieGuide().replace('<a href="/guias/empadronamiento-valencia">Empadronamiento en Valencia →</a>', '<a href="/guias/certificado-digital-clave-valencia">Certificado digital y Cl@ve →</a><a href="/guias/empadronamiento-valencia">Empadronamiento en Valencia →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
+  if (path === "/guias/certificado-digital-clave-valencia") {
+    return new Response(applySeo(renderCertificadoClaveGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/eclipse-solar-valencia-2026") {
     return new Response(applySeo(renderEclipseArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
@@ -300,8 +310,8 @@ export default async function handler(request, context) {
     "/blog/bandera-argentina-color-cielo": [["/blog/dia-del-lector-argentina", "Día del Lector y Borges"], ["/blog/17-agosto-san-martin", "Qué se conmemora el 17 de agosto"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"], ["/blog/historia-del-mate", "La historia del mate"]],
     "/blog/valencianos-y-argentinos-historia": [["/blog/dia-del-lector-argentina", "Por qué se celebra el Día del Lector"], ["/blog/17-agosto-san-martin", "San Martín y el 17 de agosto"], ["/guias/valencia-recien-llegados", "Valencia para recién llegados"], ["/blog/historia-del-mate", "La historia del mate"], ["/blog/que-es-horchata-valenciana", "Qué es la horchata valenciana"]],
     "/blog/truc-o-truco": [["/blog/historia-del-mate", "La historia del mate"], ["/blog/valencianos-y-argentinos-historia", "Valencianos y argentinos: una relación histórica"]],
-    "/blog/cortes-carne-argentina": [["/restaurantes/cruz-pampa", "Cruz Pampa en Cánovas"], ["/restaurantes/nativo-origen-valencia", "Nativo Origen en Ruzafa"], ["/restaurantes/san-telmo", "Asador San Telmo en Ruzafa"], ["/restaurantes/entrecortes-valencia", "Entre Cortes en L'Eliana"], ["/blog/chimichurri-argentino", "Qué lleva el chimichurri argentino"], ["/restaurantes/che-tango-valencia", "Che Tango en Avenida de Francia"], ["/blog/pedir-en-parrilla-argentina", "Cómo pedir en una parrilla argentina"], ["/restaurantes/gordon-10", "Gordon 10 en Cánovas"]],
-    "/blog/pedir-en-parrilla-argentina": [["/restaurantes/cruz-pampa", "Cruz Pampa en Cánovas"], ["/restaurantes/nativo-origen-valencia", "Nativo Origen en Ruzafa"], ["/restaurantes/san-telmo", "Asador San Telmo en Ruzafa"], ["/restaurantes/entrecortes-valencia", "Entre Cortes en L'Eliana"], ["/blog/chimichurri-argentino", "Chimichurri argentino: ingredientes y usos"], ["/blog/milanesa-napolitana-origen", "Origen de la milanesa napolitana"], ["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"], ["/restaurantes/la-diez-milanesas", "La Diez: casa de milanesas"]]
+    "/blog/cortes-carne-argentina": [["/restaurantes/union-carnes-y-vinos", "Unión Carnes y Vinos en Ruzafa"], ["/restaurantes/cruz-pampa", "Cruz Pampa en Cánovas"], ["/restaurantes/nativo-origen-valencia", "Nativo Origen en Ruzafa"], ["/restaurantes/san-telmo", "Asador San Telmo en Ruzafa"], ["/restaurantes/entrecortes-valencia", "Entre Cortes en L'Eliana"], ["/blog/chimichurri-argentino", "Qué lleva el chimichurri argentino"], ["/restaurantes/che-tango-valencia", "Che Tango en Avenida de Francia"], ["/blog/pedir-en-parrilla-argentina", "Cómo pedir en una parrilla argentina"]],
+    "/blog/pedir-en-parrilla-argentina": [["/restaurantes/union-carnes-y-vinos", "Unión Carnes y Vinos en Ruzafa"], ["/restaurantes/cruz-pampa", "Cruz Pampa en Cánovas"], ["/restaurantes/nativo-origen-valencia", "Nativo Origen en Ruzafa"], ["/restaurantes/san-telmo", "Asador San Telmo en Ruzafa"], ["/restaurantes/entrecortes-valencia", "Entre Cortes en L'Eliana"], ["/blog/chimichurri-argentino", "Chimichurri argentino: ingredientes y usos"], ["/blog/milanesa-napolitana-origen", "Origen de la milanesa napolitana"], ["/blog/cortes-carne-argentina", "Ver la guía visual de cortes"]]
   };
   const fallbackImages = {
     "/blog/pedir-en-parrilla-argentina": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1400&q=85"
@@ -327,6 +337,9 @@ export default async function handler(request, context) {
   </style>`;
   let enriched = (fallbackImages[path] ? html.replace('src="undefined"', `src="${fallbackImages[path]}"`) : html)
     .replaceAll("https://asadorargentinovalencia.es/wp-content/uploads/2025/12/Asador-argentino-Valencia-1024x578.jpg", "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/cruz-pampa-valencia.jpg")
+    .replaceAll("https://unioncarnesyvinos.com/_next/image?q=75&url=%2Ffotos%2Fhero-entrana.jpg&w=3840", "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/union-carnes-y-vinos-valencia.jpg")
+    .replaceAll("RUZAFA · 20 €", "RUZAFA · 40–50 €")
+    .replaceAll("Parrilla, vinos argentinos y platos de recetario porteño", "Parrilla de carta breve, empanadas cortadas a cuchillo y vinos argentinos")
     .replace("<h2>Una infografía rápida para elegir</h2>", `<h2>Una infografía rápida para elegir</h2><figure class="cuts-figure"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/cortes-argentinos-vaca.jpg" alt="Mapa visual de los cortes argentinos de la vaca, con la ubicación de cogote, aguja, asado, bife ancho, bife angosto, lomo, cuadril, nalga, peceto, vacío, falda y matambre"><figcaption>Ubicación aproximada de cada corte: puede variar ligeramente según el desposte.</figcaption></figure>`)
     .replace("</article><section class=\"related-articles\"", `${internalLinks}</article><section class="related-articles"`);
   if (path === "/restaurantes/el-porteno") {
@@ -390,7 +403,9 @@ export default async function handler(request, context) {
       .replace('<div class="hn-articles">', `<div class="hn-articles">${alfajoresArticleCard}${diaLectorArticleCard}${chimichurriArticleCard}${milanesaArticleCard}${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`)
       .replace("Valencia para recién llegados", "NIE y TIE en Valencia")
       .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Qué es cada documento, quién necesita tarjeta y cómo ordenar la cita y las huellas")
-      .replace('href="/guias">Leer la guía →', 'href="/guias/nie-tie-valencia">Leer la guía →');
+      .replace("NIE y TIE en Valencia", "Certificado digital y Cl@ve")
+      .replace("Qué es cada documento, quién necesita tarjeta y cómo ordenar la cita y las huellas", "Cómo elegir, registrarte con NIE y acreditar identidad para hacer trámites online")
+      .replace('href="/guias">Leer la guía →', 'href="/guias/certificado-digital-clave-valencia">Leer la guía →');
   }
   enriched = enriched.replace("</head>", `${imageConsistency}<style>.article-context{margin:34px 0;border-top:3px solid #ffc449;padding-top:18px;display:grid;gap:9px}.article-context p{grid-column:1/-1;margin:0;color:#87300c;font-size:11px;font-weight:900;letter-spacing:.1em}.article-context a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#e8f4fb;color:#402914;text-decoration:none;font-weight:800}.article-context a span{color:#3f86b5}.article-inline-link{background:#fff7e5!important;border-left-color:#ffc449!important}.article-inline-link a{color:#87300c;font-weight:800}.cut-infographic{display:none!important}.cuts-figure{margin:24px 0;border:1px solid #e7c067;background:#fffdf8}.cuts-figure img{display:block;width:100%;height:auto}.cuts-figure figcaption{padding:10px 14px;color:#6b5a48;font-size:13px;line-height:1.4}@media(max-width:560px){.article-context a{font-size:14px}}</style></head>`);
   return new Response(applySeo(enriched, path), response);

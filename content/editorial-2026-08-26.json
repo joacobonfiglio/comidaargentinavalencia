@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-08-26",
+  "restaurant": {
+    "intent": "Evaluar Unión Carnes y Vinos antes de reservar una parrilla argentina para cenar en Ruzafa",
+    "keyword": "Unión Carnes y Vinos Valencia",
+    "secondaryKeywords": ["Unión Carnes y Vinos carta", "parrilla argentina Ruzafa", "carne argentina Valencia", "Unión Carnes y Vinos reservas", "restaurante argentino Ruzafa"],
+    "slug": "union-carnes-y-vinos",
+    "seoTitle": "Unión Carnes y Vinos: carta y reservas",
+    "metaDescription": "Ficha de Unión Carnes y Vinos en Ruzafa: carta, precio orientativo, dirección, horario, teléfono, reservas y datos verificados.",
+    "internalLinks": ["/restaurantes/san-telmo", "/restaurantes/moby-dick-valencia", "/restaurantes/nativo-origen-valencia", "/guias/empanadas-argentinas-valencia"],
+    "image": {
+      "path": "assets/union-carnes-y-vinos-valencia.jpg",
+      "source": "https://unioncarnesyvinos.com/fotos/hero-entrana.jpg",
+      "licenseNote": "Fotografía publicada en la web oficial del negocio; conviene documentar autorización de reutilización permanente"
+    }
+  },
+  "guide": {
+    "intent": "Elegir entre Cl@ve y certificado digital y saber cómo obtenerlos desde Valencia con NIE",
+    "keyword": "certificado digital Valencia",
+    "secondaryKeywords": ["cómo obtener certificado digital Valencia", "Cl@ve con NIE", "registro Cl@ve Valencia", "certificado FNMT persona física", "oficinas acreditación Valencia"],
+    "slug": "certificado-digital-clave-valencia",
+    "seoTitle": "Certificado digital y Cl@ve en Valencia",
+    "metaDescription": "Guía para obtener Cl@ve o certificado digital en Valencia: diferencias, requisitos, registro, acreditación y consejos para personas con NIE.",
+    "internalLinks": ["/guias/nie-tie-valencia", "/guias/empadronamiento-valencia", "/guias/tarjeta-sip-valencia", "/guias/canje-carnet-argentino-espana"],
+    "image": {
+      "path": "assets/certificado-digital-clave-valencia.jpg",
+      "source": "Imagen editorial original generada para Comida Argentina en Valencia",
+      "licenseNote": "Sin texto, marcas, documentos oficiales ni datos personales; uso editorial propio"
+    }
+  }
+}
