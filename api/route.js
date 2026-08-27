@@ -33,6 +33,8 @@ import { renderCruzPampa } from "../content/cruz-pampa-valencia.js";
 import { renderAlfajoresArticle } from "../content/alfajores-argentinos-tipos.js";
 import { renderUnionCarnes } from "../content/union-carnes-y-vinos-valencia.js";
 import { renderCertificadoClaveGuide } from "../content/certificado-digital-clave-valencia.js";
+import { renderDonaPetrona } from "../content/dona-petrona-valencia.js";
+import { renderDulceLecheArticle } from "../content/dulce-de-leche-argentino.js";
 
 export const config = { runtime: "edge" };
 
@@ -74,7 +76,7 @@ const seoPages = {
   "/restaurantes/el-porteno": { title: "El Porteño Valencia: carta, precio y reservas", description: "Ficha de El Porteño en Valencia: parrilla argentina, carta, precios orientativos, dirección, contacto y reserva oficial.", image: defaultImage },
   "/restaurantes/cruz-pampa": { title: "Cruz Pampa Valencia: carta, precio y reservas", description: "Ficha de Cruz Pampa en Cánovas: carta 2026, carnes Black Angus, precio orientativo, dirección, teléfono, reservas y datos verificados.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/cruz-pampa-valencia.jpg", type: "restaurant", date: "2026-08-25", restaurant: { name: "Cruz Pampa", telephone: "+34 664 68 95 98", streetAddress: "Carrer del Comte d'Altea, 29", postalCode: "46005", sameAs: ["https://asadorargentinovalencia.es/", "https://www.instagram.com/cruzpampa_asador/"] } },
   "/restaurantes/union-carnes-y-vinos": { title: "Unión Carnes y Vinos: carta y reservas", description: "Ficha de Unión Carnes y Vinos en Ruzafa: carta, precio orientativo, dirección, horario, teléfono, reservas y datos verificados.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/union-carnes-y-vinos-valencia.jpg", type: "restaurant", date: "2026-08-26", restaurant: { name: "Unión Carnes y Vinos", telephone: "+34 619 24 04 02", streetAddress: "Carrer de Puerto Rico, 38", postalCode: "46006", sameAs: ["https://unioncarnesyvinos.com/", "https://www.instagram.com/union_carnesyvinos/"] } },
-  "/restaurantes/dona-petrona": { title: "Doña Petrona Valencia: cocina argentina y carta", description: "Ficha de Doña Petrona en Valencia: cocina argentina contemporánea, ubicación, precio orientativo y datos para planificar tu visita.", image: defaultImage },
+  "/restaurantes/dona-petrona": { title: "Doña Petrona Valencia: carta y reservas", description: "Ficha de Doña Petrona en Ruzafa: carta, precios, dirección, horarios, reservas y datos verificados antes de ir.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/dona-petrona-valencia.jpg", type: "restaurant", date: "2026-08-27", restaurant: { name: "Doña Petrona", telephone: "+34 963 364 983", streetAddress: "C/ Padre Perera, 5", postalCode: "46006", sameAs: ["https://www.xn--doapetrona-u9a.es/", "https://www.instagram.com/d_petrona/"] } },
   "/restaurantes/viejo-barrio": { title: "Viejo Barrio Valencia: parrilla argentina y precio", description: "Ficha de Viejo Barrio en Benimaclet: parrillada argentina, dirección, precio orientativo, platos recomendados y contacto.", image: defaultImage },
   "/restaurantes/cayena-restobar": { title: "Cayena Restobar Valencia: carta, precio y ubicación", description: "Ficha de Cayena Restobar cerca de Mestalla: comida argentina, precio orientativo, recomendaciones, ubicación y contacto.", image: defaultImage },
   "/restaurantes/san-telmo": { title: "Asador San Telmo Valencia: carta y reservas", description: "Ficha de Asador San Telmo en Ruzafa: parrilla argentina, carta, precio orientativo, horarios, dirección, reservas y datos verificados.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/san-telmo-valencia.jpg", type: "restaurant", date: "2026-08-23", restaurant: { name: "Asador San Telmo", telephone: "+34 638 611 863", streetAddress: "Calle Puerto Rico, 14", postalCode: "46006", sameAs: ["https://asadorsantelmo.com/", "https://www.instagram.com/asador_santelmo/"] } },
@@ -82,6 +84,7 @@ const seoPages = {
   "/guias/nie-tie-valencia": { title: "NIE y TIE en Valencia: diferencias y trámites", description: "Qué diferencia hay entre NIE y TIE, quién necesita cada uno y cómo gestionar cita, documentación y recogida en Valencia con fuentes oficiales.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/nie-tie-valencia.jpg", type: "article", date: "2026-08-24" },
   "/blog/alfajores-argentinos-tipos": { title: "Alfajores argentinos: tipos y diferencias", description: "Qué es un alfajor argentino y cómo se diferencian los de maicena, chocolate, Córdoba, Santa Fe y Mar del Plata, con una guía para elegir.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/alfajores-argentinos-tipos.jpg", type: "article", date: "2026-08-25" },
   "/guias/certificado-digital-clave-valencia": { title: "Certificado digital y Cl@ve en Valencia", description: "Guía para obtener Cl@ve o certificado digital en Valencia: diferencias, requisitos, registro, acreditación y consejos para personas con NIE.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/certificado-digital-clave-valencia.jpg", type: "article", date: "2026-08-26" },
+  "/blog/dulce-de-leche-argentino": { title: "Dulce de leche argentino: tipos y usos", description: "Qué es el dulce de leche argentino, cómo se diferencian el tradicional, repostero y heladero, y cuál conviene para cada receta.", image: "https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/dulce-de-leche-argentino.jpg", type: "article", date: "2026-08-27" },
   "/blog/historia-del-mate": { title: "Historia del mate: origen y ritual argentino | Guía", description: "Conoce la historia del mate, desde la yerba guaraní hasta el ritual argentino de compartir una ronda, también en Valencia.", image: defaultImage, type: "article" },
   "/blog/bandera-argentina-color-cielo": { title: "Por qué la bandera argentina es celeste y blanca", description: "La historia y los significados detrás de los colores de la bandera argentina, la escarapela y el Sol de Mayo.", image: defaultImage, type: "article" },
   "/blog/valencianos-y-argentinos-historia": { title: "Valencianos y argentinos: historia y vínculos culturales", description: "La relación histórica entre Valencia y Argentina: migraciones, cultura compartida y los vínculos que siguen vivos hoy.", image: defaultImage, type: "article" },
@@ -118,6 +121,7 @@ const sitemapEntries = [
   ["/blog/chimichurri-argentino", "monthly", "0.8"],
   ["/blog/dia-del-lector-argentina", "monthly", "0.8"],
   ["/blog/alfajores-argentinos-tipos", "monthly", "0.8"],
+  ["/blog/dulce-de-leche-argentino", "monthly", "0.8"],
   ["/guias/valencia-recien-llegados", "monthly", "0.7"],
   ["/guias/tomatina-bunol-2026", "weekly", "0.7"]
   ,["/guias/empadronamiento-valencia", "monthly", "0.8"]
@@ -131,7 +135,7 @@ const sitemapEntries = [
 ];
 
 function renderSitemap() {
-  const lastModified = "2026-08-26";
+  const lastModified = "2026-08-27";
   const urls = sitemapEntries.map(([path, changefreq, priority]) => `\n  <url><loc>${canonicalSite}${path}</loc><lastmod>${lastModified}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`).join("");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}\n</urlset>`;
 }
@@ -211,7 +215,7 @@ export default async function handler(request, context) {
     return new Response(applySeo(renderTransporteGuide().replace('<a href="/guias/empadronamiento-valencia">Cómo empadronarte en Valencia →</a>', '<a href="/guias/canje-carnet-argentino-espana">Canje del carnet argentino →</a><a href="/guias/empadronamiento-valencia">Cómo empadronarte en Valencia →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/guias/productos-argentinos-valencia") {
-    return new Response(applySeo(renderProductosArgentinosGuide().replace('<a href="/blog/historia-del-mate">Historia del mate →</a>', '<a href="/blog/alfajores-argentinos-tipos">Tipos de alfajores argentinos →</a><a href="/blog/historia-del-mate">Historia del mate →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderProductosArgentinosGuide().replace('<a href="/blog/historia-del-mate">Historia del mate →</a>', '<a href="/blog/dulce-de-leche-argentino">Tipos de dulce de leche argentino →</a><a href="/blog/alfajores-argentinos-tipos">Tipos de alfajores argentinos →</a><a href="/blog/historia-del-mate">Historia del mate →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/restaurantes/asador-el-argentino") {
     return new Response(applySeo(renderAsadorElArgentino(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
@@ -261,6 +265,9 @@ export default async function handler(request, context) {
   if (path === "/restaurantes/union-carnes-y-vinos") {
     return new Response(applySeo(renderUnionCarnes(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
+  if (path === "/restaurantes/dona-petrona") {
+    return new Response(applySeo(renderDonaPetrona(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
   if (path === "/guias/canje-carnet-argentino-espana") {
     return new Response(applySeo(renderCanjeCarnetGuide(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
@@ -289,7 +296,7 @@ export default async function handler(request, context) {
     return new Response(applySeo(renderSanMartinArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/milanesa-napolitana-origen") {
-    return new Response(applySeo(renderMilanesaNapolitanaArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderMilanesaNapolitanaArticle().replace('<a href="/restaurantes/la-diez-milanesas">La Diez →</a>', '<a href="/restaurantes/dona-petrona">Doña Petrona en Ruzafa →</a><a href="/restaurantes/la-diez-milanesas">La Diez →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/chimichurri-argentino") {
     return new Response(applySeo(renderChimichurriArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
@@ -298,7 +305,10 @@ export default async function handler(request, context) {
     return new Response(applySeo(renderDiaLectorArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   if (path === "/blog/alfajores-argentinos-tipos") {
-    return new Response(applySeo(renderAlfajoresArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+    return new Response(applySeo(renderAlfajoresArticle().replace('<a href="/guias/productos-argentinos-valencia">Dónde comprarlos en Valencia →</a>', '<a href="/blog/dulce-de-leche-argentino">Tipos de dulce de leche argentino →</a><a href="/guias/productos-argentinos-valencia">Dónde comprarlos en Valencia →</a>'), path), { headers: { "content-type": "text/html;charset=utf-8" } });
+  }
+  if (path === "/blog/dulce-de-leche-argentino") {
+    return new Response(applySeo(renderDulceLecheArticle(), path), { headers: { "content-type": "text/html;charset=utf-8" } });
   }
   const response = await site.fetch(request, {}, context);
   const type = response.headers.get("content-type") || "";
@@ -369,6 +379,7 @@ export default async function handler(request, context) {
   const entrecortesDirectoryCard = '<a class="r-card" href="/restaurantes/entrecortes-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/entrecortes-valencia.jpg" alt="Carnes argentinas en la brasa de Entre Cortes" loading="lazy"><div><p class="eyebrow">L\'ELIANA · 25–45 €</p><h2>Entre Cortes</h2><p>Asador con fuego argentino, horno Josper, cortes y producto mediterráneo</p><span>Ver ficha →</span></div></a>';
   const sanTelmoDirectoryCard = '<a class="r-card" href="/restaurantes/san-telmo"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/san-telmo-valencia.jpg" alt="Fachada de Asador San Telmo en Ruzafa" loading="lazy"><div><p class="eyebrow">RUZAFA · 31–50 €</p><h2>Asador San Telmo</h2><p>Parrilla argentina de barrio con carnes, empanadas y una carta de vinos amplia</p><span>Ver ficha →</span></div></a>';
   const nativoOrigenDirectoryCard = '<a class="r-card" href="/restaurantes/nativo-origen-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/nativo-origen-valencia.jpg" alt="Plato a la brasa de Nativo Origen" loading="lazy"><div><p class="eyebrow">RUZAFA · 30–45 €</p><h2>Nativo Origen</h2><p>Angus argentino a la brasa con una carta contemporánea de raíz mediterránea</p><span>Ver ficha →</span></div></a>';
+  const donaPetronaDirectoryCard = '<a class="r-card" href="/restaurantes/dona-petrona"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/dona-petrona-valencia.jpg" alt="Platos de la carta de Doña Petrona" loading="lazy"><div><p class="eyebrow">RUZAFA · 20–35 €</p><h2>Doña Petrona</h2><p>Cocina argentina y mediterránea con milanesas, empanadas y platos de abuela</p><span>Ver ficha →</span></div></a>';
   const newRestaurantHomeCard = '<a class="hn-rest-card" href="/restaurantes/asador-el-argentino"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/asador-el-argentino.jpg" alt="Carnes del Asador El Argentino en Valencia" loading="lazy"><div><p>MONTEOLIVETE · 16–28 €</p><h3>Asador El Argentino</h3><b>Ver ficha →</b></div></a>';
   const gordonHomeCard = '<a class="hn-rest-card" href="/restaurantes/gordon-10"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/gordon-10.jpg" alt="Interior del restaurante Gordon 10 en Cánovas" loading="lazy"><div><p>CÁNOVAS · 43–60 €</p><h3>Gordon 10</h3><b>Ver ficha →</b></div></a>';
   const parrilletaHomeCard = '<a class="hn-rest-card" href="/restaurantes/la-parrilleta"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/la-parrilleta.jpg" alt="Salón de La Parrilleta en Cánovas" loading="lazy"><div><p>CÁNOVAS · 18–37 €</p><h3>La Parrilleta</h3><b>Ver ficha →</b></div></a>';
@@ -383,6 +394,7 @@ export default async function handler(request, context) {
   const entrecortesHomeCard = '<a class="hn-rest-card" href="/restaurantes/entrecortes-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/entrecortes-valencia.jpg" alt="Carnes argentinas en la brasa de Entre Cortes" loading="lazy"><div><p>L\'ELIANA · 25–45 €</p><h3>Entre Cortes</h3><b>Ver ficha →</b></div></a>';
   const sanTelmoHomeCard = '<a class="hn-rest-card" href="/restaurantes/san-telmo"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/san-telmo-valencia.jpg" alt="Fachada de Asador San Telmo en Ruzafa" loading="lazy"><div><p>RUZAFA · 31–50 €</p><h3>Asador San Telmo</h3><b>Ver ficha →</b></div></a>';
   const nativoOrigenHomeCard = '<a class="hn-rest-card" href="/restaurantes/nativo-origen-valencia"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/nativo-origen-valencia.jpg" alt="Plato a la brasa de Nativo Origen" loading="lazy"><div><p>RUZAFA · 30–45 €</p><h3>Nativo Origen</h3><b>Ver ficha →</b></div></a>';
+  const donaPetronaHomeCard = '<a class="hn-rest-card" href="/restaurantes/dona-petrona"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/dona-petrona-valencia.jpg" alt="Platos de la carta de Doña Petrona" loading="lazy"><div><p>RUZAFA · 20–35 €</p><h3>Doña Petrona</h3><b>Ver ficha →</b></div></a>';
   const newArticleCard = '<a class="article-card" href="/blog/eclipse-solar-valencia-2026"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/eclipse-solar-valencia-2026.jpg" alt="Eclipse solar total sobre la playa de València" loading="lazy"><span>ACTUALIDAD LOCAL</span></div><div class="article-card-copy"><p>5 MIN DE LECTURA</p><h2>Eclipse solar en Valencia 2026: hora, lugar y seguridad</h2><span>Cómo organizar la observación del 12 de agosto con fuentes oficiales y sin arriesgar la vista</span><b>Leer artículo <i>→</i></b></div></a>';
   const horchataArticleCard = '<a class="article-card" href="/blog/que-es-horchata-valenciana"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/horchata-valenciana.jpg" alt="Vaso de horchata valenciana con fartons" loading="lazy"><span>GASTRONOMÍA VALENCIANA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Qué es la horchata valenciana y cómo se toma</h2><span>Chufa, fartons, tipos y claves para elegir un vaso con origen reconocido</span><b>Leer artículo <i>→</i></b></div></a>';
   const fernetArticleCard = '<a class="article-card" href="/blog/fernet-con-coca"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/fernet-con-coca.jpg" alt="Vaso alto de fernet con cola y hielo" loading="lazy"><span>CULTURA ARGENTINA</span></div><div class="article-card-copy"><p>6 MIN DE LECTURA</p><h2>Fernet con coca: qué es y cómo se prepara</h2><span>Origen, vínculo con Córdoba, preparación flexible y dónde encontrarlo en Valencia</span><b>Leer artículo <i>→</i></b></div></a>';
@@ -391,16 +403,20 @@ export default async function handler(request, context) {
   const chimichurriArticleCard = '<a class="article-card" href="/blog/chimichurri-argentino"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/chimichurri-argentino.jpg" alt="Cuenco de chimichurri argentino junto a una parrilla" loading="lazy"><span>GASTRONOMÍA ARGENTINA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Chimichurri argentino: qué lleva y cómo se usa</h2><span>Ingredientes, preparación, usos y una precaución importante para conservarlo</span><b>Leer artículo <i>→</i></b></div></a>';
   const diaLectorArticleCard = '<a class="article-card" href="/blog/dia-del-lector-argentina"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/dia-del-lector-argentina.jpg" alt="Libro abierto, anteojos y sombra de un laberinto" loading="lazy"><span>CULTURA ARGENTINA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Día del Lector en Argentina: por qué se celebra</h2><span>El vínculo con Borges, cinco lecturas posibles y cómo usar las bibliotecas de Valencia</span><b>Leer artículo <i>→</i></b></div></a>';
   const alfajoresArticleCard = '<a class="article-card" href="/blog/alfajores-argentinos-tipos"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/alfajores-argentinos-tipos.jpg" alt="Selección de alfajores argentinos de maicena, chocolate y glaseado" loading="lazy"><span>GASTRONOMÍA ARGENTINA</span></div><div class="article-card-copy"><p>8 MIN DE LECTURA</p><h2>Alfajores argentinos: tipos y diferencias</h2><span>Maicena, chocolate y tradiciones de Córdoba, Santa Fe y Mar del Plata</span><b>Leer artículo <i>→</i></b></div></a>';
+  const dulceLecheArticleCard = '<a class="article-card" href="/blog/dulce-de-leche-argentino"><div class="article-cover"><img src="https://raw.githubusercontent.com/joacobonfiglio/comidaargentinavalencia/main/assets/dulce-de-leche-argentino.jpg" alt="Tres texturas de dulce de leche argentino" loading="lazy"><span>GASTRONOMÍA ARGENTINA</span></div><div class="article-card-copy"><p>7 MIN DE LECTURA</p><h2>Dulce de leche argentino: tipos y usos</h2><span>Cómo elegir entre tradicional, repostero y heladero según la receta</span><b>Leer artículo <i>→</i></b></div></a>';
   if (path === "/restaurantes") {
-    enriched = enriched.replace('<div class="r-grid">', `<div class="r-grid">${nativoOrigenDirectoryCard}${sanTelmoDirectoryCard}${entrecortesDirectoryCard}${papanatoDirectoryCard}${laVendettaDirectoryCard}${mobyDickDirectoryCard}${barVeniDirectoryCard}${cheTangoDirectoryCard}${cultureDirectoryCard}${laDiezDirectoryCard}${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
+    enriched = enriched
+      .replace(/<a class="r-card" href="\/restaurantes\/dona-petrona">[\s\S]*?<\/a>/, "")
+      .replace('<div class="r-grid">', `<div class="r-grid">${donaPetronaDirectoryCard}${nativoOrigenDirectoryCard}${sanTelmoDirectoryCard}${entrecortesDirectoryCard}${papanatoDirectoryCard}${laVendettaDirectoryCard}${mobyDickDirectoryCard}${barVeniDirectoryCard}${cheTangoDirectoryCard}${cultureDirectoryCard}${laDiezDirectoryCard}${batarazaDirectoryCard}${parrilletaDirectoryCard}${gordonDirectoryCard}${newRestaurantDirectoryCard}`);
   }
   if (path === "/blog") {
-    enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${alfajoresArticleCard}${diaLectorArticleCard}${chimichurriArticleCard}${milanesaArticleCard}${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`);
+    enriched = enriched.replace('<div class="article-grid">', `<div class="article-grid">${dulceLecheArticleCard}${alfajoresArticleCard}${diaLectorArticleCard}${chimichurriArticleCard}${milanesaArticleCard}${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`);
   }
   if (path === "/") {
     enriched = enriched
-      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${nativoOrigenHomeCard}${sanTelmoHomeCard}${entrecortesHomeCard}${papanatoHomeCard}${laVendettaHomeCard}${mobyDickHomeCard}${barVeniHomeCard}${cheTangoHomeCard}${cultureHomeCard}${laDiezHomeCard}${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
-      .replace('<div class="hn-articles">', `<div class="hn-articles">${alfajoresArticleCard}${diaLectorArticleCard}${chimichurriArticleCard}${milanesaArticleCard}${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`)
+      .replace(/<a class="hn-rest-card" href="\/restaurantes\/dona-petrona">[\s\S]*?<\/a>/, "")
+      .replace('<div class="hn-rest-grid">', `<div class="hn-rest-grid">${donaPetronaHomeCard}${nativoOrigenHomeCard}${sanTelmoHomeCard}${entrecortesHomeCard}${papanatoHomeCard}${laVendettaHomeCard}${mobyDickHomeCard}${barVeniHomeCard}${cheTangoHomeCard}${cultureHomeCard}${laDiezHomeCard}${batarazaHomeCard}${parrilletaHomeCard}${gordonHomeCard}${newRestaurantHomeCard}`)
+      .replace('<div class="hn-articles">', `<div class="hn-articles">${dulceLecheArticleCard}${alfajoresArticleCard}${diaLectorArticleCard}${chimichurriArticleCard}${milanesaArticleCard}${sanMartinArticleCard}${fernetArticleCard}${horchataArticleCard}${newArticleCard}`)
       .replace("Valencia para recién llegados", "NIE y TIE en Valencia")
       .replace("Los primeros barrios, recorridos y lugares para empezar a orientarte en la ciudad sin querer conocerlo todo de golpe", "Qué es cada documento, quién necesita tarjeta y cómo ordenar la cita y las huellas")
       .replace("NIE y TIE en Valencia", "Certificado digital y Cl@ve")

@@ -1,0 +1,23 @@
+{
+  "verifiedAt": "2026-08-27",
+  "restaurant": {
+    "intent": "Evaluar Doña Petrona antes de reservar una mesa en Ruzafa",
+    "keyword": "Doña Petrona Valencia",
+    "secondaryKeywords": ["Doña Petrona carta", "Doña Petrona Ruzafa", "restaurante argentino Ruzafa", "Doña Petrona reservas", "milanesa Valencia"],
+    "slug": "dona-petrona",
+    "seoTitle": "Doña Petrona Valencia: carta y reservas",
+    "metaDescription": "Ficha de Doña Petrona en Ruzafa: carta, precios, dirección, horarios, reservas y datos verificados antes de ir.",
+    "internalLinks": ["/blog/dulce-de-leche-argentino", "/blog/milanesa-napolitana-origen", "/restaurantes/nativo-origen-valencia", "/restaurantes/culture-ruzafa"],
+    "image": {"path": "assets/dona-petrona-valencia.jpg", "source": "https://www.xn--doapetrona-u9a.es/wp-content/uploads/2026/01/portada-web-petrona-carta_red-1024x683.jpg", "licenseNote": "Fotografía publicada en la web oficial; conviene documentar autorización permanente"}
+  },
+  "article": {
+    "intent": "Entender qué es el dulce de leche argentino y elegir la variedad adecuada para cada uso",
+    "keyword": "dulce de leche argentino",
+    "secondaryKeywords": ["tipos de dulce de leche", "dulce de leche repostero", "dulce de leche tradicional", "origen del dulce de leche", "dulce de leche para helado"],
+    "slug": "dulce-de-leche-argentino",
+    "seoTitle": "Dulce de leche argentino: tipos y usos",
+    "metaDescription": "Qué es el dulce de leche argentino, cómo se diferencian el tradicional, repostero y heladero, y cuál conviene para cada receta.",
+    "internalLinks": ["/blog/alfajores-argentinos-tipos", "/guias/productos-argentinos-valencia", "/restaurantes/dona-petrona", "/blog/historia-del-mate"],
+    "image": {"path": "assets/dulce-de-leche-argentino.jpg", "source": "Imagen editorial original generada para Comida Argentina en Valencia", "licenseNote": "Uso editorial propio; sin marcas, texto ni envases identificables"}
+  }
+}
