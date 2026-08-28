@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-08-28",
+  "restaurant": {
+    "intent": "Evaluar Viejo Barrio antes de reservar una parrilla argentina en Benimaclet",
+    "keyword": "Viejo Barrio Valencia",
+    "secondaryKeywords": ["Viejo Barrio Benimaclet", "Viejo Barrio carta", "parrilla argentina Benimaclet", "Viejo Barrio reservas", "asador argentino Valencia"],
+    "slug": "viejo-barrio",
+    "seoTitle": "Viejo Barrio Valencia: carta y reservas",
+    "metaDescription": "Ficha de Viejo Barrio en Benimaclet: carta, precios, dirección, horarios, reservas y datos verificados antes de ir.",
+    "internalLinks": ["/blog/cortes-carne-argentina", "/blog/pedir-en-parrilla-argentina", "/restaurantes/che-tango-valencia", "/restaurantes/entrecortes-valencia"],
+    "image": {
+      "path": "assets/viejo-barrio.jpg",
+      "source": "https://viejobarrio.es/img/rest-vb-bife-640x480.jpg",
+      "licenseNote": "Fotografía publicada en la web oficial; conviene documentar autorización permanente"
+    }
+  },
+  "guide": {
+    "intent": "Distinguir homologación y equivalencia y preparar la solicitud online de un título universitario argentino",
+    "keyword": "homologar título argentino en España",
+    "secondaryKeywords": ["homologación título universitario argentino", "equivalencia título argentino España", "apostillar título argentino", "profesiones reguladas España", "tasa homologación título extranjero"],
+    "slug": "homologar-titulo-argentino-espana",
+    "seoTitle": "Homologar un título argentino en España",
+    "metaDescription": "Guía para homologar un título argentino en España: diferencia con equivalencia, documentos, apostilla, tasa y solicitud online.",
+    "internalLinks": ["/guias/certificado-digital-clave-valencia", "/guias/nie-tie-valencia", "/guias/empadronamiento-valencia", "/guias/canje-carnet-argentino-espana"],
+    "image": {
+      "path": "assets/homologar-titulo-argentino-espana.jpg",
+      "source": "Imagen editorial original generada para Comida Argentina en Valencia",
+      "licenseNote": "Uso editorial propio; no reproduce documentos, interfaces, sellos ni símbolos oficiales"
+    }
+  }
+}
