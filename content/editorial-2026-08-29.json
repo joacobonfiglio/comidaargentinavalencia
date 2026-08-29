@@ -1,0 +1,23 @@
+{
+  "verifiedAt": "2026-08-29",
+  "restaurant": {
+    "intent": "Evaluar MILA antes de reservar un restaurante argentino cerca de Ruzafa",
+    "keyword": "MILA Restaurante Valencia",
+    "secondaryKeywords": ["MILA Valencia carta", "MILA restaurante argentino", "milanesas en Ruzafa", "MILA Valencia reservas", "parrilla argentina Ruzafa"],
+    "slug": "mila",
+    "seoTitle": "MILA Valencia: carta, precios y reservas",
+    "metaDescription": "Ficha de MILA en Ruzafa: milanesas, parrilla, carta, precios, horarios, terraza, reservas y datos verificados antes de ir.",
+    "internalLinks": ["/blog/milanesa-napolitana-origen", "/guias/empanadas-argentinas-valencia", "/blog/dulce-de-leche-argentino", "/restaurantes/dona-petrona"],
+    "image": {"path": "assets/mila-restaurante-valencia.jpg", "source": "https://milarestaurante.es/img/carne-asado.webp", "licenseNote": "Fotografía publicada en la web oficial; conviene documentar autorización permanente"}
+  },
+  "article": {
+    "intent": "Entender qué es un choripán argentino, cómo se arma y cómo cocinarlo de forma segura",
+    "keyword": "choripán argentino",
+    "secondaryKeywords": ["qué lleva el choripán", "cómo hacer choripán", "chorizo criollo", "choripán con chimichurri", "salsa criolla para choripán"],
+    "slug": "choripan-argentino",
+    "seoTitle": "Choripán argentino: qué lleva y cómo hacerlo",
+    "metaDescription": "Qué lleva el choripán argentino, qué chorizo y pan elegir, cómo cocinarlo de forma segura y servirlo con chimichurri o salsa criolla.",
+    "internalLinks": ["/blog/chimichurri-argentino", "/blog/pedir-en-parrilla-argentina", "/restaurantes/viejo-barrio", "/restaurantes/mila"],
+    "image": {"path": "assets/choripan-argentino.jpg", "source": "Imagen editorial original generada para Comida Argentina en Valencia", "licenseNote": "Uso editorial propio; sin marcas, texto, envases ni establecimientos identificables"}
+  }
+}
