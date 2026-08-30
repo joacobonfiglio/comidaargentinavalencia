@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-08-30",
+  "restaurant": {
+    "intent": "Evaluar Asador Mar del Plata antes de reservar una parrilla argentina en Benimaclet",
+    "keyword": "Asador Mar del Plata Valencia",
+    "secondaryKeywords": ["Asador Mar del Plata carta", "Asador Mar del Plata reservas", "restaurante argentino Benimaclet", "parrilla argentina Valencia", "Asador Mar del Plata Primado Reig"],
+    "slug": "asador-mar-del-plata-valencia",
+    "seoTitle": "Asador Mar del Plata Valencia: carta y reserva",
+    "metaDescription": "Ficha de Asador Mar del Plata en Benimaclet: carta, precio orientativo, horarios, dirección, reservas y datos verificados antes de ir.",
+    "internalLinks": ["/blog/cortes-carne-argentina", "/blog/pedir-en-parrilla-argentina", "/restaurantes/viejo-barrio", "/restaurantes"],
+    "image": {
+      "path": "assets/asador-mar-del-plata-valencia.jpg",
+      "source": "https://cdn.website.dish.co/media/0b/4a/10057533/Asador-Mar-Del-Plata-WhatsApp-Image-2026-07-03-at-10-30-52-jpeg.jpg",
+      "licenseNote": "Fotografía publicada en la web oficial; conviene documentar autorización permanente"
+    }
+  },
+  "guide": {
+    "intent": "Resolver cómo apostillar desde España un documento público emitido en Argentina",
+    "keyword": "apostillar documentos argentinos en España",
+    "secondaryKeywords": ["apostilla TAD Argentina", "apostilla de La Haya Argentina", "Consulado argentino Barcelona apostilla", "apostillar partida de nacimiento argentina", "apostillar título argentino"],
+    "slug": "apostillar-documentos-argentinos-espana",
+    "seoTitle": "Apostillar documentos argentinos en España",
+    "metaDescription": "Guía para apostillar documentos argentinos desde España: TAD, Consulado en Barcelona, requisitos, costos, plazos y errores frecuentes.",
+    "internalLinks": ["/guias/homologar-titulo-argentino-espana", "/guias/canje-carnet-argentino-espana", "/guias/certificado-digital-clave-valencia", "/guias/nie-tie-valencia"],
+    "image": {
+      "path": "assets/apostillar-documentos-argentinos-espana.jpg",
+      "source": "Imagen editorial original generada para Comida Argentina en Valencia",
+      "licenseNote": "Uso editorial propio; sin sellos, emblemas, texto oficial ni datos personales"
+    }
+  }
+}
