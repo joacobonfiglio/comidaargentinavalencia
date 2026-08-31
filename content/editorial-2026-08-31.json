@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-08-31",
+  "restaurant": {
+    "intent": "Evaluar Mano a Mano antes de reservar una pizzería italo-argentina en Cánovas",
+    "keyword": "Pizzería Mano a Mano Valencia",
+    "secondaryKeywords": ["Mano a Mano Valencia carta", "pizza argentina Valencia", "empanadillas argentinas Valencia", "pizza napolitana Cánovas", "Mano a Mano Valencia reservas"],
+    "slug": "pizzeria-mano-a-mano-valencia",
+    "seoTitle": "Mano a Mano Valencia: carta y reservas",
+    "metaDescription": "Ficha de Mano a Mano Valencia: pizzas napolitanas, empanadillas argentinas, carta, precio medio, dirección, teléfono y reservas.",
+    "internalLinks": ["/guias/empanadas-argentinas-valencia", "/restaurantes/la-vendetta-valencia", "/restaurantes/bar-veni-valencia", "/restaurantes"],
+    "image": {
+      "path": "assets/mano-a-mano-valencia.jpg",
+      "source": "https://pizzeriamanoamano.es/wp-content/uploads/pizzas-napolitanas-valencia.webp",
+      "licenseNote": "Fotografía publicada en la web oficial; conviene documentar autorización permanente"
+    }
+  },
+  "article": {
+    "intent": "Entender por qué Argentina celebra el Día del Inmigrante el 4 de septiembre y qué recuerda la fecha",
+    "keyword": "Día del Inmigrante Argentina",
+    "secondaryKeywords": ["4 de septiembre Argentina", "por qué se celebra el Día del Inmigrante", "Decreto 21430", "inmigración en Argentina", "argentinos en Valencia"],
+    "slug": "dia-del-inmigrante-argentina",
+    "seoTitle": "Día del Inmigrante en Argentina: por qué es el 4/9",
+    "metaDescription": "Por qué el Día del Inmigrante se celebra en Argentina el 4 de septiembre, qué pasó en 1812 y cómo la migración sigue formando identidades.",
+    "internalLinks": ["/blog/valencianos-y-argentinos-historia", "/guias/valencia-recien-llegados", "/blog/historia-del-mate", "/guias/empadronamiento-valencia"],
+    "image": {
+      "path": "assets/dia-del-inmigrante-argentina.jpg",
+      "source": "Imagen editorial original generada para Comida Argentina en Valencia",
+      "licenseNote": "Uso editorial propio; sin documentos, emblemas, texto legible ni personas identificables"
+    }
+  }
+}
